@@ -8,12 +8,13 @@ body {
   margin: 0;
   font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background-color: #050609;
-  background-image: url('board-texture.jpg');
+  background-image: url('board2.jpg'); /* новое имя */
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   color: #f5f1e8;
 }
+
 
 
 
