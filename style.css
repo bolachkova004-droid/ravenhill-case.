@@ -93,6 +93,7 @@ body {
   border-radius: 14px;
   cursor: pointer;
   position: relative;
+  overflow: hidden;
   box-shadow: 0 6px 0 #705131;
   transition:
     background 0.15s ease,
@@ -101,14 +102,33 @@ body {
     border-color 0.15s ease;
 }
 
+/* лёгкое свечение при наведении */
 .choice-btn:hover {
   background: #262a39;
   border-color: rgba(230, 195, 132, 0.95);
 }
 
+/* нажатие как у физической кнопки */
 .choice-btn:active {
   transform: translateY(3px);
   box-shadow: 0 2px 0 #705131;
+}
+
+/* вспышка при клике */
+.choice-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.25), transparent 60%);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+.choice-btn:active::after {
+  opacity: 1;
+  transform: scale(1.1);
 }
 
 
@@ -140,12 +160,14 @@ body {
   border: 2px solid rgba(201, 164, 109, 0.7);
 }
 
+/* плавное исчезновение/пригибание сцены */
 .scene,
 .choices,
 .mini-english {
-  transition: opacity 0.2s ease;
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
 .fade-out {
   opacity: 0;
+  transform: translateY(6px);
 }
