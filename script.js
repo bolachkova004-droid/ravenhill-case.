@@ -188,6 +188,8 @@ const scenes = {
   }
 };
 
+const overlayEl = document.getElementById("scene-overlay");
+
 const titleEl = document.getElementById("scene-title");
 const textEl = document.getElementById("scene-text");
 const extraEl = document.getElementById("scene-extra");
