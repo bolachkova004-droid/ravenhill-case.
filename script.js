@@ -232,5 +232,6 @@ function renderScene(id) {
 
 
 
+
 // стартуем с первой сцены
 renderScene("scene1");
