@@ -200,19 +200,27 @@ function renderScene(id) {
   const scene = scenes[id];
   if (!scene) return;
 
-  titleEl.textContent = scene.title;
-  textEl.textContent = scene.text;
-  extraEl.innerHTML = scene.extra || "";
-  miniEl.innerHTML = scene.miniEnglish || "";
+  const gameEl = document.querySelector(".game");
+  gameEl.classList.add("fade-out");
 
-  btnA.textContent = scene.choices.A.label;
-  btnB.textContent = scene.choices.B.label;
-  btnC.textContent = scene.choices.C.label;
+  setTimeout(() => {
+    titleEl.textContent = scene.title;
+    textEl.textContent = scene.text;
+    extraEl.innerHTML = scene.extra || "";
+    miniEl.innerHTML = scene.miniEnglish || "";
 
-  btnA.onclick = () => renderScene(scene.choices.A.next);
-  btnB.onclick = () => renderScene(scene.choices.B.next);
-  btnC.onclick = () => renderScene(scene.choices.C.next);
+    btnA.textContent = scene.choices.A.label;
+    btnB.textContent = scene.choices.B.label;
+    btnC.textContent = scene.choices.C.label;
+
+    btnA.onclick = () => renderScene(scene.choices.A.next);
+    btnB.onclick = () => renderScene(scene.choices.B.next);
+    btnC.onclick = () => renderScene(scene.choices.C.next);
+
+    gameEl.classList.remove("fade-out");
+  }, 180);
 }
+
 
 // стартуем с первой сцены
 renderScene("scene1");
