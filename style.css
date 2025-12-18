@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Montserrat:wght@300;500&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: radial-gradient(circle at top, #2b3140 0, #0b0c10 50%, #020308 100%);
+  color: #f5f1e8;
+}
+
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 16px 48px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.header h1 {
+  font-family: 'Crimson Text', serif;
+  font-size: 2.4rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #c5c0b5;
+}
+
+.game {
+  background: rgba(10, 10, 16, 0.85);
+  border-radius: 16px;
+  padding: 24px 20px 28px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.scene h2 {
+  font-family: 'Crimson Text', serif;
+  font-size: 1.4rem;
+  margin: 0 0 12px;
+}
+
+.scene p {
+  line-height: 1.6;
+  margin: 0 0 12px;
+}
+
+#scene-extra {
+  font-style: italic;
+  color: #d8d0c2;
+}
+
+.choices {
+  margin: 18px 0 16px;
+  display: grid;
+  gap: 10px;
+}
+
+.choice-btn {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  text-align: left;
+  background: rgba(40, 44, 60, 0.9);
+  color: #f5f1e8;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.choice-btn:hover {
+  background: rgba(76, 86, 106, 0.9);
+  transform: translateY(-1px);
+  box-shadow: 0 0 10px rgba(150, 150, 200, 0.5);
+}
+
+.choice-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.mini-english h3 {
+  font-family: 'Crimson Text', serif;
+  font-size: 1.1rem;
+  margin: 10px 0 8px;
+}
+
+#mini-english-content {
+  font-size: 0.95rem;
+  color: #d0cabd;
+  line-height: 1.5;
+}
+
+@media (min-width: 720px) {
+  .game {
+    padding: 28px 28px 32px;
+  }
+}
