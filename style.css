@@ -127,3 +127,12 @@ body {
     padding: 28px 28px 32px;
   }
 }
+.scene,
+.choices,
+.mini-english {
+  transition: opacity 0.2s ease;
+}
+
+.fade-out {
+  opacity: 0;
+}
