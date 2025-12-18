@@ -7,13 +7,14 @@
 body {
   margin: 0;
   font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: #0b0c10;
+  background-color: #050609;
   background-image: url('board-texture.jpg');
   background-size: cover;
-  background-attachment: fixed;
   background-position: center;
+  background-attachment: fixed;
   color: #f5f1e8;
 }
+
 
 
 .page {
