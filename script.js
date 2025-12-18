@@ -203,9 +203,18 @@ function renderScene(id) {
   if (!scene) return;
 
   const gameEl = document.querySelector(".game");
-  gameEl.classList.add("fade-out");
+  const sceneEl = document.querySelector(".scene");
+  const choicesEl = document.querySelector(".choices");
+  const miniBlockEl = document.querySelector(".mini-english");
+
+  // включаем затемнение и исчезновение
+  overlayEl.classList.add("visible");
+  sceneEl.classList.add("fade-out");
+  choicesEl.classList.add("fade-out");
+  miniBlockEl.classList.add("fade-out");
 
   setTimeout(() => {
+    // обновляем содержимое
     titleEl.textContent = scene.title;
     textEl.textContent = scene.text;
     extraEl.innerHTML = scene.extra || "";
@@ -219,9 +228,15 @@ function renderScene(id) {
     btnB.onclick = () => renderScene(scene.choices.B.next);
     btnC.onclick = () => renderScene(scene.choices.C.next);
 
+    // возвращаем сцену и убираем затемнение
     gameEl.classList.remove("fade-out");
-  }, 180);
+    sceneEl.classList.remove("fade-out");
+    choicesEl.classList.remove("fade-out");
+    miniBlockEl.classList.remove("fade-out");
+    overlayEl.classList.remove("visible");
+  }, 800);
 }
+
 
 
 // стартуем с первой сцены
