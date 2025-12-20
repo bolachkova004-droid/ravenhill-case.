@@ -215,6 +215,8 @@ const btnB = document.getElementById("choiceB");
 const btnC = document.getElementById("choiceC");
 
 function renderScene(id) {
+  playSound('stepSound'); // 🔊 шаги при переходе
+
   const scene = scenes[id];
   if (!scene) return;
 
@@ -233,12 +235,21 @@ function renderScene(id) {
     miniEl.innerHTML = scene.miniEnglish || "";
 
     btnA.textContent = scene.choices.A.label;
-    btnB.textContent = scene.choices.B.label;
-    btnC.textContent = scene.choices.C.label;
+btnB.textContent = scene.choices.B.label;
+btnC.textContent = scene.choices.C.label;
 
-    btnA.onclick = () => renderScene(scene.choices.A.next);
-    btnB.onclick = () => renderScene(scene.choices.B.next);
-    btnC.onclick = () => renderScene(scene.choices.C.next);
+btnA.onclick = () => {
+  playSound('clickSound');
+  renderScene(scene.choices.A.next);
+};
+btnB.onclick = () => {
+  playSound('clickSound');
+  renderScene(scene.choices.B.next);
+};
+btnC.onclick = () => {
+  playSound('clickSound');
+  renderScene(scene.choices.C.next);
+};
 
     sceneEl.classList.remove("fade-out");
     choicesEl.classList.remove("fade-out");
