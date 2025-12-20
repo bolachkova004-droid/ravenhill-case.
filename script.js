@@ -183,11 +183,12 @@ const scenes = {
     text: "You decide to trust the voice. You stay away from the doors and listen. The house stays silent, as if it is waiting for your next move.",
     extra: "<em>Иногда самая смелая стратегия — подождать.</em>",
     miniEnglish: "",
-    choices: {
+    cchoices: {
   A: { label: "← Back to the hall", next: "scene1" },
   B: { label: "← Back to the hall", next: "scene1" },
   C: { label: "← Back to the hall", next: "scene1" }
 },
+
   },
 
   scene3C_open: {
