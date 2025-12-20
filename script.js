@@ -16,7 +16,8 @@ document.addEventListener('click', () => {
 }, { once: true });
 const scenes = {
   scene1: {
-    title: "Scene 1 · Arrival",
+  chapter: "Episode I · The Summons",
+  title: "Prologue: Whisper from Ravenhill",
     text: `You are part of a small detective team. Tonight you arrive at an old Scottish manor house: Ravenhill Estate. The house is dark. Only one window is still lit. Inside the hall you find a dusty table and an old diary with the name Elizabeth Ravenhill on the cover.`,
     extra: `<em>Вы — команда детективов, вернувшаяся к старому делу. Вы стоите в холле Ravenhill и держите дневник в руках.</em>`,
     miniEnglish: `
@@ -44,7 +45,8 @@ const scenes = {
   },
 
   scene2A: {
-    title: "Scene 2A · First pages",
+  chapter: "Episode I · The Summons",
+  title: "The Hallway Echoes",
     text: `You stay in the cold hall and open the diary. The first page is dated “October 12, 2004”. The handwriting is fast and nervous.`,
     extra: `<em>Вы остаетесь в холле и начинаете читать. Почерк Элизабет будто дрожит.</em><br><br>
       <strong>Diary entry:</strong><br>
@@ -77,7 +79,8 @@ const scenes = {
   },
 
   scene2B: {
-    title: "Scene 2B · The corridor",
+  chapter: "Episode I · The Summons",
+  title: "Diary of Shadows",
     text: `You walk to the East Wing. The corridor is long and narrow. The wooden floor is old and every step makes a quiet noise. Suddenly you hear soft footsteps behind you, but when you turn around, no one is there.`,
     extra: `<em>Вы идёте по узкому коридору, свет лампы дрожит. Шаги слышны позади, но коридор пуст.</em>`,
     miniEnglish: `
@@ -104,7 +107,8 @@ const scenes = {
   },
 
   scene2C: {
-    title: "Scene 2C · The radio",
+  chapter: "Episode I · The Summons",
+  title: "Whispers on the Radio",
     text: `Near the stairs you find an old radio on a small table. The radio is off, but a small orange light is still glowing. When you touch the button, you hear a short, broken sentence in English: “...don’t... open... the... door...” Then the radio is silent again.`,
     extra: `<em>Вы трогаете радио — и дом будто отвечает. Фраза звучит так, как будто её записали много лет назад.</em>`,
     miniEnglish: `
@@ -132,7 +136,8 @@ const scenes = {
 
   // заглушки для следующих сцен — пока просто возвращаем в начало
   scene3A: {
-    title: "Scene 3A · To be continued",
+  chapter: "Episode II · Midnight Hunt",
+  title: "Page Left Blank",
     text: "You turn the page and see a new entry… but this part of the case is still under construction.",
     extra: "<em>Вы продвинулись дальше всех. Следующий фрагмент дела Ravenhill появится в следующем апдейте.</em>",
     miniEnglish: "entry — запись (в дневнике).<br><br>For now, you can go back to the beginning and try other choices.",
@@ -144,7 +149,8 @@ const scenes = {
   },
 
   scene3B_call: {
-    title: "Scene 3B · Echo",
+  chapter: "Episode II · Midnight Hunt",
+  title: "Echo in the Corridor",
     text: "You call out: “Who’s there?” Your voice echoes in the empty corridor. The footsteps stop. The house is listening.",
     extra: "<em>Дом как будто задержал дыхание. Ответа нет — только ваше эхо.</em>",
     miniEnglish: "to echo — отдавать эхом.<br><br>You feel more curious than afraid now.",
@@ -156,7 +162,8 @@ const scenes = {
   },
 
   scene3B_keep: {
-    title: "Scene 3B · Ignoring the house",
+  chapter: "Episode II · Midnight Hunt",
+  title: "Pretending Nothing Happened",
     text: "You keep walking and pretend you heard nothing. The footsteps slowly fade. Maybe it was just the old floor… or maybe not.",
     extra: "<em>Иногда легче сделать вид, что ничего не было. Но дом помнит.</em>",
     miniEnglish: "to fade — затихать, исчезать постепенно.",
@@ -168,7 +175,8 @@ const scenes = {
   },
 
   scene3C_obey: {
-    title: "Scene 3C · Careful choice",
+  chapter: "Episode III · The House Decides",
+  title: "Careful Step in the Dark",
     text: "You decide to trust the voice. You stay away from the doors and listen. The house stays silent, as if it is waiting for your next move.",
     extra: "<em>Иногда самая смелая стратегия — подождать.</em>",
     miniEnglish: "",
@@ -180,7 +188,8 @@ const scenes = {
   },
 
   scene3C_open: {
-    title: "Scene 3C · Against the warning",
+  chapter: "Episode III · The House Decides",
+  title: "Opening the Forbidden Door",
     text: "You ignore the warning and open the nearest door. Cold air hits your face. The room is empty, but you feel that someone was here a moment ago.",
     extra: "<em>Вы нарушили правило дома. Иногда это нужно, чтобы продвинуться в расследовании.</em>",
     miniEnglish: "",
@@ -192,7 +201,8 @@ const scenes = {
   },
 
   scene3C_record: {
-    title: "Scene 3C · Evidence",
+  chapter: "Episode III · The House Decides",
+  title: "Captured Evidence",
     text: "You hold your phone close to the radio and wait. After a few seconds the voice returns: “If you hear this, you are not alone in the house.” This time you record it.",
     extra: "<em>Теперь у вас есть первая настоящая улика — запись голоса.</em>",
     miniEnglish: "evidence — улика.<br>to record — записывать.",
