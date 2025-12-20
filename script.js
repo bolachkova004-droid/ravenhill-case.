@@ -28,20 +28,21 @@ const scenes = {
       <br><br>
       <strong>Question:</strong> Why is only one window still lit? (Почему горит только одно окно?) — you don't know yet…
     `,
-    choices: {
-      A: {
-        label: "A. Stay in the hall and open the diary.",
-        next: "scene2A"
-      },
-      B: {
-        label: "B. Walk to the East Wing to check the corridor yourself.",
-        next: "scene2B"
-      },
-      C: {
-        label: "C. Look for a radio and listen to the sounds of the house tonight.",
-        next: "scene2C"
-      }
-    }
+   choices: {
+  A: {
+    label: "→ Stay in the hall and read the diary",
+    next: "scene2A"
+  },
+  B: {
+    label: "⇢ Go to the East Wing and follow the footsteps",
+    next: "scene2B"
+  },
+  C: {
+    label: "⇢ Find the old radio and listen to the house",
+    next: "scene2C"
+  }
+}
+
   },
 
   scene2A: {
@@ -142,10 +143,11 @@ const scenes = {
     extra: "<em>Вы продвинулись дальше всех. Следующий фрагмент дела Ravenhill появится в следующем апдейте.</em>",
     miniEnglish: "entry — запись (в дневнике).<br><br>For now, you can go back to the beginning and try other choices.",
     choices: {
-      A: { label: "Back to the hall (Scene 1)", next: "scene1" },
-      B: { label: "Back to the hall (Scene 1)", next: "scene1" },
-      C: { label: "Back to the hall (Scene 1)", next: "scene1" }
-    }
+  A: { label: "← Back to the hall", next: "scene1" },
+  B: { label: "← Back to the hall", next: "scene1" },
+  C: { label: "← Back to the hall", next: "scene1" }
+},
+
   },
 
   scene3B_call: {
@@ -155,10 +157,11 @@ const scenes = {
     extra: "<em>Дом как будто задержал дыхание. Ответа нет — только ваше эхо.</em>",
     miniEnglish: "to echo — отдавать эхом.<br><br>You feel more curious than afraid now.",
     choices: {
-      A: { label: "Back to the hall (Scene 1)", next: "scene1" },
-      B: { label: "Back to the hall (Scene 1)", next: "scene1" },
-      C: { label: "Back to the hall (Scene 1)", next: "scene1" }
-    }
+  A: { label: "← Back to the hall", next: "scene1" },
+  B: { label: "← Back to the hall", next: "scene1" },
+  C: { label: "← Back to the hall", next: "scene1" }
+},
+
   },
 
   scene3B_keep: {
@@ -168,10 +171,10 @@ const scenes = {
     extra: "<em>Иногда легче сделать вид, что ничего не было. Но дом помнит.</em>",
     miniEnglish: "to fade — затихать, исчезать постепенно.",
     choices: {
-      A: { label: "Back to the hall (Scene 1)", next: "scene1" },
-      B: { label: "Back to the hall (Scene 1)", next: "scene1" },
-      C: { label: "Back to the hall (Scene 1)", next: "scene1" }
-    }
+    A: { label: "← Back to the hall", next: "scene1" },
+    B: { label: "← Back to the hall", next: "scene1" },
+    C: { label: "← Back to the hall", next: "scene1" }
+},
   },
 
   scene3C_obey: {
@@ -181,10 +184,10 @@ const scenes = {
     extra: "<em>Иногда самая смелая стратегия — подождать.</em>",
     miniEnglish: "",
     choices: {
-      A: { label: "Back to the hall (Scene 1)", next: "scene1" },
-      B: { label: "Back to the hall (Scene 1)", next: "scene1" },
-      C: { label: "Back to the hall (Scene 1)", next: "scene1" }
-    }
+  A: { label: "← Back to the hall", next: "scene1" },
+  B: { label: "← Back to the hall", next: "scene1" },
+  C: { label: "← Back to the hall", next: "scene1" }
+},
   },
 
   scene3C_open: {
@@ -194,10 +197,10 @@ const scenes = {
     extra: "<em>Вы нарушили правило дома. Иногда это нужно, чтобы продвинуться в расследовании.</em>",
     miniEnglish: "",
     choices: {
-      A: { label: "Back to the hall (Scene 1)", next: "scene1" },
-      B: { label: "Back to the hall (Scene 1)", next: "scene1" },
-      C: { label: "Back to the hall (Scene 1)", next: "scene1" }
-    }
+  A: { label: "← Back to the hall", next: "scene1" },
+  B: { label: "← Back to the hall", next: "scene1" },
+  C: { label: "← Back to the hall", next: "scene1" }
+},
   },
 
   scene3C_record: {
@@ -207,10 +210,10 @@ const scenes = {
     extra: "<em>Теперь у вас есть первая настоящая улика — запись голоса.</em>",
     miniEnglish: "evidence — улика.<br>to record — записывать.",
     choices: {
-      A: { label: "Back to the hall (Scene 1)", next: "scene1" },
-      B: { label: "Back to the hall (Scene 1)", next: "scene1" },
-      C: { label: "Back to the hall (Scene 1)", next: "scene1" }
-    }
+  A: { label: "← Back to the hall", next: "scene1" },
+  B: { label: "← Back to the hall", next: "scene1" },
+  C: { label: "← Back to the hall", next: "scene1" }
+},
   }
 };
 
