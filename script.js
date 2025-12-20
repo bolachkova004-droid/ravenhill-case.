@@ -1,3 +1,19 @@
+function playSound(id) {
+  const audio = document.getElementById(id);
+  if (audio) {
+    audio.currentTime = 0;
+    audio.play().catch(() => {});
+  }
+}
+
+// фоновая музыка после первого клика по странице
+let musicStarted = false;
+document.addEventListener('click', () => {
+  if (!musicStarted) {
+    playSound('bgMusic');
+    musicStarted = true;
+  }
+}, { once: true });
 const scenes = {
   scene1: {
     title: "Scene 1 · Arrival",
