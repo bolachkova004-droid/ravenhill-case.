@@ -180,6 +180,7 @@ const scenes = {
   scene3C_obey: {
   chapter: "Episode III · The House Decides",
   title: "Careful Step in the Dark",
+  backTo: "scene1",
     text: "You decide to trust the voice. You stay away from the doors and listen. The house stays silent, as if it is waiting for your next move.",
     extra: "<em>Иногда самая смелая стратегия — подождать.</em>",
     miniEnglish: "",
@@ -227,12 +228,25 @@ const miniEl = document.getElementById("mini-english-content");
 const btnA = document.getElementById("choiceA");
 const btnB = document.getElementById("choiceB");
 const btnC = document.getElementById("choiceC");
+const backBtn = document.getElementById("backButton");
+
 
 function renderScene(id) {
   playSound('stepSound'); // 🔊 шаги при переходе
 
   const scene = scenes[id];
   if (!scene) return;
+  // отдельная кнопка "назад" для сцен с backTo
+if (scene.backTo) {
+  backBtn.style.display = "block";
+  backBtn.onclick = () => {
+    playSound('clickSound');
+    renderScene(scene.backTo);
+  };
+} else {
+  backBtn.style.display = "none";
+}
+
 
   const sceneEl = document.querySelector(".scene");
   const choicesEl = document.querySelector(".choices");
