@@ -101,6 +101,26 @@ body {
     box-shadow 0.15s ease,
     border-color 0.15s ease;
 }
+.back-btn {
+  width: auto;
+  max-width: 260px;
+  margin: 10px auto 0;
+  display: block;
+  text-align: center;
+  background: transparent;
+  border: 1px dashed #9b9282;
+  color: #dcd3c4;
+  font-size: 0.85rem;
+  box-shadow: none;
+  border-radius: 999px;
+  padding: 8px 16px;
+  opacity: 0.8;
+}
+
+.back-btn:hover {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.4);
+}
 
 /* лёгкое свечение при наведении */
 .choice-btn:hover {
