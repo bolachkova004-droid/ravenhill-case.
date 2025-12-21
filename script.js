@@ -107,7 +107,11 @@ const scenes = {
     }
   },
 
-  scene2C: {
+ scene2C: {
+  isRadioScene: true,
+  // дальше как было: title, text, extra, miniEnglish, choices
+}
+
   chapter: "Episode I · The Summons",
   title: "Whispers on the Radio",
     text: `Near the stairs you find an old radio on a small table. The radio is off, but a small orange light is still glowing. When you touch the button, you hear a short, broken sentence in English: “...don’t... open... the... door...” Then the radio is silent again.`,
@@ -236,6 +240,11 @@ function renderScene(id) {
 
   const scene = scenes[id];
   if (!scene) return;
+    // спец-эффект: радио
+  if (scene.isRadioScene) {
+    playSound('radioSound');
+  }
+
   // отдельная кнопка "назад" для сцен с backTo
 if (scene.backTo) {
   backBtn.style.display = "block";
