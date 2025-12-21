@@ -16,8 +16,8 @@ document.addEventListener('click', () => {
 }, { once: true });
 const scenes = {
   scene1: {
-  chapter: "Episode I · The Summons",
-  title: "Prologue: Whisper from Ravenhill",
+    chapter: "Episode I · The Summons",
+    title: "Prologue: Whisper from Ravenhill",
     text: `You are part of a small detective team. Tonight you arrive at an old Scottish manor house: Ravenhill Estate. The house is dark. Only one window is still lit. Inside the hall you find a dusty table and an old diary with the name Elizabeth Ravenhill on the cover.`,
     extra: `<em>Вы — команда детективов, вернувшаяся к старому делу. Вы стоите в холле Ravenhill и держите дневник в руках.</em>`,
     miniEnglish: `
@@ -28,26 +28,25 @@ const scenes = {
       <br><br>
       <strong>Question:</strong> Why is only one window still lit? (Почему горит только одно окно?) — you don't know yet…
     `,
-   choices: {
-  A: {
-    label: "→ Stay in the hall and read the diary",
-    next: "scene2A"
-  },
-  B: {
-    label: "⇢ Go to the East Wing and follow the footsteps",
-    next: "scene2B"
-  },
-  C: {
-    label: "⇢ Find the old radio and listen to the house",
-    next: "scene2C"
-  }
-}
-
+    choices: {
+      A: {
+        label: "→ Stay in the hall and read the diary",
+        next: "scene2A"
+      },
+      B: {
+        label: "⇢ Go to the East Wing and follow the footsteps",
+        next: "scene2B"
+      },
+      C: {
+        label: "⇢ Find the old radio and listen to the house",
+        next: "scene2C"
+      }
+    }
   },
 
   scene2A: {
-  chapter: "Episode I · The Summons",
-  title: "The Hallway Echoes",
+    chapter: "Episode I · The Summons",
+    title: "The Hallway Echoes",
     text: `You stay in the cold hall and open the diary. The first page is dated “October 12, 2004”. The handwriting is fast and nervous.`,
     extra: `<em>Вы остаетесь в холле и начинаете читать. Почерк Элизабет будто дрожит.</em><br><br>
       <strong>Diary entry:</strong><br>
@@ -80,8 +79,8 @@ const scenes = {
   },
 
   scene2B: {
-  chapter: "Episode I · The Summons",
-  title: "Diary of Shadows",
+    chapter: "Episode I · The Summons",
+    title: "Diary of Shadows",
     text: `You walk to the East Wing. The corridor is long and narrow. The wooden floor is old and every step makes a quiet noise. Suddenly you hear soft footsteps behind you, but when you turn around, no one is there.`,
     extra: `<em>Вы идёте по узкому коридору, свет лампы дрожит. Шаги слышны позади, но коридор пуст.</em>`,
     miniEnglish: `
@@ -107,13 +106,10 @@ const scenes = {
     }
   },
 
- scene2C: {
-  isRadioScene: true,
-  // дальше как было: title, text, extra, miniEnglish, choices
-}
-
-  chapter: "Episode I · The Summons",
-  title: "Whispers on the Radio",
+  scene2C: {
+    chapter: "Episode I · The Summons",
+    title: "Whispers on the Radio",
+    isRadioScene: true,
     text: `Near the stairs you find an old radio on a small table. The radio is off, but a small orange light is still glowing. When you touch the button, you hear a short, broken sentence in English: “...don’t... open... the... door...” Then the radio is silent again.`,
     extra: `<em>Вы трогаете радио — и дом будто отвечает. Фраза звучит так, как будто её записали много лет назад.</em>`,
     miniEnglish: `
@@ -141,87 +137,90 @@ const scenes = {
 
   // заглушки для следующих сцен — пока просто возвращаем в начало
   scene3A: {
-  chapter: "Episode II · Midnight Hunt",
-  title: "Page Left Blank",
+    chapter: "Episode II · Midnight Hunt",
+    title: "Page Left Blank",
     text: "You turn the page and see a new entry… but this part of the case is still under construction.",
     extra: "<em>Вы продвинулись дальше всех. Следующий фрагмент дела Ravenhill появится в следующем апдейте.</em>",
     miniEnglish: "entry — запись (в дневнике).<br><br>For now, you can go back to the beginning and try other choices.",
     choices: {
-  A: { label: "← Back to the hall", next: "scene1" },
-  B: { label: "← Back to the hall", next: "scene1" },
-  C: { label: "← Back to the hall", next: "scene1" }
-},
-
+      A: { label: "← Back to the hall", next: "scene1" },
+      B: { label: "← Back to the hall", next: "scene1" },
+      C: { label: "← Back to the hall", next: "scene1" }
+    }
   },
 
   scene3B_call: {
-  chapter: "Episode II · Midnight Hunt",
-  title: "Echo in the Corridor",
+    chapter: "Episode II · Midnight Hunt",
+    title: "Echo in the Corridor",
     text: "You call out: “Who’s there?” Your voice echoes in the empty corridor. The footsteps stop. The house is listening.",
     extra: "<em>Дом как будто задержал дыхание. Ответа нет — только ваше эхо.</em>",
     miniEnglish: "to echo — отдавать эхом.<br><br>You feel more curious than afraid now.",
     choices: {
-  A: { label: "← Back to the hall", next: "scene1" },
-  B: { label: "← Back to the hall", next: "scene1" },
-  C: { label: "← Back to the hall", next: "scene1" }
-},
-
+      A: { label: "← Back to the hall", next: "scene1" },
+      B: { label: "← Back to the hall", next: "scene1" },
+      C: { label: "← Back to the hall", next: "scene1" }
+    }
   },
 
   scene3B_keep: {
-  chapter: "Episode II · Midnight Hunt",
-  title: "Pretending Nothing Happened",
+    chapter: "Episode II · Midnight Hunt",
+    title: "Pretending Nothing Happened",
     text: "You keep walking and pretend you heard nothing. The footsteps slowly fade. Maybe it was just the old floor… or maybe not.",
     extra: "<em>Иногда легче сделать вид, что ничего не было. Но дом помнит.</em>",
     miniEnglish: "to fade — затихать, исчезать постепенно.",
     choices: {
-    A: { label: "← Back to the hall", next: "scene1" },
-    B: { label: "← Back to the hall", next: "scene1" },
-    C: { label: "← Back to the hall", next: "scene1" }
-},
+      A: { label: "← Back to the hall", next: "scene1" },
+      B: { label: "← Back to the hall", next: "scene1" },
+      C: { label: "← Back to the hall", next: "scene1" }
+    }
   },
 
   scene3C_obey: {
-  chapter: "Episode III · The House Decides",
-  title: "Careful Step in the Dark",
-  backTo: "scene1",
+    chapter: "Episode III · The House Decides",
+    title: "Careful Step in the Dark",
+    backTo: "scene1",
+    isRadioScene: true,
     text: "You decide to trust the voice. You stay away from the doors and listen. The house stays silent, as if it is waiting for your next move.",
     extra: "<em>Иногда самая смелая стратегия — подождать.</em>",
     miniEnglish: "",
-    cchoices: {
-  A: { label: "← Back to the hall", next: "scene1" },
-  B: { label: "← Back to the hall", next: "scene1" },
-  C: { label: "← Back to the hall", next: "scene1" }
-},
-
+    choices: {
+      A: { label: "← Back to the hall", next: "scene1" },
+      B: { label: "← Back to the hall", next: "scene1" },
+      C: { label: "← Back to the hall", next: "scene1" }
+    }
   },
 
   scene3C_open: {
-  chapter: "Episode III · The House Decides",
-  title: "Opening the Forbidden Door",
+    chapter: "Episode III · The House Decides",
+    title: "Opening the Forbidden Door",
+    backTo: "scene1",
+    isRadioScene: true,
     text: "You ignore the warning and open the nearest door. Cold air hits your face. The room is empty, but you feel that someone was here a moment ago.",
     extra: "<em>Вы нарушили правило дома. Иногда это нужно, чтобы продвинуться в расследовании.</em>",
     miniEnglish: "",
     choices: {
-  A: { label: "← Back to the hall", next: "scene1" },
-  B: { label: "← Back to the hall", next: "scene1" },
-  C: { label: "← Back to the hall", next: "scene1" }
-},
+      A: { label: "← Back to the hall", next: "scene1" },
+      B: { label: "← Back to the hall", next: "scene1" },
+      C: { label: "← Back to the hall", next: "scene1" }
+    }
   },
 
   scene3C_record: {
-  chapter: "Episode III · The House Decides",
-  title: "Captured Evidence",
+    chapter: "Episode III · The House Decides",
+    title: "Captured Evidence",
+    backTo: "scene1",
+    isRadioScene: true,
     text: "You hold your phone close to the radio and wait. After a few seconds the voice returns: “If you hear this, you are not alone in the house.” This time you record it.",
     extra: "<em>Теперь у вас есть первая настоящая улика — запись голоса.</em>",
     miniEnglish: "evidence — улика.<br>to record — записывать.",
     choices: {
-  A: { label: "← Back to the hall", next: "scene1" },
-  B: { label: "← Back to the hall", next: "scene1" },
-  C: { label: "← Back to the hall", next: "scene1" }
-},
+      A: { label: "← Back to the hall", next: "scene1" },
+      B: { label: "← Back to the hall", next: "scene1" },
+      C: { label: "← Back to the hall", next: "scene1" }
+    }
   }
 };
+
 
 const overlayEl = document.getElementById("scene-overlay");
 
