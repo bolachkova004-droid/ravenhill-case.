@@ -150,6 +150,18 @@ body {
   opacity: 1;
   transform: scale(1.1);
 }
+.clue-media {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.clue-media img,
+.clue-media video {
+  max-width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(201, 164, 109, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
 
 
 .mini-english h3 {
