@@ -241,6 +241,9 @@ const btnB = document.getElementById("choiceB");
 const btnC = document.getElementById("choiceC");
 const backBtn = document.getElementById("backButton");
 
+const clueMediaEl = document.getElementById("clue-media");
+
+
 
 function renderScene(id) {
   playSound('stepSound'); // 🔊 шаги при переходе
@@ -277,6 +280,25 @@ if (scene.backTo) {
     textEl.textContent = scene.text;
     extraEl.innerHTML = scene.extra || "";
     miniEl.innerHTML = scene.miniEnglish || "";
+        // медиа-улика для сцены
+    clueMediaEl.innerHTML = "";
+    if (scene.media) {
+      if (scene.media.type === "image") {
+        const img = document.createElement("img");
+        img.src = scene.media.src;
+        img.alt = scene.media.alt || "Clue";
+        clueMediaEl.appendChild(img);
+      } else if (scene.media.type === "video") {
+        const video = document.createElement("video");
+        video.src = scene.media.src;
+        video.autoplay = true;
+        video.muted = true;
+        video.loop = true;
+        video.playsInline = true;
+        clueMediaEl.appendChild(video);
+      }
+    }
+
 
     btnA.textContent = scene.choices.A.label;
 btnB.textContent = scene.choices.B.label;
