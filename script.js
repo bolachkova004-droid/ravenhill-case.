@@ -47,6 +47,10 @@ const scenes = {
   scene2A: {
     chapter: "Episode I · The Summons",
     title: "The Hallway Echoes",
+    media: {
+    type: "video",
+    src: "assets/diary-abandoned.mp4"
+  },
     text: `You stay in the cold hall and open the diary. The first page is dated “October 12, 2004”. The handwriting is fast and nervous.`,
     extra: `<em>Вы остаетесь в холле и начинаете читать. Почерк Элизабет будто дрожит.</em><br><br>
       <strong>Diary entry:</strong><br>
