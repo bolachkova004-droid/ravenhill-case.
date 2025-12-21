@@ -110,6 +110,10 @@ const scenes = {
     chapter: "Episode I · The Summons",
     title: "Whispers on the Radio",
     isRadioScene: true,
+    media: {
+    type: "video",
+    src: "assets/radio-scene.mp4"
+  },
     text: `Near the stairs you find an old radio on a small table. The radio is off, but a small orange light is still glowing. When you touch the button, you hear a short, broken sentence in English: “...don’t... open... the... door...” Then the radio is silent again.`,
     extra: `<em>Вы трогаете радио — и дом будто отвечает. Фраза звучит так, как будто её записали много лет назад.</em>`,
     miniEnglish: `
