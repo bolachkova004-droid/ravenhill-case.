@@ -167,18 +167,23 @@ const scenes = {
 },
 
 
-  scene3B_call: {
-    chapter: "Episode II · Midnight Hunt",
-    title: "Echo in the Corridor",
-    text: "You call out: “Who’s there?” Your voice echoes in the empty corridor. The footsteps stop. The house is listening.",
-    extra: "<em>Дом как будто задержал дыхание. Ответа нет — только ваше эхо.</em>",
-    miniEnglish: "to echo — отдавать эхом.<br><br>You feel more curious than afraid now.",
-    choices: {
-      A: { label: "← Back to the hall", next: "scene1" },
-      B: { label: "← Back to the hall", next: "scene1" },
-      C: { label: "← Back to the hall", next: "scene1" }
-    }
+ scene3B_call: {
+  chapter: "Episode II · Midnight Hunt",
+  title: "Echo in the Corridor", 
+  media: {
+    type: "video",
+    src: "assets/corridor-shadow.mp4"
   },
+  text: `"Who's there?" — your voice echoes. Silence. Then... a door creaks slowly open 10 meters ahead. A cold wind blows from the darkness.`,
+  extra: `<em>Дверь открылась сама. Из темноты дует холод.</em>`,
+  miniEnglish: `to creak — скрипеть<br>to blow — дуть (о ветре)`,
+  choices: {
+    A: { label: "→ Walk to the open door", next: "scene4B_door" },
+    B: { label: "→ Run back to hall", next: "scene1" },
+    C: { label: "→ Call your team", next: "scene4B_team" }
+  }
+},
+
 
   scene3B_keep: {
     chapter: "Episode II · Midnight Hunt",
