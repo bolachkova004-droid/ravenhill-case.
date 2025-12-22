@@ -257,6 +257,15 @@ const btnC = document.getElementById("choiceC");
 const backBtn = document.getElementById("backButton");
 
 const clueMediaEl = document.getElementById("clue-media");
+const inventoryListEl = document.getElementById("inventory-list");
+const scoreDisplayEl = document.getElementById("score-display");
+const endingDisplayEl = document.getElementById("ending-display");
+
+// состояние игры
+let inventory = [];
+let score = 0;
+let endingsUnlocked = [];
+
 
 
 
