@@ -144,18 +144,28 @@ const scenes = {
   },
 
   // заглушки для следующих сцен — пока просто возвращаем в начало
-  scene3A: {
-    chapter: "Episode II · Midnight Hunt",
-    title: "Page Left Blank",
-    text: "You turn the page and see a new entry… but this part of the case is still under construction.",
-    extra: "<em>Вы продвинулись дальше всех. Следующий фрагмент дела Ravenhill появится в следующем апдейте.</em>",
-    miniEnglish: "entry — запись (в дневнике).<br><br>For now, you can go back to the beginning and try other choices.",
-    choices: {
-      A: { label: "← Back to the hall", next: "scene1" },
-      B: { label: "← Back to the hall", next: "scene1" },
-      C: { label: "← Back to the hall", next: "scene1" }
-    }
+ scene3A: {
+  chapter: "Episode II · Midnight Hunt",
+  title: "Page Left Blank",
+  media: {
+    type: "video",
+    src: "assets/diary-page2.mp4"  // твой новый ролик
   },
+  text: `The next page is torn out. But on the back of the previous page you find a small note in different handwriting: "She saw the shadow. Don't let her go to the East Wing."`,
+  extra: `<em>Кто-то пытался скрыть эту страницу. Почерк незнакомый.</em>`,
+  miniEnglish: `
+    torn out — вырванная<br>
+    handwriting — почерк<br>
+    shadow — тень
+    <br><br><strong>Question:</strong> Who wrote the warning? (Кто написал предупреждение?)
+  `,
+  choices: {
+    A: { label: "→ Hide the diary and go East Wing anyway", next: "scene4A_danger" },
+    B: { label: "→ Show the note to your team", next: "scene4A_team" },
+    C: { label: "← Back to hall", next: "scene1" }
+  }
+},
+
 
   scene3B_call: {
     chapter: "Episode II · Midnight Hunt",
