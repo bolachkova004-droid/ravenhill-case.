@@ -304,6 +304,11 @@ if (scene.backTo) {
     textEl.textContent = scene.text;
     extraEl.innerHTML = scene.extra || "";
     miniEl.innerHTML = scene.miniEnglish || "";
+        // улики и очки
+    if (scene.evidence) {
+      addEvidence(scene.evidence, 1);
+    }
+
         // медиа-улика для сцены
     clueMediaEl.innerHTML = "";
     if (scene.media) {
