@@ -47,6 +47,7 @@ const scenes = {
   scene2A: {
     chapter: "Episode I · The Summons",
     title: "The Hallway Echoes",
+    evidence: "Elizabeth's diary",
     media: {
     type: "video",
     src: "assets/diary-abandoned.mp4"
@@ -114,6 +115,7 @@ const scenes = {
     chapter: "Episode I · The Summons",
     title: "Whispers on the Radio",
     isRadioScene: true,
+    evidence: "Radio warning",
     media: {
     type: "video",
     src: "assets/radio-scene.mp4"
@@ -233,6 +235,7 @@ const scenes = {
     title: "Captured Evidence",
     backTo: "scene1",
     isRadioScene: true,
+    evidence: "Recorded message: You are not alone",
     text: "You hold your phone close to the radio and wait. After a few seconds the voice returns: “If you hear this, you are not alone in the house.” This time you record it.",
     extra: "<em>Теперь у вас есть первая настоящая улика — запись голоса.</em>",
     miniEnglish: "evidence — улика.<br>to record — записывать.",
