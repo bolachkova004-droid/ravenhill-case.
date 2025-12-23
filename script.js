@@ -243,6 +243,52 @@ const scenes = {
     }
   }
 };
+function addEvidence(id, scoreValue = 1) {
+  if (!inventory.includes(id)) {
+    inventory.push(id);
+    score += scoreValue;
+    renderInventory();
+  }
+}
+
+function renderInventory() {
+  if (!inventoryListEl) return;
+
+  inventoryListEl.innerHTML = "";
+
+  if (inventory.length === 0) {
+    const li = document.createElement("li");
+    li.textContent = "No evidence yet / Улик пока нет";
+    inventoryListEl.appendChild(li);
+  } else {
+    inventory.forEach(evidenceId => {
+      const li = document.createElement("li");
+      li.textContent = evidenceId;
+      inventoryListEl.appendChild(li);
+    });
+  }
+
+  updateStatus();
+}
+
+function updateStatus() {
+  if (scoreDisplayEl) {
+    scoreDisplayEl.textContent = `Evidence score: ${score}`;
+  }
+
+  let ending = "";
+  if (score >= 4) {
+    ending = "Ending: Ravenhill Solved";
+  } else if (score >= 2) {
+    ending = "Ending: The House Watches";
+  } else {
+    ending = "Ending: The House Wins";
+  }
+
+  if (endingDisplayEl) {
+    endingDisplayEl.textContent = ending;
+  }
+}
 
 
 const overlayEl = document.getElementById("scene-overlay");
