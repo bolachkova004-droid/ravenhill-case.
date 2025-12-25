@@ -258,7 +258,12 @@ miniEnglish: `
     evidence: "Recorded message: You are not alone",
     text: "You hold your phone close to the radio and wait. After a few seconds the voice returns: “If you hear this, you are not alone in the house.” This time you record it.",
     extra: "<em>Теперь у вас есть первая настоящая улика — запись голоса.</em>",
-    miniEnglish: "evidence — улика.<br>to record — записывать.",
+    miniEnglish: `
+  <strong>Key vocabulary:</strong><br>
+  evidence — facts or information that help you prove something; улика<br>
+  to record — to save sound or video so you can listen or watch later; записывать
+`,
+
     choices: {
       A: { label: "← Back to the hall", next: "scene1" },
       B: { label: "← Back to the hall", next: "scene1" },
