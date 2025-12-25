@@ -121,7 +121,8 @@ const scenes = {
     type: "video",
     src: "assets/radio-scene.mp4"
   },
-    text: `Near the stairs you find an old radio on a small table. The radio is off, but a small orange light is still glowing. When you touch the button, you hear a short, broken sentence in English: “...don’t... open... the... door...” Then the radio is silent again.`,
+    text: text: `Near the stairs, you find an old radio on a small table. It's off, but a small orange light still glows. When you touch the button, a short, broken sentence crackles through: "...don't... open... the... door..." Then silence.`,
+
     extra: `<em>Вы трогаете радио — и дом будто отвечает. Фраза звучит так, как будто её записали много лет назад.</em>`,
     miniEnglish: `
       glowing — светящийся<br>
