@@ -95,12 +95,16 @@ miniEnglish: `
 
     extra: `<em>Вы идёте по узкому коридору, свет лампы дрожит. Шаги слышны позади, но коридор пуст.</em>`,
     miniEnglish: `
-      narrow corridor — узкий коридор<br>
-      every step makes a noise — каждый шаг издаёт звук<br>
-      to turn around — обернуться
-      <br><br>
-      <strong>Question:</strong> Are the footsteps in front of you or behind you? (Впереди или позади?)
-    `,
+  <strong>Key vocabulary:</strong><br>
+  narrow corridor — a corridor that is not wide; узкий коридор<br>
+  every step makes a noise — each step can be heard; каждый шаг издаёт звук<br>
+  to turn around — to move your body to face another direction; обернуться
+  <br><br>
+  <strong>Question:</strong><br>
+  Are the footsteps in front of you or behind you? (Впереди или позади?)
+`,
+
+
     choices: {
       A: {
         label: "A. Call out: “Who’s there?”",
