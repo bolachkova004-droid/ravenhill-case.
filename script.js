@@ -19,14 +19,17 @@ const scenes = {
     chapter: "Episode I · The Summons",
     title: "Prologue: Whisper from Ravenhill",
     text:  `You are part of a small detective team. Tonight, you arrive at an old Scottish manor house: Ravenhill Estate. The house is dark; only one window is still lit. Inside the hall, you find a dusty table and an old diary with the name Elizabeth Ravenhill on the cover.`,
+miniEnglish: `
+  <strong>Key vocabulary:</strong><br>
+  manor house — a large country house with land; загородный особняк<br>
+  dusty — covered with dust; пыльный<br>
+  to arrive — to reach a place; прибывать
+  <br><br>
+  <strong>Question:</strong><br>
+  Why is only one window still lit? (Почему горит только одно окно?)
+  <em>You don't know yet...</em>
+`,
 
-      <strong>Useful words:</strong><br>
-      manor house — загородный особняк, усадьба<br>
-      dusty — пыльный<br>
-      to arrive — прибывать, приезжать
-      <br><br>
-      <strong>Question:</strong> Why is only one window still lit? (Почему горит только одно окно?) — you don't know yet…
-    `,
     choices: {
       A: {
         label: "→ Stay in the hall and read the diary",
