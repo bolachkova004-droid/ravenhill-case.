@@ -18,7 +18,7 @@ const scenes = {
   scene1: {
     chapter: "Episode I · The Summons",
     title: "Prologue: Whisper from Ravenhill",
-    text: text: `You are part of a small detective team. Tonight, you arrive at an old Scottish manor house: Ravenhill Estate. The house is dark; only one window is still lit. Inside the hall, you find a dusty table and an old diary with the name Elizabeth Ravenhill on the cover.`,
+    text:  `You are part of a small detective team. Tonight, you arrive at an old Scottish manor house: Ravenhill Estate. The house is dark; only one window is still lit. Inside the hall, you find a dusty table and an old diary with the name Elizabeth Ravenhill on the cover.`,
 
       <strong>Useful words:</strong><br>
       manor house — загородный особняк, усадьба<br>
