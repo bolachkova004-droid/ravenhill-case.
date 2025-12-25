@@ -133,13 +133,16 @@ miniEnglish: `
     text: text: `Near the stairs, you find an old radio on a small table. It's off, but a small orange light still glows. When you touch the button, a short, broken sentence crackles through: "...don't... open... the... door..." Then silence.`,
 
     extra: `<em>Вы трогаете радио — и дом будто отвечает. Фраза звучит так, как будто её записали много лет назад.</em>`,
-    miniEnglish: `
-      glowing — светящийся<br>
-      broken sentence — обрывочная фраза<br>
-      silent — беззвучный, тихий
-      <br><br>
-      <strong>Question:</strong> What does the voice tell you <em>not</em> to do? (Чего голос просит не делать?)
-    `,
+   miniEnglish: `
+  <strong>Key vocabulary:</strong><br>
+  glowing — giving a soft, steady light; светящийся<br>
+  broken sentence — sentence with pauses or missing parts; обрывочная фраза<br>
+  silent — making no sound; беззвучный, тихий
+  <br><br>
+  <strong>Question:</strong><br>
+  What does the voice tell you <em>not</em> to do? (Чего голос просит не делать?)
+`,
+
     choices: {
       A: {
         label: "A. Obey the voice and stay away from any doors.",
