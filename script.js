@@ -179,7 +179,8 @@ const scenes = {
     type: "video",
     src: "assets/corridor-shadow.mp4"
   },
-  text: `"Who's there?" — your voice echoes. Silence. Then... a door creaks slowly open 10 meters ahead. A cold wind blows from the darkness.`,
+  text: text: `"Who's there?" — your voice echoes through the corridor. Silence. Then... a door creaks open 10 meters ahead. A cold wind blows from the darkness.`,
+
   extra: `<em>Дверь открылась сама. Из темноты дует холод.</em>`,
   miniEnglish: `to creak — скрипеть<br>to blow — дуть (о ветре)`,
   choices: {
