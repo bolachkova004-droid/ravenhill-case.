@@ -155,7 +155,8 @@ const scenes = {
     type: "video",
     src: "assets/diary-page2.mp4"  // твой новый ролик
   },
-  text: `The next page is torn out. But on the back of the previous page you find a small note in different handwriting: "She saw the shadow. Don't let her go to the East Wing."`,
+  text: text: `The next page has been torn out. But on the back of the previous page, you find a small note in different handwriting: "She saw the shadow. Don't let her go to the East Wing."`,
+
   extra: `<em>Кто-то пытался скрыть эту страницу. Почерк незнакомый.</em>`,
   miniEnglish: `
     torn out — вырванная<br>
