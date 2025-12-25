@@ -59,17 +59,19 @@ miniEnglish: `
     extra: `<em>Вы остаетесь в холле и начинаете читать. Почерк Элизабет будто дрожит.</em><br><br>
       <strong>Diary entry:</strong><br>
       “The house feels different tonight. I keep hearing soft footsteps in the East Wing, but when I open the door, the corridor is empty. Everyone tells me I’m just tired and imagining things. Mother says I should stop writing about the house in my diary. But I can’t. Something is wrong here, and I don’t feel safe anymore.”`,
-    miniEnglish: `
-      footsteps — шаги<br>
-      to imagine things — надумывать, воображать то, чего нет<br>
-      to feel safe — чувствовать себя в безопасности
-      <br><br>
-      <strong>Check yourself:</strong><br>
-      Why doesn’t Elizabeth feel safe?<br>
-      a) She hears footsteps but sees no one.<br>
-      b) She doesn’t like her mother.<br>
-      c) She hates writing in her diary.
-    `,
+   miniEnglish: `
+  <strong>Key vocabulary:</strong><br>
+  footsteps — sounds of someone walking; шаги<br>
+  to imagine things — to think something exists when it doesn't; воображать<br>
+  to feel safe — to not be afraid; чувствовать себя в безопасности
+  <br><br>
+  <strong>Check yourself:</strong><br>
+  Why doesn't Elizabeth feel safe?<br>
+  a) She hears footsteps but sees no one.<br>
+  b) She doesn't like her mother.<br>
+  c) She hates writing in her diary.
+`,
+
     choices: {
       A: {
         label: "A. Read the next page of the diary.",
