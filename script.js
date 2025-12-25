@@ -86,7 +86,8 @@ const scenes = {
   scene2B: {
     chapter: "Episode I · The Summons",
     title: "Diary of Shadows",
-    text: `You walk to the East Wing. The corridor is long and narrow. The wooden floor is old and every step makes a quiet noise. Suddenly you hear soft footsteps behind you, but when you turn around, no one is there.`,
+    text: text: `You walk to the East Wing. The corridor is long and narrow. The old wooden floor creaks under your feet. Suddenly, you hear soft footsteps behind you—but when you turn around, no one is there.`,
+
     extra: `<em>Вы идёте по узкому коридору, свет лампы дрожит. Шаги слышны позади, но коридор пуст.</em>`,
     miniEnglish: `
       narrow corridor — узкий коридор<br>
