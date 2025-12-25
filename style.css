@@ -37,8 +37,15 @@ body {
 }
 
 .subtitle {
-  font-size: 0.9rem;
-  color: #c5c0b5;
+  font-family: 'Crimson Text', serif;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #d0cabd;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
 }
 
 .game {
