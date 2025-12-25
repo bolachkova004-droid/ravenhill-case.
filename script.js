@@ -51,7 +51,8 @@ const scenes = {
     type: "video",
     src: "assets/diary-abandoned.mp4"
   },
-    text: `You stay in the cold hall and open the diary. The first page is dated “October 12, 2004”. The handwriting is fast and nervous.`,
+    text: text: `You stay in the cold hall and open the diary. The first page is dated “October 12, 2004”. The handwriting is quick and nervous, as if the writer was in a hurry.`,
+
     extra: `<em>Вы остаетесь в холле и начинаете читать. Почерк Элизабет будто дрожит.</em><br><br>
       <strong>Diary entry:</strong><br>
       “The house feels different tonight. I keep hearing soft footsteps in the East Wing, but when I open the door, the corridor is empty. Everyone tells me I’m just tired and imagining things. Mother says I should stop writing about the house in my diary. But I can’t. Something is wrong here, and I don’t feel safe anymore.”`,
