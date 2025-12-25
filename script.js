@@ -208,7 +208,11 @@ miniEnglish: `
     title: "Pretending Nothing Happened",
     text: "You keep walking and pretend you heard nothing. The footsteps slowly fade. Maybe it was just the old floor… or maybe not.",
     extra: "<em>Иногда легче сделать вид, что ничего не было. Но дом помнит.</em>",
-    miniEnglish: "to fade — затихать, исчезать постепенно.",
+    miniEnglish: `
+  <strong>Key vocabulary:</strong><br>
+  to fade — to become weaker or quieter and then disappear; затихать, постепенно исчезать
+`,
+
     choices: {
       A: { label: "← Back to the hall", next: "scene1" },
       B: { label: "← Back to the hall", next: "scene1" },
