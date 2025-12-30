@@ -259,15 +259,18 @@ const scenes = {
   },
 
   scene_henry_intro: {
-    chapter: "Episode II · The Family's Version",
-    title: "Sir Henry on the Phone",
-    evidence: "Official family story",
-    media: {
-      type: "image",
-      src: "assets/sir-henry.jpg",
-      alt: "Sir Henry Ravenhill"
-    },
-    text: `You call Sir Henry Ravenhill. His voice sounds calm and controlled. He thanks you for your "professional interest" and repeats the official version: Elizabeth left the estate on her own and is safe.`,
+  chapter: "Episode II · The Family's Version",
+  title: "Sir Henry on the Phone",
+  evidence: "Official family story",
+  media: {
+    type: "image",
+    src: "assets/sir-henry.jpg",  // твой файл Izobrazhenie-8.jpg переименуй в sir-henry.jpg
+    alt: "Sir Henry Ravenhill"
+  },
+  quote: "There is no mystery here. My daughter simply needed time away from the family. Please, do not dramatise the situation.",
+  text: `You call Sir Henry Ravenhill. His voice sounds calm and controlled. He thanks you for your "professional interest" and repeats the official version: Elizabeth left the estate on her own and is safe.`,
+  // остальное без изменений...
+
     extra: `<em>Он говорит идеально выверенными фразами. Но веришь ли ты ему?</em>`,
     miniEnglish: `
       <strong>Key vocabulary:</strong><br>
