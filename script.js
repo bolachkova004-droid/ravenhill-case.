@@ -144,9 +144,10 @@ const scenes = {
         label: "B. Ignore the voice and open the nearest door.",
         next: "scene3C_open"
       },
-      C: {
-        label: "C. Try to record the next message from the radio.",
-        next: "scene3C_record"
+            C: {
+        label: "C. Call Sir Henry Ravenhill to ask about Elizabeth.",
+        next: "scene_henry_intro"
+  
       }
     }
   },
@@ -255,7 +256,74 @@ const scenes = {
       B: { label: "← Back to the hall", next: "scene1" },
       C: { label: "← Back to the hall", next: "scene1" }
     }
+    }
+      
+  
+    scene_henry_intro: {
+    chapter: "Episode II · The Family's Version",
+    title: "Sir Henry on the Phone",
+    evidence: "Official family story",
+    text: `You call Sir Henry Ravenhill. His voice sounds calm and controlled. He thanks you for your "professional interest" and repeats the official version: Elizabeth left the estate on her own and is safe.`,
+    extra: `<em>Он говорит идеально выверенными фразами. Но веришь ли ты ему?</em>`,
+    miniEnglish: `
+      <strong>Key vocabulary:</strong><br>
+      calm and controlled — speaking without strong emotions; спокойный, контролирующий себя<br>
+      official version — what the family tells the public; официальная версия<br>
+      to leave on one's own — уйти по собственной воле
+      <br><br>
+      <strong>Question:</strong><br>
+      What does Sir Henry say about Elizabeth?
+    `,
+    choices: {
+      A: { label: "→ Ask about the deleted recordings", next: "scene_henry_recordings" },
+      B: { label: "→ Ask why he didn't report her missing", next: "scene_henry_missing" },
+      C: { label: "← End the call and go back to the hall", next: "scene1" }
+    }
+  },
+  scene_henry_recordings: {
+    chapter: "Episode II · The Family's Version",
+    title: "Nothing to See Here",
+    evidence: "Recordings were destroyed",
+    text: `When you mention the security recordings, Sir Henry pauses for a second. Then he says, "All technical materials from that period were destroyed. There was nothing of importance on them."`,
+    extra: `<em>Слишком чёткий, слишком быстрый ответ. Почти как заранее выученная фраза.</em>`,
+    miniEnglish: `
+      <strong>Key vocabulary:</strong><br>
+      to pause — to stop speaking for a short time; сделать паузу<br>
+      to destroy materials — to remove or erase them completely; уничтожить материалы<br>
+      nothing of importance — ничего важного
+      <br><br>
+      <strong>Question:</strong><br>
+      Do you think there was really "nothing of importance" on the recordings?
+    `,
+    choices: {
+      A: { label: "→ Compare his words with Alex's story", next: "scene2A" },
+      B: { label: "← End the call and return to the hall", next: "scene1" },
+      C: { label: "→ Note this as suspicious and continue the investigation", next: "scene2B" }
+    }
+  },
+
+  scene_henry_missing: {
+    chapter: "Episode II · The Family's Version",
+    title: "Not Missing, Just Gone",
+    evidence: "Henry refused to report her missing",
+    text: `"There was no reason to report Elizabeth missing," Sir Henry says. "She is an adult. She simply needed time away from the family. Please, do not dramatise the situation."`,
+    extra: `<em>Для отца его слова звучат слишком холодно. И слишком удобно для репутации.</em>`,
+    miniEnglish: `
+      <strong>Key vocabulary:</strong><br>
+      to report someone missing — официально заявить о пропаже; заявить о пропаже<br>
+      to need time away — to need distance from a place or people; нуждаться в том, чтобы уехать<br>
+      to dramatise the situation — делать ситуацию более драматичной, чем она есть
+      <br><br>
+      <strong>Question:</strong><br>
+      Why doesn't Sir Henry call Elizabeth "missing"?
+    `,
+    choices: {
+      A: { label: "→ Connect his words with the diary", next: "scene2A" },
+      B: { label: "→ Discuss his reaction with your team", next: "scene1" },
+      C: { label: "← End the call and return to the hall", next: "scene1" }
+    }
   }
+
 };
 
 function addEvidence(id, scoreValue = 1) {
