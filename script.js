@@ -238,7 +238,7 @@ const scenes = {
     }
   },
 
-  scene3C_record: {
+   scene3C_record: {
     chapter: "Episode III · The House Decides",
     title: "Captured Evidence",
     backTo: "scene1",
@@ -256,13 +256,17 @@ const scenes = {
       B: { label: "← Back to the hall", next: "scene1" },
       C: { label: "← Back to the hall", next: "scene1" }
     }
-    }
-      
-  
-    scene_henry_intro: {
+  },
+
+  scene_henry_intro: {
     chapter: "Episode II · The Family's Version",
     title: "Sir Henry on the Phone",
     evidence: "Official family story",
+    media: {
+      type: "image",
+      src: "assets/sir-henry.jpg",
+      alt: "Sir Henry Ravenhill"
+    },
     text: `You call Sir Henry Ravenhill. His voice sounds calm and controlled. He thanks you for your "professional interest" and repeats the official version: Elizabeth left the estate on her own and is safe.`,
     extra: `<em>Он говорит идеально выверенными фразами. Но веришь ли ты ему?</em>`,
     miniEnglish: `
@@ -280,6 +284,7 @@ const scenes = {
       C: { label: "← End the call and go back to the hall", next: "scene1" }
     }
   },
+
   scene_henry_recordings: {
     chapter: "Episode II · The Family's Version",
     title: "Nothing to See Here",
