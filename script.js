@@ -20,6 +20,11 @@ document.addEventListener(
   { once: true }
 );
 
+// ====== ИНИЦИАЛИЗАЦИЯ ИГРЫ ======
+let inventory = [];
+let score = 0;
+let endingsUnlocked = [];
+
 // ====== ВСЕ СЦЕНЫ И ИГРА ======
 const scenes = {
   scene1: {
@@ -37,18 +42,9 @@ const scenes = {
       <em>You don't know yet...</em>
     `,
     choices: {
-      A: {
-        label: "→ Stay in the hall and read the diary",
-        next: "scene2A"
-      },
-      B: {
-        label: "⇢ Go to the East Wing and follow the footsteps",
-        next: "scene2B"
-      },
-      C: {
-        label: "⇢ Find the old radio and listen to the house",
-        next: "scene2C"
-      }
+      A: { label: "→ Stay in the hall and read the diary", next: "scene2A" },
+      B: { label: "⇢ Go to the East Wing and follow the footsteps", next: "scene2B" },
+      C: { label: "⇢ Find the old radio and listen to the house", next: "scene2C" }
     }
   },
 
@@ -56,14 +52,11 @@ const scenes = {
     chapter: "Episode I · The Summons",
     title: "The Hallway Echoes",
     evidence: "Elizabeth's diary",
-    media: {
-      type: "video",
-      src: "assets/diary-abandoned.mp4"
-    },
-    text: `You stay in the cold hall and open the diary. The first page is dated “October 12, 2004”. The handwriting is quick and nervous, as if the writer was in a hurry.`,
+    media: { type: "video", src: "assets/diary-abandoned.mp4" },
+    text: `You stay in the cold hall and open the diary. The first page is dated "October 12, 2004". The handwriting is quick and nervous, as if the writer was in a hurry.`,
     extra: `<em>Вы остаетесь в холле и начинаете читать. Почерк Элизабет будто дрожит.</em><br><br>
       <strong>Diary entry:</strong><br>
-      “The house feels different tonight. I keep hearing soft footsteps in the East Wing, but when I open the door, the corridor is empty. Everyone tells me I’m just tired and imagining things. Mother says I should stop writing about the house in my diary. But I can’t. Something is wrong here, and I don’t feel safe anymore.”`,
+      "The house feels different tonight. I keep hearing soft footsteps in the East Wing, but when I open the door, the corridor is empty. Everyone tells me I'm just tired and imagining things. Mother says I should stop writing about the house in my diary. But I can't. Something is wrong here, and I don't feel safe anymore."`,
     miniEnglish: `
       <strong>Key vocabulary:</strong><br>
       footsteps — sounds of someone walking; шаги<br>
@@ -77,18 +70,9 @@ const scenes = {
       c) She hates writing in her diary.
     `,
     choices: {
-      A: {
-        label: "A. Read the next page of the diary.",
-        next: "scene3A"
-      },
-      B: {
-        label: "B. Close the diary and go to the East Wing.",
-        next: "scene2B"
-      },
-      C: {
-        label: "C. Take the diary with you and look for a radio.",
-        next: "scene2C"
-      }
+      A: { label: "A. Read the next page of the diary.", next: "scene3A" },
+      B: { label: "B. Close the diary and go to the East Wing.", next: "scene2B" },
+      C: { label: "C. Take the diary with you and look for a radio.", next: "scene2C" }
     }
   },
 
@@ -107,18 +91,9 @@ const scenes = {
       Are the footsteps in front of you or behind you? (Впереди или позади?)
     `,
     choices: {
-      A: {
-        label: "A. Call out: “Who’s there?”",
-        next: "scene3B_call"
-      },
-      B: {
-        label: "B. Pretend you heard nothing and keep walking.",
-        next: "scene3B_keep"
-      },
-      C: {
-        label: "C. Go back to the hall as fast as you can.",
-        next: "scene1"
-      }
+      A: { label: "A. Call out: "Who's there?"", next: "scene3B_call" },
+      B: { label: "B. Pretend you heard nothing and keep walking.", next: "scene3B_keep" },
+      C: { label: "C. Go back to the hall as fast as you can.", next: "scene1" }
     }
   },
 
@@ -127,36 +102,14 @@ const scenes = {
     title: "Whispers on the Radio",
     isRadioScene: true,
     evidence: "Radio warning",
-    media: {
-      type: "video",
-      src: "assets/radio-scene.mp4"
-    },
+    media: { type: "video", src: "assets/radio-scene.mp4" },
     text: `Near the stairs, you find an old radio on a small table. It's off, but a small orange light still glows. When you touch the button, a short, broken sentence crackles through: "...don't... open... the... door..." Then silence.`,
     extra: `<em>Вы трогаете радио — и дом будто отвечает. Фраза звучит так, как будто её записали много лет назад.</em>`,
     miniEnglish: `
       <strong>Key vocabulary:</strong><br>
       glowing — giving a soft, steady light; светящийся<br>
-      broken sentence — sentence with pauses or missing parts; обрывочная фраза<br>
-      silent — making no sound; беззвучный, тихий
-      <br><br>
-      <strong>Question:</strong><br>
-      What does the voice tell you <em>not</em> to do? (Чего голос просит не делать?)
-    `,
-    choices: {
-      A: {
-        label: "A. Obey the voice and stay away from any doors.",
-        next: "scene3C_obey"
-      },
-      B: {
-        label: "B. Ignore the voice and open the nearest door.",
-        next: "scene3C_open"
-      },
-      C: {
-        label: "C. Call Sir Henry Ravenhill to ask about Elizabeth.",
-        next: "scene_henry_intro"
-      }
-    }
-  },
+      broken sentence
+
 
   // ----- ДАЛЬШЕ СЦЕНЫ -----
 
