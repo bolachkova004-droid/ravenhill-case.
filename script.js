@@ -430,11 +430,9 @@ const scenes = {
       B: { label: "← Back to hall", next: "scene1" },
       C: { label: "→ Secure the area", next: "scene1" }
     }
-  }
+ };
 
-  // здесь пока НЕТ scene4A_danger / scene4A_team / scene4B_door / scene4B_team —
-  // они могут быть добавлены позже
-};
+
 
 // ====== ИНВЕНТАРЬ и СТАТУС ======
 let inventory = [];
