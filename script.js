@@ -1,3 +1,4 @@
+// ====== ЗВУК ======
 function playSound(id) {
   const audio = document.getElementById(id);
   if (audio) {
@@ -8,12 +9,18 @@ function playSound(id) {
 
 // фоновая музыка после первого клика по странице
 let musicStarted = false;
-document.addEventListener('click', () => {
-  if (!musicStarted) {
-    playSound('bgMusic');
-    musicStarted = true;
-  }
-}, { once: true });
+document.addEventListener(
+  "click",
+  () => {
+    if (!musicStarted) {
+      playSound("bgMusic");
+      musicStarted = true;
+    }
+  },
+  { once: true }
+);
+
+// ====== ВСЕ СЦЕНЫ И ИГРА ======
 const scenes = {
   scene1: {
     chapter: "Episode I · The Summons",
@@ -144,15 +151,15 @@ const scenes = {
         label: "B. Ignore the voice and open the nearest door.",
         next: "scene3C_open"
       },
-            C: {
+      C: {
         label: "C. Call Sir Henry Ravenhill to ask about Elizabeth.",
         next: "scene_henry_intro"
-  
       }
     }
   },
 
-  // заглушки для следующих сцен — пока просто возвращаем в начало
+  // ----- ДАЛЬШЕ СЦЕНЫ -----
+
   scene3A: {
     chapter: "Episode II · Midnight Hunt",
     title: "Page Left Blank",
@@ -169,9 +176,18 @@ const scenes = {
       <br><br><strong>Question:</strong> Who wrote the warning? (Кто написал предупреждение?)
     `,
     choices: {
-      A: { label: "→ Hide the diary and go East Wing anyway", next: "scene4A_danger" },
-      B: { label: "→ Show the note to your team", next: "scene4A_team" },
-      C: { label: "← Back to hall", next: "scene1" }
+      A: {
+        label: "→ Hide the diary and go East Wing anyway",
+        next: "scene4A_danger"
+      },
+      B: {
+        label: "→ Show the note to your team",
+        next: "scene4A_team"
+      },
+      C: {
+        label: "← Back to hall",
+        next: "scene1"
+      }
     }
   },
 
@@ -238,7 +254,7 @@ const scenes = {
     }
   },
 
-   scene3C_record: {
+  scene3C_record: {
     chapter: "Episode III · The House Decides",
     title: "Captured Evidence",
     backTo: "scene1",
@@ -258,45 +274,56 @@ const scenes = {
     }
   },
 
+  // ----- СЭР ГЕНРИ -----
+
   scene_henry_intro: {
-  chapter: "Episode II · The Family's Version",
-  title: "Sir Henry on the Phone",
-  evidence: "Official family story",
-  media: {
-    type: "image",
-    src: "sir-henry.jpg"
+    chapter: "Episode II · The Family's Version",
+    title: "Sir Henry on the Phone",
+    evidence: "Official family story",
+    media: {
+      type: "image",
+      src: "sir-henry.jpg",
+      alt: "Sir Henry Ravenhill"
+    },
+    video: {
+      type: "video",
+      src: "sir-henry-video.mp4"
+    },
+    sound: "sir-henry-voice",
+    quote:
+      "There is no mystery here. My daughter simply needed time away from the family. Please, do not dramatise the situation.",
+    text: `You call Sir Henry Ravenhill. His voice sounds calm and controlled. He thanks you for your "professional interest" and repeats the official version: Elizabeth left the estate on her own and is safe.`,
+    extra: `<em>Он говорит идеально выверенными фразами. Но веришь ли ты ему?</em>`,
+    miniEnglish: `
+      <strong>Key vocabulary:</strong><br>
+      calm and controlled — speaking without strong emotions; спокойный, контролирующий себя<br>
+      official version — what the family tells the public; официальная версия<br>
+      to leave on one's own — уйти по собственной воле
+      <br><br>
+      <strong>Question:</strong><br>
+      What does Sir Henry say about Elizabeth?
+    `,
+    choices: {
+      A: {
+        label: "→ Ask about the deleted recordings",
+        next: "scene_henry_recordings"
+      },
+      B: {
+        label: "→ Ask why he didn't report her missing",
+        next: "scene_henry_missing"
+      },
+      C: {
+        label: "← End the call and go back to the hall",
+        next: "scene1"
+      }
+    }
   },
-  video: {
-    type: "video",
-    src: "sir-henry-video.mp4"
-  },
-  sound: "sir-henry-voice",
-  quote: "There is no mystery here. My daughter simply needed time away from the family. Please, do not dramatise the situation.",
-  text: `You call Sir Henry Ravenhill. His voice sounds calm and controlled. He thanks you for your "professional interest" and repeats the official version: Elizabeth left the estate on her own and is safe.`,
-  extra: `<em>Он говорит идеально выверенными фразами. Но веришь ли ты ему?</em>`,
-  miniEnglish: `
-    <strong>Key vocabulary:</strong><br>
-    calm and controlled — speaking without strong emotions; спокойный, контролирующий себя<br>
-    official version — what the family tells the public; официальная версия<br>
-    to leave on one's own — уйти по собственной воле
-    <br><br>
-    <strong>Question:</strong><br>
-    What does Sir Henry say about Elizabeth?
-  `,
-  choices: {
-    A: { label: "→ Ask about the deleted recordings", next: "scene_henry_recordings" },
-    B: { label: "→ Ask why he didn't report her missing", next: "scene_henry_missing" },
-    C: { label: "← End the call and go back to the hall", next: "scene1" }
-  }
-},
 
-
-    scene_henry_recordings: {
+  scene_henry_recordings: {
     chapter: "Episode II · The Family's Version",
     title: "Nothing to See Here",
     evidence: "Recordings were destroyed",
-    text: `When you mention the security recordings, Sir Henry pauses for a second. Then he says, "All technical materials from that period
-
+    text: `When you mention the security recordings, Sir Henry pauses for a second. Then he says, "All technical materials from that period were destroyed. There was nothing of importance on them."`,
     extra: `<em>Слишком чёткий, слишком быстрый ответ. Почти как заранее выученная фраза.</em>`,
     miniEnglish: `
       <strong>Key vocabulary:</strong><br>
@@ -308,9 +335,18 @@ const scenes = {
       Do you think there was really "nothing of importance" on the recordings?
     `,
     choices: {
-      A: { label: "→ Compare his words with Alex's story", next: "scene2A" },
-      B: { label: "← End the call and return to the hall", next: "scene1" },
-      C: { label: "→ Note this as suspicious and continue the investigation", next: "scene2B" }
+      A: {
+        label: "→ Compare his words with Alex's story",
+        next: "scene2A"
+      },
+      B: {
+        label: "← End the call and return to the hall",
+        next: "scene1"
+      },
+      C: {
+        label: "→ Note this as suspicious and continue the investigation",
+        next: "scene2B"
+      }
     }
   },
 
@@ -330,13 +366,43 @@ const scenes = {
       Why doesn't Sir Henry call Elizabeth "missing"?
     `,
     choices: {
-      A: { label: "→ Connect his words with the diary", next: "scene2A" },
-      B: { label: "→ Discuss his reaction with your team", next: "scene1" },
-      C: { label: "← End the call and return to the hall", next: "scene1" }
+      A: {
+        label: "→ Connect his words with the diary",
+        next: "scene2A"
+      },
+      B: {
+        label: "→ Discuss his reaction with your team",
+        next: "scene1"
+      },
+      C: {
+        label: "← End the call and return to the hall",
+        next: "scene1"
+      }
     }
   }
 
+  // здесь пока НЕТ scene4A_danger / scene4A_team / scene4B_door / scene4B_team —
+  // они могут быть добавлены позже
 };
+
+// ====== ИНВЕНТАРЬ и СТАТУС ======
+let inventory = [];
+let score = 0;
+let endingsUnlocked = [];
+
+const overlayEl = document.getElementById("scene-overlay");
+const titleEl = document.getElementById("scene-title");
+const textEl = document.getElementById("scene-text");
+const extraEl = document.getElementById("scene-extra");
+const miniEl = document.getElementById("mini-english-content");
+const btnA = document.getElementById("choiceA");
+const btnB = document.getElementById("choiceB");
+const btnC = document.getElementById("choiceC");
+const backBtn = document.getElementById("backButton");
+const clueMediaEl = document.getElementById("clue-media");
+const inventoryListEl = document.getElementById("inventory-list");
+const scoreDisplayEl = document.getElementById("score-display");
+const endingDisplayEl = document.getElementById("ending-display");
 
 function addEvidence(id, scoreValue = 1) {
   if (!inventory.includes(id)) {
@@ -356,7 +422,7 @@ function renderInventory() {
     li.textContent = "No evidence yet / Улик пока нет";
     inventoryListEl.appendChild(li);
   } else {
-    inventory.forEach(evidenceId => {
+    inventory.forEach((evidenceId) => {
       const li = document.createElement("li");
       li.textContent = evidenceId;
       inventoryListEl.appendChild(li);
@@ -385,52 +451,27 @@ function updateStatus() {
   }
 }
 
-
-const overlayEl = document.getElementById("scene-overlay");
-
-const titleEl = document.getElementById("scene-title");
-const textEl = document.getElementById("scene-text");
-const extraEl = document.getElementById("scene-extra");
-const miniEl = document.getElementById("mini-english-content");
-const btnA = document.getElementById("choiceA");
-const btnB = document.getElementById("choiceB");
-const btnC = document.getElementById("choiceC");
-const backBtn = document.getElementById("backButton");
-
-const clueMediaEl = document.getElementById("clue-media");
-const inventoryListEl = document.getElementById("inventory-list");
-const scoreDisplayEl = document.getElementById("score-display");
-const endingDisplayEl = document.getElementById("ending-display");
-
-// состояние игры
-let inventory = [];
-let score = 0;
-let endingsUnlocked = [];
-
-
-
+// ====== ОТРИСОВКА СЦЕН ======
 
 function renderScene(id) {
-  playSound('stepSound'); // 🔊 шаги при переходе
+  playSound("stepSound");
 
   const scene = scenes[id];
   if (!scene) return;
-    // спец-эффект: радио
+
   if (scene.isRadioScene) {
-    playSound('radioSound');
+    playSound("radioSound");
   }
 
-  // отдельная кнопка "назад" для сцен с backTo
-if (scene.backTo) {
-  backBtn.style.display = "block";
-  backBtn.onclick = () => {
-    playSound('clickSound');
-    renderScene(scene.backTo);
-  };
-} else {
-  backBtn.style.display = "none";
-}
-
+  if (scene.backTo) {
+    backBtn.style.display = "block";
+    backBtn.onclick = () => {
+      playSound("clickSound");
+      renderScene(scene.backTo);
+    };
+  } else {
+    backBtn.style.display = "none";
+  }
 
   const sceneEl = document.querySelector(".scene");
   const choicesEl = document.querySelector(".choices");
@@ -441,17 +482,17 @@ if (scene.backTo) {
   miniBlockEl.classList.add("fade-out");
 
   setTimeout(() => {
-    titleEl.textContent = scene.title;
-    textEl.textContent = scene.text;
+    titleEl.textContent = scene.title || "";
+    textEl.textContent = scene.text || "";
     extraEl.innerHTML = scene.extra || "";
     miniEl.innerHTML = scene.miniEnglish || "";
-        // улики и очки
+
     if (scene.evidence) {
       addEvidence(scene.evidence, 1);
     }
 
-        // медиа-улика для сцены
     clueMediaEl.innerHTML = "";
+
     if (scene.media) {
       if (scene.media.type === "image") {
         const img = document.createElement("img");
@@ -468,65 +509,69 @@ if (scene.backTo) {
         clueMediaEl.appendChild(video);
       }
     }
-// видео персонажа
-if (scene.video) {
-  const video = document.createElement("video");
-  video.src = scene.video.src;
-  video.autoplay = true;
-  video.muted = true;
-  video.loop = true;
-  video.playsInline = true;
-  video.style.maxWidth = "100%";
-  video.style.borderRadius = "12px";
-  video.style.marginTop = "8px";
-  clueMediaEl.appendChild(video);
-}
 
-// звук персонажа
-if (scene.sound) {
-  playSound(scene.sound);
-}
+    if (scene.video) {
+      const video = document.createElement("video");
+      video.src = scene.video.src;
+      video.autoplay = true;
+      video.muted = true;
+      video.loop = true;
+      video.playsInline = true;
+      video.style.maxWidth = "100%";
+      video.style.borderRadius = "12px";
+      video.style.marginTop = "8px";
+      clueMediaEl.appendChild(video);
+    }
 
-// цитата в пузыре речи
-if (scene.quote) {
-  const quoteBubble = document.createElement("div");
-  quoteBubble.style.cssText = `
-    background: linear-gradient(135deg, rgba(27,30,41,0.95), rgba(10,12,20,0.95));
-    border: 2px solid rgba(201,164,109,0.6);
-    border-radius: 20px 20px 8px 20px;
-    padding: 16px 20px 12px;
-    margin: 12px 0;
-    position: relative;
-    font-style: italic;
-    color: #f5f1e8;
-    font-size: 0.95rem;
-    max-width: 90%;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-  `;
-  quoteBubble.innerHTML = `
-    <div style="position: absolute; bottom: -8px; left: 24px; width: 0; height: 0; border: 8px solid transparent; border-top-color: rgba(201,164,109,0.6);"></div>
-    "${scene.quote}"
-  `;
-  clueMediaEl.appendChild(quoteBubble);
-}
+    if (scene.sound) {
+      playSound(scene.sound);
+    }
 
+    if (scene.quote) {
+      const quoteBubble = document.createElement("div");
+      quoteBubble.style.cssText = `
+        background: linear-gradient(135deg, rgba(27,30,41,0.95), rgba(10,12,20,0.95));
+        border: 2px solid rgba(201,164,109,0.6);
+        border-radius: 20px 20px 8px 20px;
+        padding: 16px 20px 12px;
+        margin: 12px 0;
+        position: relative;
+        font-style: italic;
+        color: #f5f1e8;
+        font-size: 0.95rem;
+        max-width: 90%;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+      `;
+      quoteBubble.innerHTML = `
+        <div style="position: absolute; bottom: -8px; left: 24px; width: 0; height: 0; border: 8px solid transparent; border-top-color: rgba(201,164,109,0.6);"></div>
+        "${scene.quote}"
+      `;
+      clueMediaEl.appendChild(quoteBubble);
+    }
 
-    btnA.textContent = scene.choices.A.label;
-btnB.textContent = scene.choices.B.label;
-btnC.textContent = scene.choices.C.label;
+    // защита: если у сцены нет choices (заглушка) — просто вернёмся в hall
+    const choices = scene.choices || {
+      A: { label: "← Back to the hall", next: "scene1" },
+      B: { label: "← Back to the hall", next: "scene1" },
+      C: { label: "← Back to the hall", next: "scene1" }
+    };
 
-btnA.onclick = () => {
-  playSound('clickSound');
-  renderScene(scene.choices.A.next);
-};
-btnB.onclick = () => {
-  playSound('clickSound');
-  renderScene(scene.choices.B.next);
-};
-btnC.onclick = () => {
-  playSound('clickSound');
-  renderScene(scene.choices.C.next);
-};
+    btnA.textContent = choices.A.label;
+    btnB.textContent = choices.B.label;
+    btnC.textContent = choices.C.label;
+
+    btnA.onclick = () => {
+      playSound("clickSound");
+      renderScene(choices.A.next);
+    };
+    btnB.onclick = () => {
+      playSound("clickSound");
+      renderScene(choices.B.next);
+    };
+    btnC.onclick = () => {
+      playSound("clickSound");
+      renderScene(choices.C.next);
+    };
 
     sceneEl.classList.remove("fade-out");
     choicesEl.classList.remove("fade-out");
@@ -534,8 +579,6 @@ btnC.onclick = () => {
   }, 500);
 }
 
-
-
-
 // стартуем с первой сцены
 renderScene("scene1");
+
