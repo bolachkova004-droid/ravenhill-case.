@@ -380,6 +380,57 @@ const scenes = {
       }
     }
   }
+  // ----- scene4 ЗАГЛУШКИ -----
+  scene4A_danger: {
+    chapter: "Episode IV · Against Warnings",
+    title: "Danger in the East Wing",
+    evidence: "Shadow warning ignored",
+    text: "You ignore the warning and enter the East Wing. The air grows colder. Something moves in the shadows ahead.",
+    extra: "<em>Вы нарушили правило. Теперь дом знает, что вы здесь.</em>",
+    choices: {
+      A: { label: "→ Keep going", next: "scene1" },
+      B: { label: "← Back to hall", next: "scene1" },
+      C: { label: "← Back to hall", next: "scene1" }
+    }
+  },
+
+  scene4A_team: {
+    chapter: "Episode IV · Against Warnings",
+    title: "Team Discussion",
+    evidence: "Team consensus",
+    text: "Your team examines the note. 'This changes everything,' says Alex. 'Someone else was protecting Elizabeth.'",
+    extra: "<em>Теперь у вас есть союзники. Расследование набирает обороты.</em>",
+    choices: {
+      A: { label: "→ East Wing together", next: "scene1" },
+      B: { label: "→ Check security logs", next: "scene1" },
+      C: { label: "← Back to hall", next: "scene1" }
+    }
+  },
+
+  scene4B_door: {
+    chapter: "Episode IV · Against Warnings",
+    title: "The Open Door",
+    media: { type: "video", src: "assets/dark-room.mp4" },
+    text: "You approach the open door. Inside: dusty furniture, a broken mirror, and... fresh footprints in the dust.",
+    extra: "<em>Кто-то был здесь недавно. Очень недавно.</em>",
+    choices: {
+      A: { label: "→ Follow the footprints", next: "scene1" },
+      B: { label: "← Back to hall", next: "scene1" },
+      C: { label: "→ Take photos", next: "scene1" }
+    }
+  },
+
+  scene4B_team: {
+    chapter: "Episode IV · Against Warnings",
+    title: "Team Backup Arrives",
+    text: "Your team arrives with flashlights. Together you approach the open door. The footprints lead deeper into the house.",
+    extra: "<em>Вместе безопаснее. Но дом всё ещё наблюдает.</em>",
+    choices: {
+      A: { label: "→ Follow footprints", next: "scene1" },
+      B: { label: "← Back to hall", next: "scene1" },
+      C: { label: "→ Secure the area", next: "scene1" }
+    }
+  }
 
   // здесь пока НЕТ scene4A_danger / scene4A_team / scene4B_door / scene4B_team —
   // они могут быть добавлены позже
