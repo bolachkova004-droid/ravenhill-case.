@@ -282,7 +282,7 @@ const scenes = {
     evidence: "Official family story",
     media: {
       type: "image",
-      src: "sir-henry.jpg",
+      src: "sir-henry.jpeg",
       alt: "Sir Henry Ravenhill"
     },
     video: {
