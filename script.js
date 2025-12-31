@@ -21,108 +21,185 @@ let score = 0;
 
 const scenes = {
   scene1: {
+    chapter: "Episode I · The Summons",
     title: "Prologue: Whisper from Ravenhill",
-    text: "You arrive at Ravenhill Estate. The house is dark; only one window is lit. You find Elizabeth Ravenhill's diary.",
+    text: `You are part of a small detective team. Tonight, you arrive at an old Scottish manor house: Ravenhill Estate. The house is dark; only one window is still lit. Inside the hall, you find a dusty table and an old diary with the name Elizabeth Ravenhill on the cover.`,
+    miniEnglish: `
+      <strong>Key vocabulary:</strong><br>
+      manor house — загородный особняк<br>
+      dusty — пыльный<br>
+      to arrive — прибывать
+      <br><br>
+      <strong>Question:</strong><br>
+      Why is only one window still lit?
+    `,
     choices: {
-      A: { label: "→ Read diary", next: "scene2A" },
-      B: { label: "⇢ East Wing", next: "scene2B" },
-      C: { label: "⇢ Radio", next: "scene2C" }
+      A: { label: "→ Stay in the hall and read the diary", next: "scene2A" },
+      B: { label: "⇢ Go to the East Wing and follow the footsteps", next: "scene2B" },
+      C: { label: "⇢ Find the old radio and listen to the house", next: "scene2C" }
     }
   },
+
   scene2A: {
-    title: "Elizabeth's Diary",
+    chapter: "Episode I · The Summons",
+    title: "The Hallway Echoes",
     evidence: "Elizabeth's diary",
-    text: "Diary: 'I hear footsteps in East Wing but no one is there. I don't feel safe.'",
+    media: { type: "video", src: "assets/diary-abandoned.mp4" },
+    text: `You stay in the cold hall and open the diary. The first page is dated "October 12, 2004". The handwriting is quick and nervous.`,
+    extra: `<em>Diary entry:</em><br>"The house feels different tonight. I keep hearing soft footsteps in the East Wing, but when I open the door, the corridor is empty..."`,
+    miniEnglish: `
+      <strong>Key vocabulary:</strong><br>
+      footsteps — шаги<br>
+      to imagine — воображать<br>
+      to feel safe — чувствовать себя в безопасности
+    `,
     choices: {
-      A: { label: "→ Next page", next: "scene3A" },
-      B: { label: "→ East Wing", next: "scene2B" },
-      C: { label: "→ Radio", next: "scene2C" }
+      A: { label: "A. Read the next page", next: "scene3A" },
+      B: { label: "B. East Wing", next: "scene2B" },
+      C: { label: "C. Radio", next: "scene2C" }
     }
   },
+
   scene2B: {
-    title: "East Wing Footsteps",
-    text: "You hear footsteps behind you—but corridor is empty.",
+    title: "East Wing Shadows",
+    text: `Long narrow corridor. Floor creaks. Footsteps behind you—but no one there when you turn.`,
+    extra: `<em>Шаги позади, коридор пуст.</em>`,
     choices: {
-      A: { label: "→ 'Who's there?'", next: "scene3B_call" },
-      B: { label: "→ Keep walking", next: "scene3B_keep" },
-      C: { label: "← Hall", next: "scene1" }
+      A: { label: "A. 'Who's there?'", next: "scene3B_call" },
+      B: { label: "B. Keep walking", next: "scene3B_keep" },
+      C: { label: "C. ← Hall", next: "scene1" }
     }
   },
+
   scene2C: {
-    title: "Radio Warning",
+    title: "Whispers on the Radio",
     isRadioScene: true,
     evidence: "Radio warning",
-    text: "Radio: '...don't... open... the... door...'",
+    media: { type: "video", src: "assets/radio-scene.mp4" },
+    text: `Old radio glows orange. "...don't... open... the... door..." Then silence.`,
+    extra: `<em>Дом отвечает шепотом.</em>`,
     choices: {
-      A: { label: "→ Obey", next: "scene3C_obey" },
-      B: { label: "→ Open door", next: "scene3C_open" },
-      C: { label: "→ Call Sir Henry", next: "scene_henry_intro" }
+      A: { label: "A. Obey voice", next: "scene3C_obey" },
+      B: { label: "B. Open door", next: "scene3C_open" },
+      C: { label: "C. Call Sir Henry", next: "scene_henry_intro" }
     }
   },
+
   scene3A: {
-    title: "Torn Page",
+    title: "Page Torn Out",
     evidence: "Shadow warning",
-    text: "Note: 'She saw the shadow. Don't let her go East Wing.'",
+    media: { type: "video", src: "assets/diary-page2.mp4" },
+    text: `"She saw the shadow. Don't let her go to the East Wing." Different handwriting.`,
     choices: {
       A: { label: "→ East Wing anyway", next: "scene4A_danger" },
-      B: { label: "→ Team", next: "scene4A_team" },
+      B: { label: "→ Show team", next: "scene4A_team" },
       C: { label: "← Hall", next: "scene1" }
     }
   },
+
   scene3B_call: {
-    title: "Door Opens",
-    text: "Door creaks open ahead. Cold wind from darkness.",
+    title: "Door Creaks Open",
+    media: { type: "video", src: "assets/corridor-shadow.mp4" },
+    text: `"Who's there?" Door opens ahead. Cold wind from darkness.`,
     choices: {
-      A: { label: "→ Door", next: "scene4B_door" },
+      A: { label: "→ Open door", next: "scene4B_door" },
       B: { label: "← Hall", next: "scene1" },
       C: { label: "→ Team", next: "scene4B_team" }
     }
   },
+
   scene3B_keep: {
     title: "Footsteps Fade",
-    text: "Footsteps fade. Maybe just old floor…",
+    text: "You pretend nothing happened. Footsteps slowly fade...",
     choices: { A: { label: "← Hall", next: "scene1" }, B: { label: "← Hall", next: "scene1" }, C: { label: "← Hall", next: "scene1" } }
   },
-  scene3C_obey: { title: "House Waits", text: "House silent, waiting.", choices: { A: { label: "← Hall", next: "scene1" }, B: { label: "← Hall", next: "scene1" }, C: { label: "← Hall", next: "scene1" } } },
-  scene3C_open: { title: "Empty Room", text: "Room empty, but someone was here.", choices: { A: { label: "← Hall", next: "scene1" }, B: { label: "← Hall", next: "scene1" }, C: { label: "← Hall", next: "scene1" } } },
+
+  scene3C_obey: { 
+    title: "House Waits", 
+    backTo: "scene1",
+    text: "You obey. House silent, waiting your next move.",
+    choices: { A: { label: "← Hall", next: "scene1" }, B: { label: "← Hall", next: "scene1" }, C: { label: "← Hall", next: "scene1" } } 
+  },
+
+  scene3C_open: { 
+    title: "Forbidden Door", 
+    backTo: "scene1",
+    text: "Cold air. Room empty, but someone was here moments ago.",
+    choices: { A: { label: "← Hall", next: "scene1" }, B: { label: "← Hall", next: "scene1" }, C: { label: "← Hall", next: "scene1" } } 
+  },
+
   scene_henry_intro: {
-    title: "Sir Henry",
+    title: "Sir Henry on the Phone",
     evidence: "Official family story",
-    media: { type: "image", src: "sir-henry.jpeg" },
-    text: "Sir Henry: 'Elizabeth left on her own. No mystery.'",
+    media: { type: "image", src: "sir-henry.jpeg", alt: "Sir Henry" },
+    video: { type: "video", src: "sir-henry-video.mp4" },
+    sound: "sir-henry-voice",
+    quote: "There is no mystery here. My daughter simply needed time away from the family.",
+    text: `Sir Henry sounds calm, controlled. "Elizabeth left on her own and is safe."`,
+    extra: `<em>Идеально выверенные фразы. Веришь ли ты?</em>`,
     choices: {
-      A: { label: "→ Recordings?", next: "scene_henry_recordings" },
-      B: { label: "→ Why no report?", next: "scene_henry_missing" },
-      C: { label: "← Hall", next: "scene1" }
+      A: { label: "→ Deleted recordings?", next: "scene_henry_recordings" },
+      B: { label: "→ Why no missing report?", next: "scene_henry_missing" },
+      C: { label: "← End call", next: "scene1" }
     }
   },
+
   scene_henry_recordings: {
-    title: "Recordings Destroyed",
     evidence: "Recordings destroyed",
-    text: "Sir Henry: 'All recordings destroyed. Nothing important.'",
+    title: "Nothing to See",
+    text: `"All recordings destroyed. Nothing important," says Sir Henry (pauses first).`,
     choices: { A: { label: "← Hall", next: "scene1" }, B: { label: "← Hall", next: "scene1" }, C: { label: "← Hall", next: "scene1" } }
   },
+
   scene_henry_missing: {
-    title: "Not Missing",
     evidence: "No missing report",
-    text: "Sir Henry: 'No reason to report her missing.'",
+    title: "Not Missing",
+    text: `"No reason to report her missing. She's an adult," says Sir Henry coldly.`,
     choices: { A: { label: "← Hall", next: "scene1" }, B: { label: "← Hall", next: "scene1" }, C: { label: "← Hall", next: "scene1" } }
   },
-  scene4A_danger: { title: "East Wing Danger", evidence: "Ignored warning", text: "Air colder. Shadows move.", choices: { A: { label: "← Hall", next: "scene1" }, B: { label: "← Hall", next: "scene1" }, C: { label: "← Hall", next: "scene1" } } },
-  scene4A_team: { title: "Team Discussion", evidence: "Team consensus", text: "'Someone protected Elizabeth'", choices: { A: { label: "← Hall", next: "scene1" }, B: { label: "← Hall", next: "scene1" }, C: { label: "← Hall", next: "scene1" } } },
-  scene4B_door: { title: "Fresh Footprints", text: "Fresh footprints in dust.", choices: { A: { label: "← Hall", next: "scene1" }, B: { label: "← Hall", next: "scene1" }, C: { label: "← Hall", next: "scene1" } } },
-  scene4B_team: { title: "Team Backup", text: "Footprints lead deeper.", choices: { A: { label: "← Hall", next: "scene1" }, B: { label: "← Hall", next: "scene1" }, C: { label: "← Hall", next: "scene1" } } }
+
+  scene4A_danger: {
+    evidence: "Ignored warning", 
+    title: "East Wing Danger",
+    text: "Air grows colder. Something moves in shadows ahead.",
+    extra: "<em>Дом знает, что вы здесь.</em>",
+    choices: { A: { label: "← Hall", next: "scene1" }, B: { label: "← Hall", next: "scene1" }, C: { label: "← Hall", next: "scene1" } }
+  },
+
+  scene4A_team: {
+    evidence: "Team consensus",
+    title: "Team Discussion", 
+    text: "'This changes everything,' says Alex. 'Someone protected Elizabeth.'",
+    choices: { A: { label: "← Hall", next: "scene1" }, B: { label: "← Hall", next: "scene1" }, C: { label: "← Hall", next: "scene1" } }
+  },
+
+  scene4B_door: {
+    title: "Fresh Footprints",
+    media: { type: "video", src: "assets/dark-room.mp4" },
+    text: "Dusty furniture, broken mirror... FRESH FOOTPRINTS in dust.",
+    choices: { A: { label: "← Hall", next: "scene1" }, B: { label: "← Hall", next: "scene1" }, C: { label: "← Hall", next: "scene1" } }
+  },
+
+  scene4B_team: {
+    title: "Team Backup",
+    text: "Flashlights. Footprints lead deeper into house.",
+    choices: { A: { label: "← Hall", next: "scene1" }, B: { label: "← Hall", next: "scene1" }, C: { label: "← Hall", next: "scene1" } }
+  }
 };
 
-// ====== DOM ЭЛЕМЕНТЫ ======
+// ====== DOM ======
 const titleEl = document.getElementById("scene-title");
 const textEl = document.getElementById("scene-text");
+const extraEl = document.getElementById("scene-extra");
+const miniEl = document.getElementById("mini-english-content");
 const btnA = document.getElementById("choiceA");
 const btnB = document.getElementById("choiceB");
 const btnC = document.getElementById("choiceC");
+const backBtn = document.getElementById("backButton");
 const clueMediaEl = document.getElementById("clue-media");
 const inventoryListEl = document.getElementById("inventory-list");
 const scoreDisplayEl = document.getElementById("score-display");
+const endingDisplayEl = document.getElementById("ending-display");
 
 // ====== ИНВЕНТАРЬ ======
 function addEvidence(id) {
@@ -137,11 +214,9 @@ function renderInventory() {
   if (inventoryListEl) {
     inventoryListEl.innerHTML = inventory.length ? 
       inventory.map(id => `<li>${id}</li>`).join('') : 
-      '<li>No evidence yet</li>';
+      '<li>No evidence yet / Улик пока нет</li>';
   }
-  if (scoreDisplayEl) {
-    scoreDisplayEl.textContent = `Score: ${score}`;
-  }
+  if (scoreDisplayEl) scoreDisplayEl.textContent = `Evidence: ${score}`;
 }
 
 // ====== ОТРИСОВКА ======
@@ -151,13 +226,50 @@ function renderScene(id) {
   if (!scene) return;
 
   if (scene.isRadioScene) playSound('radioSound');
+  
+  if (scene.backTo) {
+    backBtn.style.display = "block";
+    backBtn.onclick = () => { playSound('clickSound'); renderScene(scene.backTo); };
+  } else {
+    backBtn.style.display = "none";
+  }
 
   titleEl.textContent = scene.title;
   textEl.textContent = scene.text;
+  extraEl.innerHTML = scene.extra || "";
+  miniEl.innerHTML = scene.miniEnglish || "";
 
   if (scene.evidence) addEvidence(scene.evidence);
-  if (scene.media) {
-    clueMediaEl.innerHTML = `<img src="${scene.media.src}" alt="Clue">`;
+
+  clueMediaEl.innerHTML = "";
+  if (scene.media?.type === "image") {
+    const img = document.createElement("img");
+    img.src = scene.media.src;
+    img.alt = scene.media.alt || "Clue";
+    clueMediaEl.appendChild(img);
+  } else if (scene.media?.type === "video") {
+    const video = document.createElement("video");
+    video.src = scene.media.src;
+    video.autoplay = video.muted = video.loop = true;
+    clueMediaEl.appendChild(video);
+  }
+
+  if (scene.video) {
+    const video = document.createElement("video");
+    video.src = scene.video.src;
+    video.autoplay = video.muted = video.loop = true;
+    video.style.maxWidth = "100%";
+    video.style.borderRadius = "12px";
+    clueMediaEl.appendChild(video);
+  }
+
+  if (scene.sound) playSound(scene.sound);
+
+  if (scene.quote) {
+    const quote = document.createElement("div");
+    quote.style.cssText = `background: rgba(0,0,0,0.8); color: #f5f1e8; padding: 16px; border-radius: 12px; margin: 8px 0; font-style: italic;`;
+    quote.textContent = `"${scene.quote}"`;
+    clueMediaEl.appendChild(quote);
   }
 
   const choices = scene.choices;
