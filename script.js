@@ -420,7 +420,7 @@ const scenes = {
     }
   },
 
-  scene4B_team: {
+    scene4B_team: {
     chapter: "Episode IV · Against Warnings",
     title: "Team Backup Arrives",
     text: "Your team arrives with flashlights. Together you approach the open door. The footprints lead deeper into the house.",
@@ -430,8 +430,8 @@ const scenes = {
       B: { label: "← Back to hall", next: "scene1" },
       C: { label: "→ Secure the area", next: "scene1" }
     }
- };
-
+  }
+};  
 
 
 // ====== ИНВЕНТАРЬ и СТАТУС ======
