@@ -264,29 +264,32 @@ const scenes = {
   evidence: "Official family story",
   media: {
     type: "image",
-    src: "assets/sir-henry.jpg",  // твой файл Izobrazhenie-8.jpg переименуй в sir-henry.jpg
-    alt: "Sir Henry Ravenhill"
+    src: "sir-henry.jpg"
   },
+  video: {
+    type: "video",
+    src: "sir-henry-video.mp4"
+  },
+  sound: "sir-henry-voice",
   quote: "There is no mystery here. My daughter simply needed time away from the family. Please, do not dramatise the situation.",
   text: `You call Sir Henry Ravenhill. His voice sounds calm and controlled. He thanks you for your "professional interest" and repeats the official version: Elizabeth left the estate on her own and is safe.`,
-  // остальное без изменений...
+  extra: `<em>Он говорит идеально выверенными фразами. Но веришь ли ты ему?</em>`,
+  miniEnglish: `
+    <strong>Key vocabulary:</strong><br>
+    calm and controlled — speaking without strong emotions; спокойный, контролирующий себя<br>
+    official version — what the family tells the public; официальная версия<br>
+    to leave on one's own — уйти по собственной воле
+    <br><br>
+    <strong>Question:</strong><br>
+    What does Sir Henry say about Elizabeth?
+  `,
+  choices: {
+    A: { label: "→ Ask about the deleted recordings", next: "scene_henry_recordings" },
+    B: { label: "→ Ask why he didn't report her missing", next: "scene_henry_missing" },
+    C: { label: "← End the call and go back to the hall", next: "scene1" }
+  }
+},
 
-    extra: `<em>Он говорит идеально выверенными фразами. Но веришь ли ты ему?</em>`,
-    miniEnglish: `
-      <strong>Key vocabulary:</strong><br>
-      calm and controlled — speaking without strong emotions; спокойный, контролирующий себя<br>
-      official version — what the family tells the public; официальная версия<br>
-      to leave on one's own — уйти по собственной воле
-      <br><br>
-      <strong>Question:</strong><br>
-      What does Sir Henry say about Elizabeth?
-    `,
-    choices: {
-      A: { label: "→ Ask about the deleted recordings", next: "scene_henry_recordings" },
-      B: { label: "→ Ask why he didn't report her missing", next: "scene_henry_missing" },
-      C: { label: "← End the call and go back to the hall", next: "scene1" }
-    }
-  },
 
   scene_henry_recordings: {
     chapter: "Episode II · The Family's Version",
@@ -464,6 +467,47 @@ if (scene.backTo) {
         clueMediaEl.appendChild(video);
       }
     }
+// видео персонажа
+if (scene.video) {
+  const video = document.createElement("video");
+  video.src = scene.video.src;
+  video.autoplay = true;
+  video.muted = true;
+  video.loop = true;
+  video.playsInline = true;
+  video.style.maxWidth = "100%";
+  video.style.borderRadius = "12px";
+  video.style.marginTop = "8px";
+  clueMediaEl.appendChild(video);
+}
+
+// звук персонажа
+if (scene.sound) {
+  playSound(scene.sound);
+}
+
+// цитата в пузыре речи
+if (scene.quote) {
+  const quoteBubble = document.createElement("div");
+  quoteBubble.style.cssText = `
+    background: linear-gradient(135deg, rgba(27,30,41,0.95), rgba(10,12,20,0.95));
+    border: 2px solid rgba(201,164,109,0.6);
+    border-radius: 20px 20px 8px 20px;
+    padding: 16px 20px 12px;
+    margin: 12px 0;
+    position: relative;
+    font-style: italic;
+    color: #f5f1e8;
+    font-size: 0.95rem;
+    max-width: 90%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+  `;
+  quoteBubble.innerHTML = `
+    <div style="position: absolute; bottom: -8px; left: 24px; width: 0; height: 0; border: 8px solid transparent; border-top-color: rgba(201,164,109,0.6);"></div>
+    "${scene.quote}"
+  `;
+  clueMediaEl.appendChild(quoteBubble);
+}
 
 
     btnA.textContent = scene.choices.A.label;
