@@ -291,11 +291,12 @@ const scenes = {
 },
 
 
-  scene_henry_recordings: {
+    scene_henry_recordings: {
     chapter: "Episode II · The Family's Version",
     title: "Nothing to See Here",
     evidence: "Recordings were destroyed",
-    text: `When you mention the security recordings, Sir Henry pauses for a second. Then he says, "All technical materials from that period were destroyed. There was nothing of importance on them."`,
+    text: `When you mention the security recordings, Sir Henry pauses for a second. Then he says, "All technical materials from that period
+
     extra: `<em>Слишком чёткий, слишком быстрый ответ. Почти как заранее выученная фраза.</em>`,
     miniEnglish: `
       <strong>Key vocabulary:</strong><br>
