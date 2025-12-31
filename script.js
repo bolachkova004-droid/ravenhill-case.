@@ -578,27 +578,7 @@ function renderScene(id) {
       playSound(scene.sound);
     }
 
-    if (scene.quote) {
-      const quoteBubble = document.createElement("div");
-      quoteBubble.style.cssText = `
-        background: linear-gradient(135deg, rgba(27,30,41,0.95), rgba(10,12,20,0.95));
-        border: 2px solid rgba(201,164,109,0.6);
-        border-radius: 20px 20px 8px 20px;
-        padding: 16px 20px 12px;
-        margin: 12px 0;
-        position: relative;
-        font-style: italic;
-        color: #f5f1e8;
-        font-size: 0.95rem;
-        max-width: 90%;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-      `;
-      quoteBubble.innerHTML = `
-        <div style="position: absolute; bottom: -8px; left: 24px; width: 0; height: 0; border: 8px solid transparent; border-top-color: rgba(201,164,109,0.6);"></div>
-        "${scene.quote}"
-      `;
-      clueMediaEl.appendChild(quoteBubble);
-    }
+   
 
     // защита: если у сцены нет choices (заглушка) — просто вернёмся в hall
     const choices = scene.choices || {
