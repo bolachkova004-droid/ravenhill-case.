@@ -41,29 +41,28 @@ const scenes = {
     }
   },
 
-  scene2A: {
-    chapter: "Episode I · The Summons",
-    title: "The Hallway Echoes",
-    evidence: "Elizabeth's diary",
-    media: { type: "video", src: "assets/diary-abandoned.mp4" },
-    text: `You stay in the cold, dark hall and carefully open Elizabeth's diary. The first page is dated <strong>"October 12, 2004"</strong>. 
-           The handwriting is quick and nervous, as if she wrote in a hurry, afraid of being caught.`,
-    extra: `<em style="color: #c9a46d;">Вы остаетесь в холле и начинаете читать. Почерк Элизабет дрожит от страха.</em><br><br>
-            <strong>📜 Diary entry:</strong><br>
-            "<em>The house feels different tonight. I keep hearing soft footsteps in the East Wing, but when I open the door, the corridor is empty. 
-            Everyone tells me I'm just tired and imagining things. Mother says I should stop writing about the house. 
-            But I can't. Something is wrong here, and I don't feel safe anymore.</em>"`,
-    miniEnglish: `
-      <strong>Key vocabulary:</strong><br>
-      footsteps — звуки шагов; шаги<br>
-      to imagine things — воображать несуществующее<br>
-      to feel safe — чувствовать себя в безопасности
-      <br><br>
-      <strong>✅ Check:</strong><br>
-      Why doesn't Elizabeth feel safe?<br>
-      <em>a) She hears footsteps but sees no one</em>
-    `,
-    choices: {
+  sscene2A: {
+  chapter: "Episode I · The Summons",
+  title: "🖤 Elizabeth's Diary",
+  evidence: "Elizabeth's diary",
+  media: { 
+    type: "image", 
+    src: "diary-mystical.png",
+    alt: "Mystical diary with trembling hands"
+  },
+  sound: "diary-voice",  // ← озвучка!
+  text: `You stay in the cold hall and open the diary. The first page is dated "<strong>October 12, 2004</strong>". 
+         The handwriting is quick and nervous, as if written in fear...`,
+  extra: `<em style="color: #c9a46d;">🎧 Нажми PLAY, чтобы услышать голос Элизабет читает сама...</em><br><br>
+          <strong>📜 Diary entry:</strong><br>
+          "<em>The house feels different tonight. I keep hearing soft footsteps in the East Wing...</em>"`,
+  miniEnglish: `
+    <strong>Key vocabulary:</strong><br>
+    footsteps — шаги<br>
+    handwriting — почерк<br>
+    to feel safe — чувствовать себя в безопасности
+  `,
+  choices: {
       A: { label: "A. Carefully read the next page of the diary", next: "scene3A" },
       B: { label: "B. Close the diary and immediately go to the East Wing", next: "scene2B" },
       C: { label: "C. Take the diary with you and search for the old radio", next: "scene2C" }
