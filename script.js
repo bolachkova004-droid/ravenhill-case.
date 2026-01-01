@@ -87,7 +87,7 @@ const scenes = {
       Where do you hear the footsteps? (Где слышны шаги?)
     `,
     choices: {
-      A: { label: "A. Call out loudly: <em>'Who's there?'</em>", next: "scene3B_call" },
+       A: { label: "A. Call out loudly: “Who’s there?”", next: "scene3B_call" },
       B: { label: "B. Pretend you heard nothing and keep walking forward", next: "scene3B_keep" },
       C: { label: "C. Run back to the safety of the hall as fast as you can", next: "scene1" }
     }
