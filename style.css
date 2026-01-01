@@ -330,5 +330,9 @@ body {
   0%, 18%, 22%, 25%, 53%, 57%, 100% { text-shadow: 0 0 20px rgba(220,50,50,0.8), 0 0 40px rgba(139,0,0,0.6), 2px 2px 4px rgba(0,0,0,0.8); }
   20%, 24%, 55% { text-shadow: none; }
 }
+@media (max-width: 480px) {
+  .start-title { font-size: clamp(2.2rem, 14vw, 3.8rem); letter-spacing: 0.1em; }
+  .start-inner { padding: 0.8rem 2rem 3rem; margin: 4vh 2vw; }
+}
 
 
