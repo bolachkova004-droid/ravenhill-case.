@@ -272,7 +272,9 @@ function renderScene(id) {
     if (scene.evidence) addEvidence(scene.evidence);
 
     // МЕДИА
-    clueMediaEl.innerHTML = "";
+        clueMediaEl.innerHTML = "";
+
+    // 1) КАРТИНКА ИЛИ ВИДЕО
     if (scene.media?.type === "image") {
       const img = document.createElement("img");
       img.src = scene.media.src;
@@ -280,23 +282,27 @@ function renderScene(id) {
       img.style.maxWidth = "100%";
       img.style.borderRadius = "12px";
       clueMediaEl.appendChild(img);
-    }
-    
-    if (scene.video) {
+    } else if (scene.media?.type === "video") {   // ← важно: else if
       const video = document.createElement("video");
-      video.src = scene.video.src;
-      video.autoplay = video.muted = video.loop = true;
+      video.src = scene.media.src;
+      video.autoplay = true;
+      video.muted = true;
+      video.loop = true;
       video.style.maxWidth = "100%";
       video.style.borderRadius = "12px";
       clueMediaEl.appendChild(video);
     }
-    // АВТОПЛЕЙ ОЗВУЧКИ ДНЕВНИКА (ТОЛЬКО ДЛЯ scene2A)
-    if (scene.sound === "diary-voice") {
-      setTimeout(() => playSound("diary-voice"), 500); // лёгкая пауза
+
+    // 2) ОБЩИЙ ЗВУК СЦЕНЫ (радио, голос Генри, дневник)
+    if (scene.sound && scene.sound !== "diary-voice") {
+      // все звуки, КРОМЕ дневника, играем сразу
+      playSound(scene.sound);
     }
 
-    // КНОПКА PLAY ДЛЯ ДНЕВНИКА
+    // 3) АВТОПЛЕЙ И КНОПКА ТОЛЬКО ДЛЯ ДНЕВНИКА
     if (scene.sound === "diary-voice") {
+      setTimeout(() => playSound("diary-voice"), 500); // лёгкая пауза
+
       const playBtn = document.createElement("button");
       playBtn.textContent = "🎧 Слушать дневник";
       playBtn.style.cssText =
@@ -304,6 +310,7 @@ function renderScene(id) {
       playBtn.onclick = () => playSound("diary-voice");
       clueMediaEl.appendChild(playBtn);
     }
+
 
     if (scene.sound) playSound(scene.sound);
 
