@@ -14,6 +14,38 @@ document.addEventListener('click', () => {
     musicStarted = true;
   }
 }, { once: true });
+// ⭐ СТАРТОВЫЙ ЭКРАН ⭐
+document.addEventListener('DOMContentLoaded', function() {
+  const startScreen = document.getElementById('start-screen');
+  const gameContent = document.querySelector('.game-content');
+  const startBtn = document.getElementById('start-game-btn');
+  
+  if (!startScreen) return; // если стартового экрана нет, играем сразу
+  
+  startBtn.addEventListener('click', function() {
+    // плавное исчезновение старта
+    startScreen.style.transition = 'opacity 0.6s ease-out';
+    startScreen.style.opacity = '0';
+    startScreen.style.pointerEvents = 'none';
+    
+    setTimeout(() => {
+      startScreen.style.display = 'none';
+      
+      // появление игры
+      gameContent.style.display = 'block';
+      gameContent.style.opacity = '0';
+      gameContent.style.transition = 'opacity 0.6s ease-in';
+      setTimeout(() => { gameContent.style.opacity = '1'; }, 50);
+      
+      // музыка + первая сцена
+      if (!musicStarted) {
+        playSound('bgMusic');
+        musicStarted = true;
+      }
+      renderScene("scene1");
+    }, 600);
+  });
+});
 
 // ====== ИГРА ======
 let inventory = [];
