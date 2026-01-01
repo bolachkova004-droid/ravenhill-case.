@@ -41,33 +41,34 @@ const scenes = {
     }
   },
 
-  sscene2A: {
-  chapter: "Episode I · The Summons",
-  title: "🖤 Elizabeth's Diary",
-  evidence: "Elizabeth's diary",
-  media: { 
-    type: "image", 
-    src: "diary-mystical.png",
-    alt: "Mystical diary with trembling hands"
-  },
-  sound: "diary-voice",  // ← озвучка!
-  text: `You stay in the cold hall and open the diary. The first page is dated "<strong>October 12, 2004</strong>". 
-         The handwriting is quick and nervous, as if written in fear...`,
-  extra: `<em style="color: #c9a46d;">🎧 Нажми PLAY, чтобы услышать голос Элизабет читает сама...</em><br><br>
-          <strong>📜 Diary entry:</strong><br>
-          "<em>The house feels different tonight. I keep hearing soft footsteps in the East Wing...</em>"`,
-  miniEnglish: `
-    <strong>Key vocabulary:</strong><br>
-    footsteps — шаги<br>
-    handwriting — почерк<br>
-    to feel safe — чувствовать себя в безопасности
-  `,
-  choices: {
+    scene2A: {
+    chapter: "Episode I · The Summons",
+    title: "🖤 Elizabeth's Diary",
+    evidence: "Elizabeth's diary",
+    media: { 
+      type: "image", 
+      src: "diary-mystical.png",
+      alt: "Mystical diary with trembling hands"
+    },
+    sound: "diary-voice",
+    text: `You stay in the cold hall and open the diary. The first page is dated "<strong>October 12, 2004</strong>". 
+           The handwriting is quick and nervous, as if written in fear...`,
+    extra: `<em style="color: #c9a46d;">🎧 Нажми PLAY, чтобы услышать голос Элизабет читает сама...</em><br><br>
+            <strong>📜 Diary entry:</strong><br>
+            "<em>The house feels different tonight. I keep hearing soft footsteps in the East Wing...</em>"`,
+    miniEnglish: `
+      <strong>Key vocabulary:</strong><br>
+      footsteps — шаги<br>
+      handwriting — почерк<br>
+      to feel safe — чувствовать себя в безопасности
+    `,
+    choices: {
       A: { label: "A. Carefully read the next page of the diary", next: "scene3A" },
       B: { label: "B. Close the diary and immediately go to the East Wing", next: "scene2B" },
       C: { label: "C. Take the diary with you and search for the old radio", next: "scene2C" }
     }
   },
+
 
   scene2B: {
     chapter: "Episode I · The Summons",
