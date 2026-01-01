@@ -6,16 +6,23 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- ⭐ СТАРТОВЫЙ ЭКРАН ИГРЫ ⭐ -->
-  <div id="start-screen" class="start-screen">
-    <div class="start-inner">
-      <h1 class="start-title">The Ravenhill Case</h1>
-      <p class="start-subtitle">Interactive mystery game for English learners (B1–B2)</p>
-      <div class="start-logo">🕵️‍♂️</div>
-      <button id="start-game-btn" class="start-btn">▶ Start the investigation</button>
-      <p class="start-hint">Click to enter the Ravenhill Estate...</p>
-    </div>
+  <!-- ⭐ МРАЧНЫЙ СТАРТОВЫЙ ЭКРАН ⭐ -->
+<div id="start-screen" class="start-screen">
+  <video class="start-video-bg" autoplay muted loop playsinline>
+    <source src="assets/ravenhill-intro.mp4" type="video/mp4"> <!-- твой видео-файл -->
+    <source src="hall-intro.mp4" type="video/mp4"> <!-- запасной -->
+  </video>
+  <div class="start-overlay"></div>
+  
+  <div class="start-inner">
+    <h1 class="start-title">RAVENHILL</h1>
+    <p class="start-subtitle">The Case</p>
+    <div class="start-glow-line"></div>
+    <button id="start-game-btn" class="start-btn">ENTER THE ESTATE</button>
+    <p class="start-hint">Episode I · The Summons</p>
   </div>
+</div>
+
 
   <!-- 🎮 ОСНОВНОЙ КОНТЕНТ ИГРЫ (скрыт изначально) -->
   <div class="page game-content">
