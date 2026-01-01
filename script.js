@@ -268,10 +268,10 @@ function renderScene(id) {
     extraEl.innerHTML = scene.extra || "";
     miniEl.innerHTML = scene.miniEnglish || "";
 
-    // УЛИКИ
+       // УЛИКИ
     if (scene.evidence) addEvidence(scene.evidence);
 
-   // ===== МЕДИА (картинка или видео) =====
+    // ===== МЕДИА (картинка или видео) =====
     clueMediaEl.innerHTML = "";
 
     if (scene.media?.type === "image") {
@@ -299,16 +299,6 @@ function renderScene(id) {
       playSound(scene.sound);
     }
 
-    // дневник: автоплей + кнопка «Слушать дневник»
-        // дневник: автоплей + кнопка «Слушать дневник»
-       // дневник: ТОЛЬКО кнопка «Слушать дневник», без автоплея
-        // дневник: ТОЛЬКО кнопка «Слушать дневник», без автоплея
-        // ===== ЗВУКИ СЦЕНЫ =====
-    // все звуки, КРОМЕ дневника, играем сразу (радио, голос Генри и т.п.)
-    if (scene.sound && scene.sound !== "diary-voice") {
-      playSound(scene.sound);
-    }
-
     // дневник: ТОЛЬКО кнопка «Слушать дневник», без автоплея
     if (scene.sound === "diary-voice") {
       const playBtn = document.createElement("button");
@@ -326,11 +316,6 @@ function renderScene(id) {
 
       clueMediaEl.appendChild(playBtn);
     }
-
-
-
-
-    
 
     // ✨ КРАСИВОЕ ОКОШКО ЦИТАТЫ ГЕНРИ
     if (scene.quote) {
@@ -369,8 +354,9 @@ function renderScene(id) {
     btnC.onclick = () => { playSound('clickSound'); renderScene(choices.C.next); };
 
     document.body.classList.remove('fade-out');
-  }, 300);
-}
+  }, 300); // конец setTimeout
+}         // конец renderScene
+
 
 // ====== CSS АНИМАЦИЯ (добавь в <style>) ======
 const style = document.createElement('style');
