@@ -162,8 +162,58 @@ const scenes = {
       B: { label: "→ Immediately show this note to your investigation team", next: "scene4A_team" },
       C: { label: "← Return to the safety of the main hall", next: "scene1" }
     }
-  }
+  },
   
+scene4A_danger: {
+    chapter: "Episode IV · Against Warnings",
+    title: "Danger in the East Wing",
+    evidence: "Ignored warning",
+    text: "You step into the East Wing despite the warning. The air grows colder with every step. Somewhere ahead, something moves in the shadows, just out of sight.",
+    extra: "<em>Вы нарушили правило дома. Теперь он наблюдает за каждым шагом.</em>",
+    choices: {
+      A: { label: "→ Keep going into the darkness", next: "scene1" },
+      B: { label: "← Retreat to the hall", next: "scene1" },
+      C: { label: "→ Stop and listen carefully", next: "scene1" }
+    }
+  },
+
+  scene4A_team: {
+    chapter: "Episode IV · Against Warnings",
+    title: "Team Discussion",
+    evidence: "Team consensus",
+    text: "You show the note to your team. Alex frowns: \"This means someone else was trying to protect Elizabeth from the house.\"",
+    extra: "<em>Теперь у вас есть союзники — и больше вопросов, чем ответов.</em>",
+    choices: {
+      A: { label: "→ Go to the East Wing together", next: "scene1" },
+      B: { label: "→ Check old security logs later", next: "scene1" },
+      C: { label: "← Return to the hall and plan", next: "scene1" }
+    }
+  },
+
+  scene4B_door: {
+    chapter: "Episode IV · Against Warnings",
+    title: "The Open Door",
+    media: { type: "video", src: "assets/dark-room.mp4" },
+    text: "You approach the open door. Inside you see dusty furniture, a cracked mirror and fresh footprints in the dust leading deeper into the room.",
+    extra: "<em>Кто-то был здесь совсем недавно. Возможно, он всё ещё в доме.</em>",
+    choices: {
+      A: { label: "→ Follow the fresh footprints", next: "scene1" },
+      B: { label: "← Close the door and go back to the hall", next: "scene1" },
+      C: { label: "→ Take photos for evidence", next: "scene1" }
+    }
+  },
+
+  scene4B_team: {
+    chapter: "Episode IV · Against Warnings",
+    title: "Team Backup",
+    text: "Your team arrives with flashlights. Together you move toward the open door. The footprints lead out of the room and deeper into the house.",
+    extra: "<em>Вместе безопаснее, но дом всё равно шепчет в темноте.</em>",
+    choices: {
+      A: { label: "→ Follow the trail as a team", next: "scene1" },
+      B: { label: "← Mark the room and go back to the hall", next: "scene1" },
+      C: { label: "→ Secure the area and take notes", next: "scene1" }
+    }
+  }
 };
 
 // ====== DOM ЭЛЕМЕНТЫ ======
