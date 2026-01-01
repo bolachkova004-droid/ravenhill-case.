@@ -245,31 +245,30 @@ body {
 }
 
 .start-inner {
-  text-align: center; padding: 2rem 2.5rem 4rem; /* ↑ меньше сверху */
-  max-width: 650px; /* шире для длинного текста */
+  text-align: center; 
+  padding: 1rem 2.5rem 4rem; /* 1rem сверху вместо 3rem! */
+  max-width: 700px;
+  max-height: 90vh; /* лимит высоты */
   position: relative; z-index: 3;
-  background: rgba(5,6,10,0.9); 
-  border-radius: 0; /* острые углы для драмы */
-  border: 2px solid rgba(201,164,109,0.3); 
+  background: rgba(5,6,10,0.92);
+  border-radius: 0;
+  border: 2px solid rgba(201,164,109,0.3);
   box-shadow: 0 0 60px rgba(139,69,19,0.5);
-  margin: 0 2rem; /* отступы по бокам */
+  margin: 2vh 3vw; /* % отступы для всех экранов */
+  overflow: visible; /* текст выходит за рамку */
+  display: flex; flex-direction: column; justify-content: center;
 }
+
 
 
 .start-title {
-  font-family: 'Crimson Text', serif; 
-  font-size: clamp(3rem, 10vw, 5.2rem); /* ↓ чуть меньше max */
-  font-weight: 600; 
-  margin: 0.2rem 0 0.8rem; /* баланс отступов */
-  color: #f5e6d3; 
-  text-transform: uppercase; 
-  letter-spacing: 0.15em;
-  text-shadow: 
-    0 0 20px rgba(220,50,50,0.8),
-    0 0 40px rgba(139,0,0,0.6),
-    2px 2px 4px rgba(0,0,0,0.8);
-  animation: title-flicker 4s infinite;
+  font-family: 'Crimson Text', serif;
+  font-size: clamp(2.8rem, 8vw, 4.8rem); /* ↓ max-size поменьше */
+  font-weight: 600;
+  margin: 0.1rem 0 0.6rem 0; /* минимальные отступы */
+  /* остальное без изменений */
 }
+
 
 .start-subtitle { 
   font-size: clamp(1.4rem, 4vw, 2.2rem); 
