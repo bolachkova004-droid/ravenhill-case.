@@ -301,9 +301,8 @@ function renderScene(id) {
 
     // дневник: автоплей + кнопка «Слушать дневник»
         // дневник: автоплей + кнопка «Слушать дневник»
+       // дневник: ТОЛЬКО кнопка «Слушать дневник», без автоплея
     if (scene.sound === "diary-voice") {
-      setTimeout(() => playSound("diary-voice"), 500);
-
       const playBtn = document.createElement("button");
       playBtn.textContent = "🎧 Слушать дневник";
       playBtn.style.cssText =
@@ -319,6 +318,7 @@ function renderScene(id) {
 
       clueMediaEl.appendChild(playBtn);
     }
+
 
 
     
