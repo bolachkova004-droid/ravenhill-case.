@@ -6,7 +6,19 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="page">
+  <!-- ⭐ СТАРТОВЫЙ ЭКРАН ИГРЫ ⭐ -->
+  <div id="start-screen" class="start-screen">
+    <div class="start-inner">
+      <h1 class="start-title">The Ravenhill Case</h1>
+      <p class="start-subtitle">Interactive mystery game for English learners (B1–B2)</p>
+      <div class="start-logo">🕵️‍♂️</div>
+      <button id="start-game-btn" class="start-btn">▶ Start the investigation</button>
+      <p class="start-hint">Click to enter the Ravenhill Estate...</p>
+    </div>
+  </div>
+
+  <!-- 🎮 ОСНОВНОЙ КОНТЕНТ ИГРЫ (скрыт изначально) -->
+  <div class="page game-content">
     <header class="header">
       <h1>The Ravenhill Case</h1>
       <p class="subtitle">Interactive mystery game for English learners (B1–B2)</p>
@@ -58,8 +70,6 @@
     </main>
   </div>
 
-  <script src="script.js"></script>
-
   <div id="scene-overlay" class="scene-overlay">
     <span>The house is thinking...</span>
   </div>
@@ -83,5 +93,6 @@
   <audio id="diary-voice" src="diary-voice.mp3">
   </audio>
 
+  <script src="script.js"></script>
 </body>
 </html>
