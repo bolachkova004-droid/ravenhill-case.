@@ -300,18 +300,25 @@ function renderScene(id) {
     }
 
     // дневник: автоплей + кнопка «Слушать дневник»
+        // дневник: автоплей + кнопка «Слушать дневник»
     if (scene.sound === "diary-voice") {
-      // мягкий автоплей через 0.5 секунды
       setTimeout(() => playSound("diary-voice"), 500);
 
       const playBtn = document.createElement("button");
       playBtn.textContent = "🎧 Слушать дневник";
       playBtn.style.cssText =
         "margin-top: 12px; background: rgba(201,164,109,0.18); border: 1px solid #c9a46d; color: #f5f1e8; padding: 8px 18px; border-radius: 20px; cursor: pointer; font-size: 0.9rem;";
-      playBtn.onclick = () => playSound("diary-voice");
+
+      playBtn.onclick = () => {
+        const audio = document.getElementById("diary-voice");
+        if (audio) {
+          audio.currentTime = 0;
+          audio.play().catch(() => {});
+        }
+      };
+
       clueMediaEl.appendChild(playBtn);
     }
-
 
 
     
