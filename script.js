@@ -162,7 +162,7 @@ const scenes = {
       C: { label: "← Return to the safety of the main hall", next: "scene1" }
     }
   }
-  // Добавь остальные сцены по тому же принципу...
+  
 };
 
 // ====== DOM ЭЛЕМЕНТЫ ======
