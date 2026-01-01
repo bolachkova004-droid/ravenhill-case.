@@ -271,10 +271,9 @@ function renderScene(id) {
     // УЛИКИ
     if (scene.evidence) addEvidence(scene.evidence);
 
-    // МЕДИА
-        clueMediaEl.innerHTML = "";
+   // ===== МЕДИА (картинка или видео) =====
+    clueMediaEl.innerHTML = "";
 
-    // 1) КАРТИНКА ИЛИ ВИДЕО
     if (scene.media?.type === "image") {
       const img = document.createElement("img");
       img.src = scene.media.src;
@@ -282,26 +281,28 @@ function renderScene(id) {
       img.style.maxWidth = "100%";
       img.style.borderRadius = "12px";
       clueMediaEl.appendChild(img);
-    } else if (scene.media?.type === "video") {   // ← важно: else if
+    } else if (scene.media?.type === "video") {
       const video = document.createElement("video");
       video.src = scene.media.src;
       video.autoplay = true;
       video.muted = true;
       video.loop = true;
+      video.playsInline = true;
       video.style.maxWidth = "100%";
       video.style.borderRadius = "12px";
       clueMediaEl.appendChild(video);
     }
 
-    // 2) ОБЩИЙ ЗВУК СЦЕНЫ (радио, голос Генри, дневник)
+    // ===== ЗВУКИ СЦЕНЫ =====
+    // все звуки, КРОМЕ дневника, играем сразу (радио, голос Генри и т.п.)
     if (scene.sound && scene.sound !== "diary-voice") {
-      // все звуки, КРОМЕ дневника, играем сразу
       playSound(scene.sound);
     }
 
-    // 3) АВТОПЛЕЙ И КНОПКА ТОЛЬКО ДЛЯ ДНЕВНИКА
+    // дневник: автоплей + кнопка «Слушать дневник»
     if (scene.sound === "diary-voice") {
-      setTimeout(() => playSound("diary-voice"), 500); // лёгкая пауза
+      // мягкий автоплей через 0.5 секунды
+      setTimeout(() => playSound("diary-voice"), 500);
 
       const playBtn = document.createElement("button");
       playBtn.textContent = "🎧 Слушать дневник";
@@ -312,7 +313,8 @@ function renderScene(id) {
     }
 
 
-    if (scene.sound) playSound(scene.sound);
+
+    
 
     // ✨ КРАСИВОЕ ОКОШКО ЦИТАТЫ ГЕНРИ
     if (scene.quote) {
