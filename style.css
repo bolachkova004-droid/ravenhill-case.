@@ -8,15 +8,12 @@ body {
   margin: 0;
   font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background-color: #050609;
-  background-image: url('board2.jpg'); /* новое имя */
+  background-image: url('board2.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   color: #f5f1e8;
 }
-
-
-
 
 .page {
   max-width: 900px;
@@ -46,8 +43,6 @@ body {
   margin-bottom: 26px;
 }
 
-
-
 .game {
   background: rgba(5, 6, 10, 0.9);
   border-radius: 24px;
@@ -68,7 +63,6 @@ body {
   margin-top: 16px;
 }
 
-
 .game::before {
   content: "";
   position: absolute;
@@ -77,7 +71,6 @@ body {
   border-radius: 18px;
   pointer-events: none;
 }
-
 
 .scene h2 {
   font-family: 'Crimson Text', serif;
@@ -120,6 +113,7 @@ body {
     box-shadow 0.15s ease,
     border-color 0.15s ease;
 }
+
 .back-btn {
   width: auto;
   max-width: 260px;
@@ -141,19 +135,16 @@ body {
   background: rgba(0, 0, 0, 0.4);
 }
 
-/* лёгкое свечение при наведении */
 .choice-btn:hover {
   background: #262a39;
   border-color: rgba(230, 195, 132, 0.95);
 }
 
-/* нажатие как у физической кнопки */
 .choice-btn:active {
   transform: translateY(3px);
   box-shadow: 0 2px 0 #705131;
 }
 
-/* вспышка при клике */
 .choice-btn::after {
   content: "";
   position: absolute;
@@ -169,6 +160,7 @@ body {
   opacity: 1;
   transform: scale(1.1);
 }
+
 .clue-media {
   margin-top: 16px;
   text-align: center;
@@ -182,6 +174,60 @@ body {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
 }
 
+/* ====== INVENTORY STYLING ====== */
+#inventory-list {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+}
+
+#inventory-list li {
+  background: rgba(201, 164, 109, 0.12);
+  border: 1px solid rgba(201, 164, 109, 0.4);
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin: 6px 0;
+  font-size: 0.92rem;
+  color: #f5f1e8;
+  transition: background 0.2s ease;
+}
+
+#inventory-list li:hover {
+  background: rgba(201, 164, 109, 0.2);
+}
+
+#inventory-list li::before {
+  content: "рџ“‹ ";
+  margin-right: 6px;
+}
+
+/* ====== SCENE OVERLAY ====== */
+.scene-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  backdrop-filter: blur(4px);
+}
+
+.scene-overlay span {
+  font-family: 'Crimson Text', serif;
+  font-size: 1.8rem;
+  color: #c9a46d;
+  text-shadow: 0 0 20px rgba(201, 164, 109, 0.6);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
 
 .mini-english h3 {
   font-family: 'Crimson Text', serif;
@@ -221,54 +267,76 @@ body {
   opacity: 0;
   transform: translateY(12px);
 }
+
 .game-content { 
   display: none; 
   opacity: 0; 
   transition: opacity 0.5s ease-in-out; 
 }
 
+/* ====== START SCREEN ====== */
 .start-screen {
-  position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-  display: flex; align-items: center; justify-content: center;
-  z-index: 9999; overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
 }
 
 .start-video-bg {
-  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-  object-fit: cover; z-index: 1; opacity: 0.7; filter: grayscale(0.4) contrast(1.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  opacity: 0.7;
+  filter: grayscale(0.4) contrast(1.2);
 }
 
 .start-overlay {
-  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: radial-gradient(circle at center, rgba(0,0,0,0.1) 0%, rgba(5,0,10,0.95) 70%);
   z-index: 2;
 }
 
 .start-inner {
   text-align: center; 
-  padding: 1rem 2.5rem 4rem; /* 1rem сверху вместо 3rem! */
+  padding: 1rem 2.5rem 4rem;
   max-width: 700px;
-  max-height: 90vh; /* лимит высоты */
-  position: relative; z-index: 3;
+  max-height: 90vh;
+  position: relative;
+  z-index: 3;
   background: rgba(5,6,10,0.92);
   border-radius: 0;
   border: 2px solid rgba(201,164,109,0.3);
   box-shadow: 0 0 60px rgba(139,69,19,0.5);
-  margin: 2vh 3vw; /* % отступы для всех экранов */
-  overflow: visible; /* текст выходит за рамку */
-  display: flex; flex-direction: column; justify-content: center;
+  margin: 2vh 3vw;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-
-
 
 .start-title {
   font-family: 'Crimson Text', serif;
-  font-size: clamp(2.8rem, 8vw, 4.8rem); /* ↓ max-size поменьше */
+  font-size: clamp(2.8rem, 8vw, 4.8rem);
   font-weight: 600;
-  margin: 0.1rem 0 0.6rem 0; /* минимальные отступы */
-  /* остальное без изменений */
+  margin: 0.1rem 0 0.6rem 0;
+  letter-spacing: 0.15em;
+  color: #f5f1e8;
+  text-shadow: 0 0 20px rgba(220,50,50,0.8), 0 0 40px rgba(139,0,0,0.6), 2px 2px 4px rgba(0,0,0,0.8);
 }
-
 
 .start-subtitle { 
   font-size: clamp(1.4rem, 4vw, 2.2rem); 
@@ -280,7 +348,9 @@ body {
 }
 
 .start-glow-line {
-  height: 2px; width: 120px; margin: 1.5rem auto;
+  height: 2px;
+  width: 120px;
+  margin: 1.5rem auto;
   background: linear-gradient(90deg, transparent, #c9a46d, transparent);
   box-shadow: 0 0 20px rgba(201,164,109,0.7);
 }
@@ -301,17 +371,26 @@ body {
     inset 0 1px 0 rgba(255,255,255,0.1);
   text-transform: uppercase; 
   letter-spacing: 2px;
-  position: relative; overflow: hidden;
+  position: relative;
+  overflow: hidden;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
 }
 
 .start-btn::before {
-  content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(90deg, transparent, rgba(201,164,109,0.3), transparent);
   transition: left 0.6s;
 }
 
-.start-btn:hover::before { left: 100%; }
+.start-btn:hover::before {
+  left: 100%;
+}
+
 .start-btn:hover {
   border-color: #c9a46d; 
   box-shadow: 0 0 40px rgba(201,164,109,0.7);
@@ -327,12 +406,21 @@ body {
 }
 
 @keyframes title-flicker {
-  0%, 18%, 22%, 25%, 53%, 57%, 100% { text-shadow: 0 0 20px rgba(220,50,50,0.8), 0 0 40px rgba(139,0,0,0.6), 2px 2px 4px rgba(0,0,0,0.8); }
-  20%, 24%, 55% { text-shadow: none; }
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow: 0 0 20px rgba(220,50,50,0.8), 0 0 40px rgba(139,0,0,0.6), 2px 2px 4px rgba(0,0,0,0.8);
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+  }
 }
+
 @media (max-width: 480px) {
-  .start-title { font-size: clamp(2.2rem, 14vw, 3.8rem); letter-spacing: 0.1em; }
-  .start-inner { padding: 0.8rem 2rem 3rem; margin: 4vh 2vw; }
+  .start-title {
+    font-size: clamp(2.2rem, 14vw, 3.8rem);
+    letter-spacing: 0.1em;
+  }
+  .start-inner {
+    padding: 0.8rem 2rem 3rem;
+    margin: 4vh 2vw;
+  }
 }
-
-
