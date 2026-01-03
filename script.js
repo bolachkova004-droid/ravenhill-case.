@@ -13,17 +13,23 @@ let musicStarted = false;
 /* ======================================================
    ⭐ START SCREEN
 ====================================================== */
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
   const startScreen = document.getElementById("start-screen");
   const gameContent = document.querySelector(".game-content");
   const startBtn = document.getElementById("start-game-btn");
 
-  if (!startScreen || !startBtn) {
+  console.log("startScreen:", startScreen);
+  console.log("startBtn:", startBtn);
+
+  if (!startScreen || !startBtn || !gameContent) {
+    console.warn("Start screen elements not found, starting game immediately");
     renderScene("scene1");
     return;
   }
 
-  startBtn.addEventListener("click", () => {
+  startBtn.onclick = () => {
+    console.log("START BUTTON CLICKED");
+
     startScreen.style.opacity = "0";
     startScreen.style.pointerEvents = "none";
 
@@ -31,7 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
       startScreen.style.display = "none";
       gameContent.style.display = "block";
       gameContent.style.opacity = "0";
-      setTimeout(() => (gameContent.style.opacity = "1"), 50);
+
+      setTimeout(() => {
+        gameContent.style.opacity = "1";
+      }, 50);
 
       if (!musicStarted) {
         playSound("bgMusic");
@@ -39,9 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       renderScene("scene1");
-    }, 600);
-  });
-});
+    }
+
 
 /* ======================================================
    🎮 GAME STATE
