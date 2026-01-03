@@ -89,11 +89,17 @@ const scenes = {
             <strong>📜 Diary entry:</strong><br>
             "<em>The house feels different tonight. I keep hearing soft footsteps in the East Wing...</em>"`,
     miniEnglish: `
-      <strong>Key vocabulary:</strong><br>
-      footsteps — шаги<br>
-      handwriting — почерк<br>
-      to feel safe — чувствовать себя в безопасности
-    `,
+  <strong>🎧 After listening, fill in the blanks:</strong><br>
+  The house feels ______ tonight. (different)<br>
+  I keep hearing soft ______ in the East Wing. (footsteps)<br><br>
+  
+  <strong>Vocabulary:</strong><br>
+  handwriting — почерк<br>
+  footsteps — шаги
+  
+  <button onclick="checkAnswers()">✅ Check</button>
+`,
+
     choices: {
       A: { label: "A. Carefully read the next page of the diary", next: "scene3A" },
       B: { label: "B. Close the diary and immediately go to the East Wing", next: "scene2B" },
