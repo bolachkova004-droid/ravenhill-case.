@@ -73,57 +73,39 @@ const scenes = {
     }
   },
 
-   scene2A: {
+ scene2A: {
   chapter: "Episode I · The Summons",
   title: "🖤 Elizabeth's Diary",
   evidence: "Elizabeth's diary",
-  media: { 
-    type: "image", 
-    src: "diary-mystical.png",
-    alt: "Mystical diary with trembling hands"
-  },
+  media: { type: "image", src: "diary-mystical.png", alt: "Mystical diary" },
   sound: "diary-voice",
-  text: `You stay in the cold library. Elizabeth's diary lies open. <strong>Listen first → then complete the CAE tasks!</strong>`,
+  text: `You open Elizabeth's diary in the cold library. <strong>🎧 Listen first → CAE tasks below!</strong>`,
   miniEnglish: `
-<div class="task-alert" style="background:rgba(201,164,109,0.15); border:2px solid #c9a46d; border-radius:12px; padding:16px; margin-bottom:20px;">
-  <strong>🎧 CAE PART 2: Open Cloze + Word Formation (B2)</strong><br>Listen to diary → Fill gaps → Transform words!
+<div class="task-alert" style="background:rgba(201,164,109,0.15);border:2px solid #c9a46d;border-radius:12px;padding:16px;margin-bottom:16px;font-size:1rem">
+  <strong>CAE B2: Cloze (6 gaps) + Word Form (4)</strong> → +3 pts!
 </div>
-<div class="english-task" style="background:rgba(25,30,40,0.95); border:3px solid #c9a46d; border-radius:20px; padding:32px; max-width:600px; margin:0 auto;">
-  
-  <!-- Open Cloze (6 gaps) -->
-  <h4 style="color:#c9a46d; font-size:1.2rem; margin:0 0 20px; text-align:center;">Listen & Fill:</h4>
-  <p style="color:#f5f1e8; font-size:1.12rem; line-height:1.5; margin-bottom:24px;">
-    "The house feels <input id="gap1" type="text" maxlength="8" placeholder="_ _ _ _ _ _ _ _" style="width:160px; border:3px solid #c9a46d; padding:12px 8px; background:#2a2f3a; color:#f5f1e8; font-size:1.1rem; border-radius:8px; margin:0 4px;"> tonight. 
-    I hear soft <input id="gap2" type="text" maxlength="9" placeholder="_ _ _ _ _ _ _ _ _" style="..."> in the East Wing. 
-    My <input id="gap3" type="text" maxlength="11" placeholder="_ _ _ _ _ _ _ _ _ _ _" style="..."> is shaking. 
-    Something <input id="gap4" type="text" maxlength="7" placeholder="_ _ _ _ _ _ _" style="..."> watching me. 
-    The shadows seem to <input id="gap5" type="text" maxlength="6" placeholder="_ _ _ _ _ _" style="..."> alive. 
-    I must find the <input id="gap6" type="text" maxlength="6" placeholder="_ _ _ _ _ _" style="...">."
+<div class="english-task" style="background:rgba(25,30,40,0.95);border:3px solid #c9a46d;border-radius:16px;padding:24px;max-height:400px;overflow-y:auto">
+  <p style="color:#f5f1e8;font-size:1.05rem;line-height:1.4;margin-bottom:20px">
+    "House feels <input id="gap1" maxlength="8" placeholder="_____" style="width:120px;border:2px solid #c9a46d;padding:8px 4px;background:#2a2f3a;color:#f5f1e8;font-size:1rem;border-radius:6px;margin:0 2px"> tonight.<br>
+    Soft <input id="gap2" maxlength="9" placeholder="________" style="width:120px;..."> in East Wing.<br>
+    <input id="gap3" maxlength="11" placeholder="___________" style="width:120px;..."> shaking.<br>
+    Something <input id="gap4" maxlength="7" placeholder="______" style="width:120px;..."> watching.<br>
+    Shadows <input id="gap5" maxlength="6" placeholder="______" style="width:120px;..."> alive.<br>
+    Find the <input id="gap6" maxlength="6" placeholder="______" style="width:120px;...">."
   </p>
-
-  <!-- Word Formation (4 items) -->
-  <h4 style="color:#c9a46d; font-size:1.2rem; margin:24px 0 16px;">Transform:</h4>
-  <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:24px;">
-    <div>
-      investigate (n): <input id="wf1" type="text" maxlength="12" placeholder="_ _ _ _ _ _ _ _ _ _ _ _" style="width:100%; ...">
-    </div>
-    <div>mystery (adj): <input id="wf2" type="text" maxlength="10" placeholder="_ _ _ _ _ _ _ _ _ _" style="..."></div>
-    <div>silent (n): <input id="wf3" type="text" maxlength="8" placeholder="_ _ _ _ _ _ _ _" style="..."></div>
-    <div>fear (adv): <input id="wf4" type="text" maxlength="9" placeholder="_ _ _ _ _ _ _ _ _" style="..."></div>
+  <div style="font-size:0.95rem;color:#d0cabd;margin:16px 0">
+    investigate(n): <input id="wf1" maxlength="12" placeholder="____________" style="width:140px;border:2px solid #c9a46d;padding:6px;background:#2a2f3a;color:#f5f1e8;font-size:0.95rem"><br>
+    mystery(adj): <input id="wf2" maxlength="10" placeholder="__________" style="..."><br>
+    silent(n): <input id="wf3" maxlength="8" placeholder="________" style="..."><br>
+    fear(adv): <input id="wf4" maxlength="9" placeholder="_________" style="...">
   </div>
-
-  <button onclick="checkScene2A()" style="background:#c9a46d; color:#1a1e29; padding:16px 32px; border:none; border-radius:12px; font-size:1.15rem; font-weight:700; cursor:pointer; width:100%; margin-bottom:16px;">🔍 Check Diary (+3 pts max)</button>
-  <div id="feedback2a" style="padding:20px; border-radius:12px; font-size:1.1rem; text-align:center;"></div>
-</div>
-  `,
-  next: ["scene2B", "scene2C"]
-}
-
-
+  <button onclick="checkScene2A()" style="background:#c9a46d;color:#1a1e29;padding:12px 24px;border:none;border-radius:10px;font-size:1.05rem;font-weight:700;cursor:pointer;width:100%;margin-top:12px">🔍 Check (+3 pts)</button>
+  <div id="feedback2a" style="margin-top:12px;padding:12px;border-radius:8px;font-size:1rem;text-align:center;display:none"></div>
+</div>`,
   choices: {
-    A: { label: "A. Carefully read the next page of the diary", next: "scene3A" },
-    B: { label: "B. Close the diary and immediately go to the East Wing", next: "scene2B" },
-    C: { label: "C. Take the diary with you and search for the old radio", next: "scene2C" }
+    A: { label: "→ Next diary page", next: "scene3A" },
+    B: { label: "→ East Wing now", next: "scene2B" },
+    C: { label: "→ Old radio", next: "scene2C" }
   }
 },
 
@@ -300,25 +282,16 @@ function checkScene2A() {
   const gaps = {gap1:'different', gap2:'footsteps', gap3:'handwriting', gap4:'is', gap5:'come', gap6:'truth'};
   const wfs = {wf1:'investigation', wf2:'mysterious', wf3:'silence', wf4:'fearfully'};
   let gapScore = 0, wfScore = 0;
-  
-  for (let id in gaps) {
-    if (document.getElementById(id).value.toLowerCase().trim() === gaps[id]) gapScore++;
-  }
-  for (let id in wfs) {
-    if (document.getElementById(id).value.toLowerCase().trim() === wfs[id]) wfScore++;
-  }
-  
+  for (let id in gaps) if (document.getElementById(id)?.value.toLowerCase().trim() === gaps[id]) gapScore++;
+  for (let id in wfs) if (document.getElementById(id)?.value.toLowerCase().trim() === wfs[id]) wfScore++;
   const total = gapScore + wfScore;
   const fb = document.getElementById('feedback2a');
-  let pts = 0;
-  if (total >= 8) { fb.innerHTML = '🕵️‍♀️ Master Detective! +3 pts.<br>Unlock: East Wing clue!'; pts = 3; }
-  else if (total >= 5) { fb.innerHTML = `📝 Good work: ${total}/10 (+2 pts).<br>Gaps: ${Object.values(gaps).join(', ')}<br>Words: ${Object.values(wfs).join(', ')}`; pts = 2; }
-  else { fb.innerHTML = `🔄 Listen again: ${total}/10 (+1 pt).<br>Correct: ${Object.values(gaps).join(', ')} | ${Object.values(wfs).join(', ')}`; pts = 1; }
-  score += pts;
-  
+  fb.style.display = 'block';
+  let pts = total >= 8 ? 3 : total >= 5 ? 2 : 1;
+  fb.innerHTML = total >= 8 ? '🕵️‍♀️ Perfect! +3 pts. Unlock clue!' : total >= 5 ? `📝 ${total}/10 pts +2. Answers: gaps(${Object.values(gaps).join('/')}), words(${Object.values(wfs).join('/')})` : `🔄 ${total}/10 +1 pt. Try: ${Object.values(gaps).join(', ')}`;
   fb.style.background = total >= 8 ? 'rgba(201,164,109,0.3)' : total >= 5 ? 'rgba(170,130,100,0.25)' : 'rgba(120,80,50,0.3)';
-  fb.style.color = '#f5f1e8';
-  fb.style.border = `2px solid ${total >= 8 ? '#c9a46d' : '#aa8a70'}`;
+  fb.style.color = '#f5f1e8'; fb.style.border = `2px solid ${total >= 8 ? '#c9a46d' : '#aa8a70'}`;
+  score += pts; renderInventory(); // обновляет score
 }
 
 
