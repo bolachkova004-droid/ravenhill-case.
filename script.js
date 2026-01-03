@@ -1,113 +1,254 @@
-// ====== ЗВУК ======
+/* ======================================================
+   🔊 SOUND ENGINE
+====================================================== */
 function playSound(id) {
   const audio = document.getElementById(id);
-  if (audio) {
-    audio.currentTime = 0;
-    audio.play().catch(() => {});
-  }
+  if (!audio) return;
+  audio.currentTime = 0;
+  audio.play().catch(() => {});
 }
 
 let musicStarted = false;
-document.addEventListener('click', () => {
-  if (!musicStarted) {
-    playSound('bgMusic');
-    musicStarted = true;
+
+/* ======================================================
+   ⭐ START SCREEN
+====================================================== */
+document.addEventListener("DOMContentLoaded", () => {
+  const startScreen = document.getElementById("start-screen");
+  const gameContent = document.querySelector(".game-content");
+  const startBtn = document.getElementById("start-game-btn");
+
+  if (!startScreen || !startBtn) {
+    renderScene("scene1");
+    return;
   }
-}, { once: true });
-// ⭐ СТАРТОВЫЙ ЭКРАН ⭐
-document.addEventListener('DOMContentLoaded', function() {
-  const startScreen = document.getElementById('start-screen');
-  const gameContent = document.querySelector('.game-content');
-  const startBtn = document.getElementById('start-game-btn');
-  
-  if (!startScreen) return; // если стартового экрана нет, играем сразу
-  
-  startBtn.addEventListener('click', function() {
-    // плавное исчезновение старта
-    startScreen.style.transition = 'opacity 0.6s ease-out';
-    startScreen.style.opacity = '0';
-    startScreen.style.pointerEvents = 'none';
-    
+
+  startBtn.addEventListener("click", () => {
+    startScreen.style.opacity = "0";
+    startScreen.style.pointerEvents = "none";
+
     setTimeout(() => {
-      startScreen.style.display = 'none';
-      
-      // появление игры
-      gameContent.style.display = 'block';
-      gameContent.style.opacity = '0';
-      gameContent.style.transition = 'opacity 0.6s ease-in';
-      setTimeout(() => { gameContent.style.opacity = '1'; }, 50);
-      
-      // музыка + первая сцена
+      startScreen.style.display = "none";
+      gameContent.style.display = "block";
+      gameContent.style.opacity = "0";
+      setTimeout(() => (gameContent.style.opacity = "1"), 50);
+
       if (!musicStarted) {
-        playSound('bgMusic');
+        playSound("bgMusic");
         musicStarted = true;
       }
+
       renderScene("scene1");
     }, 600);
   });
 });
 
-// ====== ИГРА ======
+/* ======================================================
+   🎮 GAME STATE
+====================================================== */
 let inventory = [];
 let score = 0;
 
+/* ======================================================
+   📘 CAE TASK ENGINE
+====================================================== */
+const TaskEngine = {
+  activeTask: null,
+
+  render(task) {
+    this.activeTask = task;
+
+    if (task.type === "cloze-wordform") {
+      return `
+      <div class="task-box">
+        <div class="task-header">
+          CAE ${task.level} · Use of English (+${task.points} pts)
+        </div>
+
+        <div class="task-text">
+          ${task.text}
+        </div>
+
+        <button class="task-check" onclick="TaskEngine.check()">
+          🔍 Check answers
+        </button>
+
+        <div id="task-feedback" class="task-feedback"></div>
+      </div>`;
+    }
+
+    return "";
+  },
+
+  check() {
+    let correct = 0;
+    let total = 0;
+
+    this.activeTask.answers.forEach(a => {
+      total++;
+      const el = document.getElementById(a.id);
+      if (el && el.value.trim().toLowerCase() === a.answer) {
+        correct++;
+        el.style.borderColor = "#6fbf73";
+      } else if (el) {
+        el.style.borderColor = "#c96b6b";
+      }
+    });
+
+    const fb = document.getElementById("task-feedback");
+    let pts = correct === total ? this.activeTask.points : correct > total / 2 ? 2 : 1;
+
+    score += pts;
+    updateScore();
+
+    fb.innerHTML =
+      correct === total
+        ? `🕵️ Perfect! ${pts} pts gained.`
+        : `📝 ${correct}/${total} correct · ${pts} pts`;
+
+    fb.style.opacity = "1";
+  }
+};
+
+/* ======================================================
+   📖 SCENES (UP TO 2B)
+====================================================== */
 const scenes = {
   scene1: {
-    chapter: "Episode I · The Summons",
-    title: "Prologue: Whisper from Ravenhill",
-    text: `You are part of a small detective team. Tonight, you arrive at an old Scottish manor house: <strong>Ravenhill Estate</strong>. 
-           The house is dark; only <em>one window</em> is still lit. Inside the hall, you find a dusty table and an old diary with the name <strong>Elizabeth Ravenhill</strong> on the cover.`,
-    miniEnglish: `
+    title: "Prologue · Whisper from Ravenhill",
+    text: `
+      You are part of a small detective team. Tonight, you arrive at the old
+      <strong>Ravenhill Estate</strong>. Only <em>one window</em> is still lit.
+      Inside the hall lies a dusty table and an old diary bearing the name
+      <strong>Elizabeth Ravenhill</strong>.
+    `,
+    mini: `
       <strong>Key vocabulary:</strong><br>
       manor house — загородный особняк<br>
       dusty — пыльный<br>
-      to arrive — прибывать
+      arrive — прибывать
       <br><br>
-      <strong>❓ Question:</strong><br>
-      Why is only one window still lit? (Почему горит только одно окно?)
+      ❓ Why is only one window still lit?
     `,
     choices: {
-      A: { label: "→ Stay in the hall and read Elizabeth's diary", next: "scene2A" },
-      B: { label: "⇢ Go to the East Wing and follow the mysterious footsteps", next: "scene2B" },
-      C: { label: "⇢ Find the old radio and listen to the whispers of the house", next: "scene2C" }
+      A: { label: "→ Read Elizabeth's diary", next: "scene2A" },
+      B: { label: "⇢ Follow footsteps to the East Wing", next: "scene2B" }
     }
   },
 
- scene2A: {
-  chapter: "Episode I · The Summons",
-  title: "🖤 Elizabeth's Diary",
-  evidence: "Elizabeth's diary",
-  media: { type: "image", src: "diary-mystical.png", alt: "Mystical diary" },
-  sound: "diary-voice",
-  text: `You open Elizabeth's diary in the cold library. <strong>🎧 Listen first → CAE tasks below!</strong>`,
-  miniEnglish: `
-<div class="task-alert" style="background:rgba(201,164,109,0.15);border:2px solid #c9a46d;border-radius:12px;padding:16px;margin-bottom:16px;font-size:1rem">
-  <strong>CAE B2: Cloze (6 gaps) + Word Form (4)</strong> → +3 pts!
-</div>
-<div class="english-task" style="background:rgba(25,30,40,0.95);border:3px solid #c9a46d;border-radius:16px;padding:24px;max-height:400px;overflow-y:auto">
-  <p style="color:#f5f1e8;font-size:1.05rem;line-height:1.4;margin-bottom:20px">
-    "House feels <input id="gap1" maxlength="8" placeholder="_____" style="width:120px;border:2px solid #c9a46d;padding:8px 4px;background:#2a2f3a;color:#f5f1e8;font-size:1rem;border-radius:6px;margin:0 2px"> tonight.<br>
-    Soft <input id="gap2" maxlength="9" placeholder="________" style="width:120px;..."> in East Wing.<br>
-    <input id="gap3" maxlength="11" placeholder="___________" style="width:120px;..."> shaking.<br>
-    Something <input id="gap4" maxlength="7" placeholder="______" style="width:120px;..."> watching.<br>
-    Shadows <input id="gap5" maxlength="6" placeholder="______" style="width:120px;..."> alive.<br>
-    Find the <input id="gap6" maxlength="6" placeholder="______" style="width:120px;...">."
-  </p>
-  <div style="font-size:0.95rem;color:#d0cabd;margin:16px 0">
-    investigate(n): <input id="wf1" maxlength="12" placeholder="____________" style="width:140px;border:2px solid #c9a46d;padding:6px;background:#2a2f3a;color:#f5f1e8;font-size:0.95rem"><br>
-    mystery(adj): <input id="wf2" maxlength="10" placeholder="__________" style="..."><br>
-    silent(n): <input id="wf3" maxlength="8" placeholder="________" style="..."><br>
-    fear(adv): <input id="wf4" maxlength="9" placeholder="_________" style="...">
-  </div>
-  <button onclick="checkScene2A()" style="background:#c9a46d;color:#1a1e29;padding:12px 24px;border:none;border-radius:10px;font-size:1.05rem;font-weight:700;cursor:pointer;width:100%;margin-top:12px">🔍 Check (+3 pts)</button>
-  <div id="feedback2a" style="margin-top:12px;padding:12px;border-radius:8px;font-size:1rem;text-align:center;display:none"></div>
-</div>`,
-  choices: {
-    A: { label: "→ Next diary page", next: "scene3A" },
-    B: { label: "→ East Wing now", next: "scene2B" },
-    C: { label: "→ Old radio", next: "scene2C" }
+  scene2A: {
+    title: "🖤 Elizabeth's Diary",
+    evidence: "Elizabeth's diary",
+    sound: "diary-voice",
+    text: `
+      You open the diary. The handwriting changes abruptly, as if written in fear.
+      <strong>Listen carefully</strong> and complete the task below.
+    `,
+    task: {
+      type: "cloze-wordform",
+      level: "B2",
+      points: 3,
+      text: `
+        "The house feels
+        <input id="t1" placeholder="_____"> tonight.
+        Soft <input id="t2" placeholder="_____"> echo in the halls.
+        Someone <input id="t3" placeholder="_____"> watching."
+        <br><br>
+        investigate → <input id="t4" placeholder="noun">
+      `,
+      answers: [
+        { id: "t1", answer: "different" },
+        { id: "t2", answer: "footsteps" },
+        { id: "t3", answer: "is" },
+        { id: "t4", answer: "investigation" }
+      ]
+    },
+    choices: {
+      A: { label: "→ Continue reading", next: "scene1" },
+      B: { label: "⇢ Go to the East Wing", next: "scene2B" }
+    }
+  },
+
+  scene2B: {
+    title: "Shadows in the East Wing",
+    text: `
+      The corridor narrows. The wooden floor creaks beneath your steps.
+      Suddenly, you hear soft footsteps <em>behind you</em>.
+      You turn around — nothing.
+    `,
+    mini: `
+      <strong>Vocabulary:</strong><br>
+      narrow corridor — узкий коридор<br>
+      to creak — скрипеть
+      <br><br>
+      ❓ Where do you hear the footsteps?
+    `,
+    choices: {
+      A: { label: "A. Call out: “Who’s there?”", next: "scene1" },
+      B: { label: "B. Keep walking forward", next: "scene1" }
+    }
   }
-},
+};
+
+/* ======================================================
+   🖥️ DOM
+====================================================== */
+const titleEl = document.getElementById("scene-title");
+const textEl = document.getElementById("scene-text");
+const miniEl = document.getElementById("mini-english-content");
+const btnA = document.getElementById("choiceA");
+const btnB = document.getElementById("choiceB");
+const scoreEl = document.getElementById("score-display");
+
+/* ======================================================
+   🧠 HELPERS
+====================================================== */
+function updateScore() {
+  scoreEl.textContent = `Score: ${score} points`;
+}
+
+function addEvidence(e) {
+  if (!inventory.includes(e)) inventory.push(e);
+}
+
+/* ======================================================
+   🎬 RENDER ENGINE
+====================================================== */
+function renderScene(id) {
+  const s = scenes[id];
+  if (!s) return;
+
+  playSound("stepSound");
+
+  titleEl.innerHTML = s.title;
+  textEl.innerHTML = s.text;
+
+  miniEl.innerHTML = s.mini || "";
+
+  if (s.task) {
+    miniEl.innerHTML += TaskEngine.render(s.task);
+  }
+
+  if (s.sound === "diary-voice") {
+    const btn = document.createElement("button");
+    btn.textContent = "🎧 Listen to diary";
+    btn.onclick = () => playSound("diary-voice");
+    miniEl.prepend(btn);
+  }
+
+  if (s.evidence) addEvidence(s.evidence);
+
+  btnA.textContent = s.choices.A.label;
+  btnB.textContent = s.choices.B.label;
+
+  btnA.onclick = () => renderScene(s.choices.A.next);
+  btnB.onclick = () => renderScene(s.choices.B.next);
+}
+
+/* ======================================================
+   🚀 INIT
+====================================================== */
+updateScore();
 
 
   scene2B: {
