@@ -89,43 +89,107 @@ const scenes = {
           <strong>📜 Diary entry:</strong><br>
           "<em>The house feels different tonight. I keep hearing soft footsteps in the East Wing...</em>"`,
  miniEnglish: `
-  <div class="task-alert" style="background:rgba(201,164,109,0.15); border:2px solid #c9a46d; border-radius:12px; padding:16px; margin-bottom:20px;">
-    <strong>🎧 TASK 1+2:</strong> Сначала слушай дневник → Gap-Fill → Questions!
-  </div>
-  
-  <!-- ЗАДАНИЕ 1: GAP-FILL -->
-  <div class="english-task" style="background:rgba(25,30,40,0.8); border:2px solid #c9a46d44; border-radius:16px; padding:24px; margin-bottom:20px;">
-    <h4 style="color:#c9a46d;">📝 Task 1: Listening Gap-Fill (4 blanks)</h4>
-    <!-- 4 gaps как выше... -->
+  <div style="background:rgba(15,18,25,0.95); border:2px solid rgba(201,164,109,0.6); 
+              border-radius:20px; padding:30px 25px; margin-top:12px;">
     
-    <button onclick="checkDiaryGapsOnly()" style="...">✅ Check Gaps</button>
-    <div id="gap-feedback"></div>
-  </div>
-  
-  <!-- ЗАДАНИЕ 2: QUESTIONS -->
-  <div class="english-task" style="background:rgba(25,30,40,0.8); border:2px solid #c9a46d44; border-radius:16px; padding:24px;">
-    <h4 style="color:#c9a46d;">❓ Task 2: Comprehension Questions</h4>
-    
-    <div style="margin-bottom:18px;">
-      <strong style="color:#f5f1e8;">Q1. Where does Elizabeth hear footsteps?</strong><br>
-      <label><input type="radio" name="q1" value="a"> a) West Wing</label><br>
-      <label><input type="radio" name="q1" value="b"> b) <strong>East Wing</strong></label><br>
-      <label><input type="radio" name="q1" value="c"> c) Garden</label>
+    <!-- Заголовок крупный -->
+    <h4 style="color:#c9a46d; font-size:1.2rem; margin:0 0 20px; 
+               text-align:center; letter-spacing:0.1em;">
+      🎧 Listening + Comprehension Task
+    </h4>
+
+    <!-- Инструкция -->
+    <p style="color:#d8d0c2; font-size:1.05rem; margin:0 0 28px; 
+              text-align:center; line-height:1.5;">
+      <strong>First:</strong> Listen to Elizabeth's diary<br>
+      <strong>Then:</strong> Fill gaps + answer 2 questions
+    </p>
+
+    <!-- GAP-FILL крупные поля -->
+    <div style="margin-bottom:28px;">
+      <p style="color:#f5f1e8; font-size:1.1rem; margin:0 0 16px;">
+        <strong>Fill the gaps:</strong>
+      </p>
+      
+      <p style="color:#e0d8c8; font-size:1.05rem; margin-bottom:14px;">
+        1. The house feels <input id="gap1" type="text" maxlength="12"
+        style="width:200px; border:3px solid #c9a46d; padding:12px 16px; 
+               background:#2a2f3a; color:#f5f1e8; font-size:1.1rem; border-radius:10px; 
+               text-align:center; margin:0 8px;"> tonight.
+      </p>
+      
+      <p style="color:#e0d8c8; font-size:1.05rem; margin-bottom:14px;">
+        2. I keep hearing soft <input id="gap2" type="text" maxlength="12"
+        style="width:200px; border:3px solid #c9a46d; padding:12px 16px; 
+               background:#2a2f3a; color:#f5f1e8; font-size:1.1rem; border-radius:10px; 
+               text-align:center; margin:0 8px;"> in the East Wing.
+      </p>
+      
+      <p style="color:#e0d8c8; font-size:1.05rem; margin-bottom:20px;">
+        3. The <input id="gap3" type="text" maxlength="15"
+        style="width:200px; border:3px solid #c9a46d; padding:12px 16px; 
+               background:#2a2f3a; color:#f5f1e8; font-size:1.1rem; border-radius:10px; 
+               text-align:center; margin:0 8px;"> is different tonight.
+      </p>
     </div>
-    
-    <div style="margin-bottom:24px;">
-      <strong style="color:#f5f1e8;">Q2. How does the house feel tonight?</strong><br>
-      <label><input type="radio" name="q2" value="a"> a) <strong>different</strong></label><br>
-      <label><input type="radio" name="q2" value="b"> b) warm</label><br>
-      <label><input type="radio" name="q2" value="c"> c) empty</label>
+
+    <!-- QUESTIONS крупнее -->
+    <div style="margin-bottom:30px;">
+      <p style="color:#f5f1e8; font-size:1.1rem; margin:0 0 20px;">
+        <strong>Quick Questions:</strong>
+      </p>
+      
+      <div style="margin-bottom:20px;">
+        <p style="color:#e0d8c8; font-size:1.05rem; margin-bottom:12px;">
+          Q1. Where are the footsteps?
+        </p>
+        <label style="display:block; color:#d8d0c2; font-size:1rem; margin-bottom:6px;">
+          <input type="radio" name="q1" value="a"> West Wing
+        </label>
+        <label style="display:block; color:#d8d0c2; font-size:1rem; margin-bottom:6px;">
+          <input type="radio" name="q1" value="b"> <strong>East Wing</strong>
+        </label>
+        <label style="display:block; color:#d8d0c2; font-size:1rem;">
+          <input type="radio" name="q1" value="c"> Garden
+        </label>
+      </div>
+
+      <div>
+        <p style="color:#e0d8c8; font-size:1.05rem; margin-bottom:12px;">
+          Q2. How does the house feel?
+        </p>
+        <label style="display:block; color:#d8d0c2; font-size:1rem; margin-bottom:6px;">
+          <input type="radio" name="q2" value="a"> <strong>different</strong>
+        </label>
+        <label style="display:block; color:#d8d0c2; font-size:1rem; margin-bottom:6px;">
+          <input type="radio" name="q2" value="b"> warm
+        </label>
+        <label style="display:block; color:#d8d0c2; font-size:1rem;">
+          <input type="radio" name="q2" value="c"> empty
+        </label>
+      </div>
     </div>
-    
-    <button onclick="checkDiaryQuestions()" style="...">✅ Check Questions</button>
-    <div id="q-feedback"></div>
+
+    <!-- Крупная кнопка -->
+    <div style="text-align:center;">
+      <button onclick="checkFullDiaryTask()" 
+        style="background:linear-gradient(145deg,#c9a46d 0%,#d4b085 100%); color:#1a1e29; 
+               border:none; padding:16px 32px; border-radius:12px; cursor:pointer; 
+               font-weight:700; font-size:1.15rem; box-shadow:0 8px 20px rgba(201,164,109,0.4);
+               transition:all 0.3s ease;">
+        🎯 Check All Answers
+      </button>
+    </div>
+
+    <div id="full-feedback" style="margin-top:24px; padding:18px 16px; border-radius:12px; 
+                                   font-weight:600; font-size:1.05rem; line-height:1.5;"></div>
   </div>
-  
-  <hr style="...">
-  <strong>Vocabulary:</strong> handwriting, footsteps, different, atmosphere
+
+  <!-- Vocabulary компактно -->
+  <div style="margin-top:24px; padding:14px; background:rgba(201,164,109,0.08); border-radius:10px;">
+    <strong style="color:#c9a46d;">New Words:</strong><br>
+    handwriting — почерк | footsteps — шаги | different — необычный | atmosphere — атмосфера
+  </div>
 `,
 
 
