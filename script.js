@@ -337,31 +337,35 @@ function renderInventory() {
 function checkDiaryTask() {
   const gap1 = document.getElementById('gap1').value.trim().toLowerCase();
   const gap2 = document.getElementById('gap2').value.trim().toLowerCase();
+  const gap3 = document.getElementById('gap3').value.trim().toLowerCase();
+  const gap4 = document.getElementById('gap4').value.trim().toLowerCase();
   const feedback = document.getElementById('diary-feedback');
   
   let correct = 0;
-  if (gap1.includes('different')) correct++;  // частичное совпадение
-  if (gap2.includes('footsteps') || gap2.includes('footstep')) correct++;
+  let answers = [];
   
-  if (correct === 2) {
-    feedback.innerHTML = '🎉 Perfect! <strong>Both correct!</strong> +1 Evidence point.';
-    feedback.style.background = 'rgba(201,164,109,0.2)';
+  if (gap1.includes('different')) { correct++; answers.push('different'); }
+  if (gap2.includes('footsteps') || gap2.includes('footstep')) { correct++; answers.push('footsteps'); }
+  if (gap3.includes('atmosphere')) { correct++; answers.push('atmosphere'); }
+  if (gap4.includes('east wing') || gap4.includes('eastwing')) { correct++; answers.push('East Wing'); }
+  
+  const percent = Math.round((correct / 4) * 100);
+  
+  if (correct === 4) {
+    feedback.innerHTML = `🎉 <strong>Perfect! 4/4 (${percent}%)</strong><br>Great listening! +2 Evidence points.`;
+    feedback.style.background = 'rgba(201,164,109,0.25)';
     feedback.style.color = '#c9a46d';
     feedback.style.border = '2px solid #c9a46d';
-    score += 1;
+    score += 2; // больше очков за сложное
     renderInventory();
-  } else if (correct === 1) {
-    feedback.innerHTML = '✅ <strong>One correct!</strong><br>1: <em>different</em><br>2: <em>footsteps</em>';
-    feedback.style.background = 'rgba(208,192,189,0.2)';
-    feedback.style.color = '#d8d0c2';
-    feedback.style.border = '2px solid #d0cabd';
   } else {
-    feedback.innerHTML = '❌ <strong>Try listening again!</strong><br>1: <em>different</em><br>2: <em>footsteps</em>';
-    feedback.style.background = 'rgba(170,130,100,0.3)';
-    feedback.style.color = '#aa8a70';
-    feedback.style.border = '2px solid #aa8a70';
+    feedback.innerHTML = `✅ <strong>${correct}/4 (${percent}%)</strong><br>Correct: ${answers.join(', ')}`;
+    feedback.style.background = correct >= 2 ? 'rgba(208,192,189,0.2)' : 'rgba(170,130,100,0.3)';
+    feedback.style.color = correct >= 2 ? '#d8d0c2' : '#aa8a70';
+    feedback.style.border = '2px solid ' + (correct >= 2 ? '#d0cabd' : '#aa8a70');
   }
 }
+
 
 
 // ====== КРАСИВАЯ ОТРИСОВКА ======
