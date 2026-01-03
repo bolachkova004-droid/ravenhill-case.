@@ -268,8 +268,15 @@ body {
 .start-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(0,0,0,0.1), rgba(5,0,10,0.95));
+  background: radial-gradient(
+    circle at center,
+    rgba(0,0,0,0.1),
+    rgba(5,0,10,0.95)
+  );
+  z-index: 2;
+  pointer-events: none; /* ← ВОТ ЭТО КЛЮЧЕВО */
 }
+
 
 .start-inner {
   position: relative;
