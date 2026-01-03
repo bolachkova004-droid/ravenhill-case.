@@ -1,28 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Montserrat:wght@300;500;600&display=swap');
 
-/* ====== RESET ====== */
-* {
-  box-sizing: border-box;
-}
+/* RESET */
+* { box-sizing: border-box; }
 body {
   margin: 0;
   font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background-color: #050609;
-  background-image: url('board2.jpg');
+  background-image: url('assets/board2.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   color: #f5f1e8;
 }
 
-/* ====== PAGE ====== */
+/* PAGE */
 .page {
   max-width: 900px;
   margin: 0 auto;
   padding: 32px 16px 48px;
 }
 
-/* ====== HEADER ====== */
+/* HEADER */
 .header {
   text-align: center;
   margin-bottom: 32px;
@@ -40,49 +38,45 @@ body {
   margin: 6px 0 26px;
 }
 
-/* ====== GAME CONTAINER (с анимацией из JS) ====== */
+/* GAME CONTAINER */
 .game {
   background: rgba(5, 6, 10, 0.9);
   border-radius: 24px;
   padding: 32px 28px 36px;
-  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 25px 80px rgba(0,0,0,0.9);
   border: 3px solid #c9a46d;
   position: relative;
-  transition: opacity 0.4s ease; /* ← для JS fade */
+  transition: opacity 0.4s ease;
 }
 .game::before {
   content: "";
   position: absolute;
   inset: 18px;
-  border: 2px dashed rgba(201, 164, 109, 0.5);
+  border: 2px dashed rgba(201,164,109,0.5);
   border-radius: 18px;
   pointer-events: none;
 }
 
-/* ====== BLOCKS ====== */
+/* BLOCKS */
 .scene, .inventory, .choices, .mini-english, .status {
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0,0,0,0.45);
   border-radius: 16px;
   padding: 18px 20px;
   margin-top: 16px;
-  transition: all 0.3s ease; /* плавное появление */
 }
 
-/* ====== SCENE ====== */
+/* SCENE */
 .scene h2 {
   font-family: 'Crimson Text', serif;
   font-size: 1.4rem;
   margin: 0 0 12px;
 }
-#scene-title { /* ← добавлено из JS */
+#scene-title {
   font-family: 'Crimson Text', serif;
   color: #c9a46d;
   text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
-#scene-text {
-  line-height: 1.6;
-  margin-bottom: 12px;
-}
+#scene-text { line-height: 1.6; margin-bottom: 12px; }
 #scene-extra {
   font-style: italic;
   color: #d8d0c2;
@@ -92,7 +86,7 @@ body {
   border-left: 3px solid #c9a46d;
 }
 
-/* ====== MEDIA (улучшено для JS) ====== */
+/* MEDIA */
 .clue-media {
   margin-top: 16px;
   text-align: center;
@@ -101,61 +95,27 @@ body {
   max-width: 100%;
   height: auto;
   border-radius: 12px;
-  border: 1px solid rgba(201, 164, 109, 0.4);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(201,164,109,0.4);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
   transition: transform 0.3s ease;
 }
-.clue-media img:hover, .clue-media video:hover {
-  transform: scale(1.02);
-}
-.clue-media button { /* кнопки аудио из JS */
+.clue-media img:hover, .clue-media video:hover { transform: scale(1.02); }
+.clue-media button {
   background: rgba(201,164,109,0.2);
   border: 2px solid #c9a46d;
   color: #f5f1e8;
   padding: 10px 20px;
   border-radius: 20px;
   cursor: pointer;
-  font-size: 0.95rem;
   margin: 8px;
   transition: all 0.2s;
 }
 .clue-media button:hover {
   background: #c9a46d;
   color: #1a1e29;
-  box-shadow: 0 4px 12px rgba(201,164,109,0.4);
 }
 
-/* ====== QUOTE BUBBLES (Sir Henry из JS) ====== */
-.quote-bubble {
-  background: linear-gradient(135deg, rgba(27,30,41,0.98), rgba(10,12,20,0.98));
-  border: 2px solid rgba(201,164,109,0.7);
-  border-radius: 24px 24px 12px 24px;
-  padding: 20px 24px 16px;
-  margin: 16px 0;
-  font-style: italic;
-  color: #f5f1e8;
-  font-size: 1rem;
-  max-width: 90%;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
-  position: relative;
-  animation: glow 2s ease-in-out infinite alternate;
-}
-.quote-bubble::before {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 32px;
-  width: 0;
-  height: 0;
-  border: 10px solid transparent;
-  border-top-color: rgba(201,164,109,0.7);
-}
-@keyframes glow {
-  0% { box-shadow: 0 8px 24px rgba(0,0,0,0.6); }
-  100% { box-shadow: 0 8px 32px rgba(201,164,109,0.3); }
-}
-
-/* ====== CHOICES (ИСПРАВЛЕНО для 3 кнопок!) ====== */
+/* CHOICES */
 .choices {
   display: flex;
   flex-direction: column;
@@ -169,25 +129,20 @@ body {
   text-align: left;
   background: #1b1e29;
   color: #f5f1e8;
-  border: 2px solid rgba(201, 164, 109, 0.7);
+  border: 2px solid rgba(201,164,109,0.7);
   border-radius: 14px;
   cursor: pointer;
   box-shadow: 0 6px 0 #705131;
   transition: all 0.2s ease;
-  opacity: 1;
 }
 .choice-btn:hover {
   background: #262a39;
-  border-color: rgba(230, 195, 132, 0.95);
+  border-color: rgba(230,195,132,0.95);
   transform: translateY(-1px);
 }
 .choice-btn:active {
   transform: translateY(2px);
   box-shadow: 0 2px 0 #705131;
-}
-.choice-btn:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
 }
 .back-btn {
   max-width: 260px;
@@ -204,36 +159,27 @@ body {
 }
 .back-btn:hover {
   opacity: 1;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0,0,0,0.4);
   border-color: #c9a46d;
 }
 
-/* ====== INVENTORY (плавное обновление) ====== */
+/* INVENTORY */
 #inventory-list {
   list-style: none;
   padding: 0;
   margin: 8px 0 0;
-  transition: all 0.3s ease;
 }
 #inventory-list li {
-  background: rgba(201, 164, 109, 0.12);
-  border: 1px solid rgba(201, 164, 109, 0.4);
+  background: rgba(201,164,109,0.12);
+  border: 1px solid rgba(201,164,109,0.4);
   border-radius: 8px;
   padding: 8px 12px;
   margin: 6px 0;
   font-size: 0.92rem;
-  animation: slideIn 0.3s ease;
 }
-#inventory-list li::before {
-  content: "📋 ";
-  margin-right: 6px;
-}
-@keyframes slideIn {
-  from { opacity: 0; transform: translateX(-20px); }
-  to { opacity: 1; transform: translateX(0); }
-}
+#inventory-list li::before { content: "📋 "; margin-right: 6px; }
 
-/* ====== MINI ENGLISH ====== */
+/* MINI ENGLISH & TASKS */
 .mini-english h3 {
   font-family: 'Crimson Text', serif;
   font-size: 1.1rem;
@@ -245,19 +191,12 @@ body {
   color: #d0cabd;
   line-height: 1.5;
 }
-
-/* ====== TASK ENGINE (улучшено для всех типов заданий) ====== */
 .task-box {
   margin-top: 16px;
   padding: 20px;
-  background: rgba(25, 30, 40, 0.95);
+  background: rgba(25,30,40,0.95);
   border-radius: 16px;
   border: 2px solid rgba(201,164,109,0.6);
-  animation: slideInUp 0.4s ease;
-}
-@keyframes slideInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 .task-header {
   font-family: 'Crimson Text', serif;
@@ -266,15 +205,6 @@ body {
   text-transform: uppercase;
   color: #c9a46d;
   margin-bottom: 12px;
-}
-.task-text {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #f5f1e8;
-}
-.task-text input, .task-text label {
-  display: block;
-  margin: 8px 0;
 }
 .task-text input {
   background: #1b1e29;
@@ -285,64 +215,29 @@ body {
   margin: 4px 0;
   width: 100%;
   max-width: 200px;
-  font-size: 0.95rem;
-}
-.task-text input:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(201,164,109,0.3);
-  border-color: #f5d39c;
-}
-.task-text label input[type="radio"] {
-  width: auto;
-  margin-right: 8px;
 }
 .task-check {
   margin-top: 14px;
   width: 100%;
-  background: linear-gradient(135deg, #c9a46d, #d4b085);
+  background: #c9a46d;
   color: #1a1e29;
   border: none;
   border-radius: 10px;
-  padding: 12px 20px;
+  padding: 10px;
   font-weight: 700;
-  font-size: 0.95rem;
   cursor: pointer;
-  transition: all 0.2s;
-  box-shadow: 0 4px 0 #a88c5a;
-}
-.task-check:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 0 #a88c5a;
-}
-.task-check:active {
-  transform: translateY(2px);
-  box-shadow: 0 2px 0 #a88c5a;
 }
 .task-feedback {
   margin-top: 12px;
-  padding: 12px 16px;
+  padding: 10px;
   border-radius: 8px;
+  background: rgba(201,164,109,0.25);
   font-size: 0.95rem;
   opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  transform: translateY(10px);
-}
-.task-feedback.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-.task-feedback.success {
-  background: rgba(111, 191, 115, 0.3);
-  border: 1px solid #6fbf73;
-  color: #e8f5e8;
-}
-.task-feedback.error {
-  background: rgba(201, 107, 107, 0.3);
-  border: 1px solid #c96b6b;
-  color: #f5e8e8;
+  transition: opacity 0.3s ease;
 }
 
-/* ====== START SCREEN (ИСПРАВЛЕНО!) ====== */
+/* START SCREEN — ИСПРАВЛЕНО ДЛЯ ПК */
 .start-screen {
   position: fixed;
   inset: 0;
@@ -360,47 +255,27 @@ body {
   object-fit: cover;
   opacity: 0.7;
   filter: grayscale(0.4) contrast(1.2);
-  playsinline: true; /* iOS */
 }
 .start-overlay {
   position: absolute;
   inset: 0;
   background: radial-gradient(circle at center, rgba(0,0,0,0.1), rgba(5,0,10,0.95));
-  z-index: 2;
-  /* pointer-events: none; ← УДАЛЕНО! Кнопка теперь кликается */
+  z-index: 1; /* ← НИЖЕ кнопки */
 }
 .start-inner {
   position: relative;
   z-index: 3;
   text-align: center;
-  padding: 2rem;
 }
 .start-title {
   font-family: 'Crimson Text', serif;
   font-size: clamp(2.8rem, 8vw, 4.8rem);
   letter-spacing: 0.15em;
-  text-shadow: 0 4px 20px rgba(0,0,0,0.8);
-  margin-bottom: 0.5rem;
-  animation: titleGlow 3s ease-in-out infinite alternate;
-}
-@keyframes titleGlow {
-  0% { text-shadow: 0 4px 20px rgba(201,164,109,0.3); }
-  100% { text-shadow: 0 4px 30px rgba(201,164,109,0.6); }
 }
 .start-subtitle {
-  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  font-size: 1.8rem;
   color: rgba(201,164,109,0.9);
   margin-bottom: 1.5rem;
-  letter-spacing: 0.1em;
-}
-.start-glow-line {
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #c9a46d, transparent);
-  margin: 1rem 0;
-  animation: glowLine 2s ease-in-out infinite;
-}
-@keyframes glowLine {
-  50% { opacity: 0.5; transform: scaleX(1.1); }
 }
 .start-btn {
   margin-top: 1.5rem;
@@ -411,112 +286,26 @@ body {
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
-  border-radius: 12px;
+  border-radius: 8px;
   text-transform: uppercase;
   letter-spacing: 2px;
   position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
+  z-index: 4; /* ← САМЫЙ ВЕРХ */
+  pointer-events: auto;
 }
 .start-btn:hover {
   border-color: #c9a46d;
   box-shadow: 0 0 30px rgba(201,164,109,0.7);
-  transform: translateY(-2px);
-}
-.start-btn:active {
-  transform: translateY(0);
-}
-.start-hint {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  color: rgba(208,202,189,0.7);
-  letter-spacing: 0.05em;
 }
 
-/* ====== GAME VISIBILITY ====== */
+/* GAME VISIBILITY */
 .game-content {
   display: none;
   opacity: 0;
   transition: opacity 0.5s ease;
 }
-.game-content.show {
-  display: block;
-}
 
-/* ====== MOBILE (ИСПРАВЛЕНО полностью) ====== */
-@media (max-width: 768px) {
-  .page {
-    padding: 20px 12px 40px;
-  }
-  .game {
-    padding: 24px 20px 28px;
-    margin: 0 -12px;
-    border-radius: 0;
-    border-left: none;
-    border-right: none;
-  }
-  .choices {
-    gap: 10px;
-  }
-  .choice-btn {
-    padding: 16px 20px;
-    font-size: 1rem;
-  }
-  .start-inner {
-    padding: 1.5rem;
-    max-width: 90vw;
-  }
-  .header h1 {
-    font-size: 2rem;
-  }
-}
-
+/* MOBILE */
 @media (max-width: 480px) {
-  .scene, .mini-english, .task-box {
-    padding: 16px;
-  }
-  .task-text input {
-    width: 100%;
-    max-width: none;
-  }
-  #inventory-list li {
-    font-size: 0.9rem;
-    padding: 10px;
-  }
-}
-
-/* ====== STATUS (добавлено) ====== */
-.status {
-  text-align: center;
-  font-size: 1.1rem;
-  color: #c9a46d;
-}
-#score-display {
-  font-weight: 600;
-  font-size: 1.2rem;
-  margin: 8px 0;
-}
-#ending-display {
-  color: #d8d0c2;
-  font-style: italic;
-}
-
-/* ====== CASE FILE (добавлено из HTML) ====== */
-.case-file {
-  font-family: 'Crimson Text', serif;
-  color: #c9a46d;
-  font-size: 0.9rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid rgba(201,164,109,0.3);
-}
-
-/* ====== MINI-HINT (добавлено) ====== */
-.mini-hint {
-  font-size: 0.85rem;
-  color: #a8a08b;
-  font-style: italic;
-  margin-bottom: 12px;
+  .start-inner { padding: 1.5rem; }
 }
