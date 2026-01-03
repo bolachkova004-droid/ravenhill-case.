@@ -369,33 +369,41 @@ function addEvidence(id) {
   }
 }
 
-function renderInventory() {
-  inventoryListEl.innerHTML = inventory.length ? 
-    inventory.map(id => `<li>${id}</li>`).join('') : 
-    '<li>No evidence yet / Улик пока нет</li>';
-  scoreDisplayEl.textContent = `Evidence: ${score}`;
-}
-// Только gaps (как выше)
-function checkDiaryGapsOnly() { /* предыдущая логика */ }
-
-// Вопросы
-function checkDiaryQuestions() {
+function checkFullDiaryTask() {
+  // Gaps
+  const g1 = document.getElementById('gap1')?.value.trim().toLowerCase() || "";
+  const g2 = document.getElementById('gap2')?.value.trim().toLowerCase() || "";
+  const g3 = document.getElementById('gap3')?.value.trim().toLowerCase() || "";
+  const g4 = document.getElementById('gap4')?.value.trim().toLowerCase() || "";
+  
+  // Questions
   const q1 = document.querySelector('input[name="q1"]:checked');
   const q2 = document.querySelector('input[name="q2"]:checked');
-  const feedback = document.getElementById('q-feedback');
   
-  let qCorrect = 0;
-  if (q1 && q1.value === 'b') qCorrect++;
-  if (q2 && q2.value === 'a') qCorrect++;
+  const fb = document.getElementById('full-feedback');
   
-  if (qCorrect === 2) {
-    feedback.innerHTML = '🎉 Perfect comprehension! +1 point.';
-    feedback.style.background = 'rgba(201,164,109,0.25)';
-    score += 1;
-  } else {
-    feedback.innerHTML = `${qCorrect}/2 correct. Listen again!`;
-  }
+  let gapScore = 0, qScore = 0;
+  if (g1 === 'different') gapScore++;
+  if (g2 === 'footsteps') gapScore++;
+  if (g3 === 'atmosphere') gapScore++;
+  if (g4 === 'east wing') gapScore++;
+  
+  if (q1?.value === 'b') qScore++;
+  if (q2?.value === 'a') qScore++;
+  
+  const total = gapScore + qScore;
+  fb.style.color = total >= 5 ? '#c9a46d' : '#d8d0c2';
+  
+  fb.innerHTML = `
+    <strong>${gapScore}/4 gaps + ${qScore}/2 questions = ${total}/6</strong><br>
+    ${total === 6 ? '🎉 Perfect detective work! +3 points!' : 
+     total >= 4 ? '✅ Good job! +2 points.' : 'Keep practicing! +1 point.'}
+  `;
+  
+  score += Math.min(total, 3);
+  renderInventory();
 }
+
 
 
 
