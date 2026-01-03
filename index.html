@@ -2,27 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Ravenhill Case · English Mystery Game</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <!-- ⭐ МРАЧНЫЙ СТАРТОВЫЙ ЭКРАН ⭐ -->
-<div id="start-screen" class="start-screen">
-  <video class="start-video-bg" autoplay muted loop playsinline>
-    <source src="assets/ravenhill-intro.mp4" type="video/mp4"> <!-- твой видео-файл -->
-    <source src="hall-intro.mp4" type="video/mp4"> <!-- запасной -->
-  </video>
-  <div class="start-overlay"></div>
-  
-  <div class="start-inner">
-    <h1 class="start-title">RAVENHILL</h1>
-    <p class="start-subtitle">The Case</p>
-    <div class="start-glow-line"></div>
-    <button id="start-game-btn" class="start-btn">ENTER THE ESTATE</button>
-    <p class="start-hint">Episode I · The Summons</p>
+  <div id="start-screen" class="start-screen">
+    <video class="start-video-bg" autoplay muted loop playsinline>
+      <source src="assets/ravenhill-intro.mp4" type="video/mp4">
+      <source src="assets/hall-intro.mp4" type="video/mp4">
+    </video>
+    <div class="start-overlay"></div>
+    
+    <div class="start-inner">
+      <h1 class="start-title">RAVENHILL</h1>
+      <p class="start-subtitle">The Case</p>
+      <div class="start-glow-line"></div>
+      <button id="start-game-btn" class="start-btn">ENTER THE ESTATE</button>
+      <p class="start-hint">Episode I · The Summons</p>
+    </div>
   </div>
-</div>
-
 
   <!-- 🎮 ОСНОВНОЙ КОНТЕНТ ИГРЫ (скрыт изначально) -->
   <div class="page game-content">
@@ -30,7 +30,7 @@
       <h1>The Ravenhill Case</h1>
       <p class="subtitle">Interactive mystery game for English learners (B1–B2)</p>
       <video class="intro-video" autoplay muted loop playsinline>
-        <source src="hall-intro.mp4" type="video/mp4">
+        <source src="assets/hall-intro.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </header>
@@ -71,7 +71,7 @@
 
       <section class="status">
         <h3>Case Status / Статус дела</h3>
-        <p id="score-display"></p>
+        <p id="score-display">Score: 0 points</p>
         <p id="ending-display"></p>
       </section>
     </main>
@@ -83,7 +83,7 @@
 
   <!-- ЗВУКИ -->
   <audio id="sir-henry-voice" preload="auto">
-    <source src="sir-henry-voice.mp3" type="audio/mpeg">
+    <source src="assets/sir-henry-voice.mp3" type="audio/mpeg">
   </audio>
   <audio id="clickSound" preload="auto">
     <source src="assets/click1.wav" type="audio/wav">
@@ -97,7 +97,8 @@
   <audio id="radioSound" preload="auto">
     <source src="assets/radio-message.wav" type="audio/wav">
   </audio>
-  <audio id="diary-voice" src="diary-voice.mp3">
+  <audio id="diary-voice" preload="auto">
+    <source src="assets/diary-voice.mp3" type="audio/mpeg">
   </audio>
 
   <script src="script.js"></script>
