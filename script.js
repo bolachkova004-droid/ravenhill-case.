@@ -323,22 +323,29 @@ function checkDiaryTask() {
   const feedback = document.getElementById('diary-feedback');
   
   let correct = 0;
-  if (gap1 === 'different') correct++;
-  if (gap2 === 'footsteps') correct++;
+  if (gap1.includes('different')) correct++;  // частичное совпадение
+  if (gap2.includes('footsteps') || gap2.includes('footstep')) correct++;
   
   if (correct === 2) {
-    feedback.innerHTML = '✅ Perfect! Both correct.';
+    feedback.innerHTML = '🎉 Perfect! <strong>Both correct!</strong> +1 Evidence point.';
+    feedback.style.background = 'rgba(201,164,109,0.2)';
     feedback.style.color = '#c9a46d';
-    score += 1; // бонус очко
+    feedback.style.border = '2px solid #c9a46d';
+    score += 1;
     renderInventory();
   } else if (correct === 1) {
-    feedback.innerHTML = '✅ One correct! Gap 1: <em>different</em>, Gap 2: <em>footsteps</em>';
-    feedback.style.color = '#d0cabd';
+    feedback.innerHTML = '✅ <strong>One correct!</strong><br>1: <em>different</em><br>2: <em>footsteps</em>';
+    feedback.style.background = 'rgba(208,192,189,0.2)';
+    feedback.style.color = '#d8d0c2';
+    feedback.style.border = '2px solid #d0cabd';
   } else {
-    feedback.innerHTML = '❌ Try again! Gap 1: <em>different</em>, Gap 2: <em>footsteps</em>';
+    feedback.innerHTML = '❌ <strong>Try listening again!</strong><br>1: <em>different</em><br>2: <em>footsteps</em>';
+    feedback.style.background = 'rgba(170,130,100,0.3)';
     feedback.style.color = '#aa8a70';
+    feedback.style.border = '2px solid #aa8a70';
   }
 }
+
 
 // ====== КРАСИВАЯ ОТРИСОВКА ======
 function renderScene(id) {
