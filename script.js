@@ -292,6 +292,29 @@ function renderInventory() {
     '<li>No evidence yet / Улик пока нет</li>';
   scoreDisplayEl.textContent = `Evidence: ${score}`;
 }
+// ⭐ ПРОВЕРКА ЗАДАНИЙ ДНЕВНИКА ⭐
+function checkDiaryTask() {
+  const gap1 = document.getElementById('gap1').value.trim().toLowerCase();
+  const gap2 = document.getElementById('gap2').value.trim().toLowerCase();
+  const feedback = document.getElementById('diary-feedback');
+  
+  let correct = 0;
+  if (gap1 === 'different') correct++;
+  if (gap2 === 'footsteps') correct++;
+  
+  if (correct === 2) {
+    feedback.innerHTML = '✅ Perfect! Both correct.';
+    feedback.style.color = '#c9a46d';
+    score += 1; // бонус очко
+    renderInventory();
+  } else if (correct === 1) {
+    feedback.innerHTML = '✅ One correct! Gap 1: <em>different</em>, Gap 2: <em>footsteps</em>';
+    feedback.style.color = '#d0cabd';
+  } else {
+    feedback.innerHTML = '❌ Try again! Gap 1: <em>different</em>, Gap 2: <em>footsteps</em>';
+    feedback.style.color = '#aa8a70';
+  }
+}
 
 // ====== КРАСИВАЯ ОТРИСОВКА ======
 function renderScene(id) {
