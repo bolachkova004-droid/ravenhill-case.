@@ -90,66 +90,44 @@ const scenes = {
           "<em>The house feels different tonight. I keep hearing soft footsteps in the East Wing...</em>"`,
  miniEnglish: `
   <div class="task-alert" style="background:rgba(201,164,109,0.15); border:2px solid #c9a46d; border-radius:12px; padding:16px; margin-bottom:20px;">
-    <strong>🎧 IMPORTANT:</strong> Сначала <em>послушай дневник полностью</em>, потом заполни пропуски!
+    <strong>🎧 TASK 1+2:</strong> Сначала слушай дневник → Gap-Fill → Questions!
   </div>
   
+  <!-- ЗАДАНИЕ 1: GAP-FILL -->
+  <div class="english-task" style="background:rgba(25,30,40,0.8); border:2px solid #c9a46d44; border-radius:16px; padding:24px; margin-bottom:20px;">
+    <h4 style="color:#c9a46d;">📝 Task 1: Listening Gap-Fill (4 blanks)</h4>
+    <!-- 4 gaps как выше... -->
+    
+    <button onclick="checkDiaryGapsOnly()" style="...">✅ Check Gaps</button>
+    <div id="gap-feedback"></div>
+  </div>
+  
+  <!-- ЗАДАНИЕ 2: QUESTIONS -->
   <div class="english-task" style="background:rgba(25,30,40,0.8); border:2px solid #c9a46d44; border-radius:16px; padding:24px;">
-    <h4 style="color:#c9a46d; margin:0 0 16px;">📝 Listening Gap-Fill (4 blanks)</h4>
-    
-    <p style="color:#d8d0c2; margin-bottom:20px;">
-      <strong>Listen to Elizabeth's diary → fill missing words:</strong>
-    </p>
+    <h4 style="color:#c9a46d;">❓ Task 2: Comprehension Questions</h4>
     
     <div style="margin-bottom:18px;">
-      <label style="display:block; color:#f5f1e8; margin-bottom:10px;">
-        1. The house feels <input type="text" id="gap1" maxlength="9" 
-        style="width:130px; border:2px solid #c9a46d; padding:8px 10px; background:#2a2f3a; 
-        color:#f5f1e8; font-size:1rem; border-radius:6px; text-align:center;"> tonight.
-      </label>
-    </div>
-    
-    <div style="margin-bottom:18px;">
-      <label style="display:block; color:#f5f1e8; margin-bottom:10px;">
-        2. I keep hearing soft <input type="text" id="gap2" maxlength="10" 
-        style="width:130px; border:2px solid #c9a46d; padding:8px 10px; background:#2a2f3a; 
-        color:#f5f1e8; font-size:1rem; border-radius:6px; text-align:center;"> in the East Wing.
-      </label>
-    </div>
-    
-    <div style="margin-bottom:18px;">
-      <label style="display:block; color:#f5f1e8; margin-bottom:10px;">
-        3. The <input type="text" id="gap3" maxlength="11" 
-        style="width:130px; border:2px solid #c9a46d; padding:8px 10px; background:#2a2f3a; 
-        color:#f5f1e8; font-size:1rem; border-radius:6px; text-align:center;"> is different tonight.
-      </label>
+      <strong style="color:#f5f1e8;">Q1. Where does Elizabeth hear footsteps?</strong><br>
+      <label><input type="radio" name="q1" value="a"> a) West Wing</label><br>
+      <label><input type="radio" name="q1" value="b"> b) <strong>East Wing</strong></label><br>
+      <label><input type="radio" name="q1" value="c"> c) Garden</label>
     </div>
     
     <div style="margin-bottom:24px;">
-      <label style="display:block; color:#f5f1e8; margin-bottom:10px;">
-        4. Someone is walking in the <input type="text" id="gap4" maxlength="8" 
-        style="width:130px; border:2px solid #c9a46d; padding:8px 10px; background:#2a2f3a; 
-        color:#f5f1e8; font-size:1rem; border-radius:6px; text-align:center;">.
-      </label>
+      <strong style="color:#f5f1e8;">Q2. How does the house feel tonight?</strong><br>
+      <label><input type="radio" name="q2" value="a"> a) <strong>different</strong></label><br>
+      <label><input type="radio" name="q2" value="b"> b) warm</label><br>
+      <label><input type="radio" name="q2" value="c"> c) empty</label>
     </div>
     
-    <button onclick="checkDiaryTask()" 
-      style="background:linear-gradient(145deg,#c9a46d,#d4b085); color:#1a1e29; border:none; 
-      padding:12px 28px; border-radius:8px; cursor:pointer; font-weight:700; font-size:1.05rem; 
-      box-shadow:0 6px 16px rgba(201,164,109,0.4); transition:all 0.3s ease;">
-      ✅ Check Answers (4/4)
-    </button>
-    
-    <div id="diary-feedback" style="margin-top:20px; padding:16px; border-radius:10px; font-weight:600; font-size:1.05rem;"></div>
+    <button onclick="checkDiaryQuestions()" style="...">✅ Check Questions</button>
+    <div id="q-feedback"></div>
   </div>
   
-  <hr style="border:1px solid #c9a46d33; margin:28px 0;">
-  
-  <strong style="color:#c9a46d;">Key Vocabulary:</strong><br>
-  • <em>handwriting</em> — почерк<br>
-  • <em>footsteps</em> — шаги<br>
-  • <em>different</em> — необычный<br>
-  • <em>atmosphere</em> — атмосфера
+  <hr style="...">
+  <strong>Vocabulary:</strong> handwriting, footsteps, different, atmosphere
 `,
+
 
   choices: {
     A: { label: "A. Carefully read the next page of the diary", next: "scene3A" },
