@@ -2,66 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Ravenhill Case · English Mystery Game</title>
+  <title>The Ravenhill Case</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- ⭐ МРАЧНЫЙ СТАРТОВЫЙ ЭКРАН ⭐ -->
+  <!-- Стартовый экран -->
   <div id="start-screen" class="start-screen">
-    <video 
-      class="start-video-bg" 
-      autoplay 
-      muted 
-      loop 
-      playsinline 
-      preload="auto"
-      poster="assets/ravenhill-intro-poster.jpg"  <!-- ← добавь обложку! -->
-    >
-      <source src="assets/ravenhill-intro.mp4" type="video/mp4" />
-      Your browser does not support video playback.
+    <video class="start-video-bg" autoplay muted loop playsinline>
+      <source src="assets/ravenhill-intro.mp4" type="video/mp4">
     </video>
-
     <div class="start-overlay"></div>
-
     <div class="start-inner">
       <h1 class="start-title">RAVENHILL</h1>
       <p class="start-subtitle">The Case</p>
-      <div class="start-glow-line"></div>
-      
-      <button 
-        id="start-game-btn" 
-        class="start-btn"
-        aria-label="Start the game - Enter the Ravenhill Estate"
-        data-testid="start-game-button"
-      >
-        ENTER THE ESTATE
-      </button>
-
+      <button id="start-game-btn" class="start-btn">ENTER THE ESTATE</button>
       <p class="start-hint">Episode I · The Summons</p>
     </div>
   </div>
 
-  <!-- 🎮 ОСНОВНОЙ КОНТЕНТ ИГРЫ -->
-  <div class="page game-content" style="display: none;">
+  <!-- Основной контент -->
+  <div class="page game-content" style="display:none;">
     <header class="header">
       <h1>The Ravenhill Case</h1>
-      <p class="subtitle">
-        Interactive mystery game for English learners (B1–B2)
-      </p>
-      
-      <video 
-        class="intro-video" 
-        autoplay 
-        muted 
-        loop 
-        playsinline 
-        loading="lazy"
-        poster="assets/hall-intro-poster.jpg"  <!-- ← тоже рекомендуется -->
-      >
-        <source src="assets/hall-intro.mp4" type="video/mp4" />
-        Video introduction not supported.
+      <p class="subtitle">Interactive mystery game for English learners (B1–B2)</p>
+      <video class="intro-video" autoplay muted loop playsinline>
+        <source src="assets/hall-intro.mp4" type="video/mp4">
       </video>
     </header>
 
@@ -85,45 +51,30 @@
         <button id="choiceC" class="choice-btn"></button>
       </section>
 
-      <button
-        id="backButton"
-        class="choice-btn back-btn"
-        style="display: none; margin-top: 12px;"
-        aria-label="Return to the main hall"
-      >
+      <button id="backButton" class="choice-btn back-btn" style="display:none;">
         ← Back to the hall
       </button>
 
       <section class="mini-english">
         <h3>Mini English / Мини-английский</h3>
-        <p class="mini-hint">
-          Read the scene, then check the vocabulary and questions below.
-        </p>
         <div id="mini-english-content"></div>
       </section>
 
       <section class="status">
-        <h3>Case Status / Статус дела</h3>
+        <h3>Case Status</h3>
         <p id="score-display">Score: 0 points</p>
-        <p id="ending-display"></p>
       </section>
     </main>
   </div>
 
-  <!-- ОВЕРЛЕЙ загрузки (если используешь) -->
-  <div id="scene-overlay" class="scene-overlay" hidden>
-    <span>The house is thinking...</span>
-  </div>
-
-  <!-- 🔊 ЗВУКИ -->
-  <audio id="sir-henry-voice"    preload="auto" src="assets/sir-henry-voice.mp3"></audio>
-  <audio id="clickSound"        preload="auto" src="assets/click1.wav"></audio>
-  <audio id="stepSound"         preload="auto" src="assets/footsteps.mp3"></audio>
-  <audio id="bgMusic"           preload="auto" loop src="assets/mystery-loop.mp3"></audio>
-  <audio id="radioSound"        preload="auto" src="assets/radio-message.wav"></audio>
-  <audio id="diary-voice"       preload="auto" src="assets/diary-voice.mp3"></audio>
+  <!-- Звуки -->
+  <audio id="clickSound" preload="auto" src="assets/click1.wav"></audio>
+  <audio id="stepSound" preload="auto" src="assets/footsteps.mp3"></audio>
+  <audio id="bgMusic" preload="auto" loop src="assets/mystery-loop.mp3"></audio>
+  <audio id="radioSound" preload="auto" src="assets/radio-message.wav"></audio>
+  <audio id="diary-voice" preload="auto" src="assets/diary-voice.mp3"></audio>
+  <audio id="sir-henry-voice" preload="auto" src="assets/sir-henry-voice.mp3"></audio>
 
   <script src="script.js"></script>
 </body>
 </html>
-
