@@ -73,39 +73,49 @@ const scenes = {
     }
   },
 
-    scene2A: {
-    chapter: "Episode I · The Summons",
-    title: "🖤 Elizabeth's Diary",
-    evidence: "Elizabeth's diary",
-    media: { 
-      type: "image", 
-      src: "diary-mystical.png",
-      alt: "Mystical diary with trembling hands"
-    },
-    sound: "diary-voice",
-    text: `You stay in the cold hall and open the diary. The first page is dated "<strong>October 12, 2004</strong>". 
-           The handwriting is quick and nervous, as if written in fear...`,
-    extra: `<em style="color: #c9a46d;">🎧 Нажми PLAY, чтобы услышать голос Элизабет читает сама...</em><br><br>
-            <strong>📜 Diary entry:</strong><br>
-            "<em>The house feels different tonight. I keep hearing soft footsteps in the East Wing...</em>"`,
-    miniEnglish: `
-  <strong>🎧 After listening, fill in the blanks:</strong><br>
-  The house feels ______ tonight. (different)<br>
-  I keep hearing soft ______ in the East Wing. (footsteps)<br><br>
-  
-  <strong>Vocabulary:</strong><br>
-  handwriting — почерк<br>
-  footsteps — шаги
-  
-  <button onclick="checkAnswers()">✅ Check</button>
-`,
-
-    choices: {
-      A: { label: "A. Carefully read the next page of the diary", next: "scene3A" },
-      B: { label: "B. Close the diary and immediately go to the East Wing", next: "scene2B" },
-      C: { label: "C. Take the diary with you and search for the old radio", next: "scene2C" }
-    }
+   scene2A: {
+  chapter: "Episode I · The Summons",
+  title: "🖤 Elizabeth's Diary",
+  evidence: "Elizabeth's diary",
+  media: { 
+    type: "image", 
+    src: "diary-mystical.png",
+    alt: "Mystical diary with trembling hands"
   },
+  sound: "diary-voice",
+  text: `You stay in the cold hall and open the diary. The first page is dated "<strong>October 12, 2004</strong>". 
+         The handwriting is quick and nervous, as if written in fear...`,
+  extra: `<em style="color: #c9a46d;">🎧 Нажми PLAY, чтобы услышать голос Элизабет читает сама...</em><br><br>
+          <strong>📜 Diary entry:</strong><br>
+          "<em>The house feels different tonight. I keep hearing soft footsteps in the East Wing...</em>"`,
+  miniEnglish: `
+    <div class="english-task">
+      <h4>🎧 Listening Task (после прослушки дневника)</h4>
+      
+      <p><strong>Fill in the blanks:</strong> (слушай внимательно!)</p>
+      
+      <label>1. The house feels <input type="text" id="gap1" maxlength="9" style="width:120px; border:1px solid #c9a46d; padding:4px; background:#1a1e29;"> tonight.</label><br><br>
+      
+      <label>2. I keep hearing soft <input type="text" id="gap2" maxlength="9" style="width:120px; border:1px solid #c9a46d; padding:4px; background:#1a1e29;"> in the East Wing.</label><br><br>
+      
+      <button onclick="checkDiaryTask()" style="background:#c9a46d; color:#1a1e29; border:none; padding:8px 16px; border-radius:6px; cursor:pointer; font-weight:600;">✅ Check Answers</button>
+      
+      <div id="diary-feedback" style="margin-top:12px; font-weight:500;"></div>
+    </div>
+    
+    <hr style="border:1px solid #c9a46d33; margin:20px 0;">
+    
+    <strong>Key Vocabulary:</strong><br>
+    • <em>handwriting</em> — почерк<br>
+    • <em>footsteps</em> — шаги<br>
+    • <em>different</em> — необычный, странный
+  `,
+  choices: {
+    A: { label: "A. Carefully read the next page of the diary", next: "scene3A" },
+    B: { label: "B. Close the diary and immediately go to the East Wing", next: "scene2B" },
+    C: { label: "C. Take the diary with you and search for the old radio", next: "scene2C" }
+  }
+},
 
 
   scene2B: {
