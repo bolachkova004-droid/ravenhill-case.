@@ -311,7 +311,6 @@ function renderInventory() {
     '<li>No evidence yet / Улик пока нет</li>';
   scoreDisplayEl.textContent = `Evidence: ${score}`;
 }
-// ⭐ ПРОВЕРКА ЗАДАНИЙ ДНЕВНИКА ⭐
 // Только gaps (как выше)
 function checkDiaryGapsOnly() { /* предыдущая логика */ }
 
@@ -333,6 +332,7 @@ function checkDiaryQuestions() {
     feedback.innerHTML = `${qCorrect}/2 correct. Listen again!`;
   }
 }
+
 
 
 
