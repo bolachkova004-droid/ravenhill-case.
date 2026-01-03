@@ -88,28 +88,52 @@ const scenes = {
   extra: `<em style="color: #c9a46d;">🎧 Нажми PLAY, чтобы услышать голос Элизабет читает сама...</em><br><br>
           <strong>📜 Diary entry:</strong><br>
           "<em>The house feels different tonight. I keep hearing soft footsteps in the East Wing...</em>"`,
-  miniEnglish: `
-    <div class="english-task">
-      <h4>🎧 Listening Task (после прослушки дневника)</h4>
-      
-      <p><strong>Fill in the blanks:</strong> (слушай внимательно!)</p>
-      
-      <label>1. The house feels <input type="text" id="gap1" maxlength="9" style="width:120px; border:1px solid #c9a46d; padding:4px; background:#1a1e29;"> tonight.</label><br><br>
-      
-      <label>2. I keep hearing soft <input type="text" id="gap2" maxlength="9" style="width:120px; border:1px solid #c9a46d; padding:4px; background:#1a1e29;"> in the East Wing.</label><br><br>
-      
-      <button onclick="checkDiaryTask()" style="background:#c9a46d; color:#1a1e29; border:none; padding:8px 16px; border-radius:6px; cursor:pointer; font-weight:600;">✅ Check Answers</button>
-      
-      <div id="diary-feedback" style="margin-top:12px; font-weight:500;"></div>
+ miniEnglish: `
+  <div class="task-alert" style="background:rgba(201,164,109,0.15); border:2px solid #c9a46d; border-radius:12px; padding:16px; margin-bottom:20px;">
+    <strong>🎧 IMPORTANT:</strong> Сначала <em>послушай дневник</em>, потом заполни пропуски!
+  </div>
+  
+  <div class="english-task" style="background:rgba(25,30,40,0.8); border:2px solid #c9a46d44; border-radius:16px; padding:24px;">
+    <h4 style="color:#c9a46d; margin:0 0 16px;">📝 Listening Gap-Fill</h4>
+    
+    <p style="color:#d8d0c2; margin-bottom:20px;">
+      <strong>Fill in the blanks:</strong> (слушай внимательно!)
+    </p>
+    
+    <div style="margin-bottom:20px;">
+      <label style="display:block; color:#f5f1e8; margin-bottom:12px;">
+        1. The house feels <input type="text" id="gap1" maxlength="9" 
+        style="width:140px; border:2px solid #c9a46d; padding:8px 12px; background:#2a2f3a; 
+        color:#f5f1e8; font-size:1rem; border-radius:6px; text-align:center;"> tonight.
+      </label>
     </div>
     
-    <hr style="border:1px solid #c9a46d33; margin:20px 0;">
+    <div style="margin-bottom:24px;">
+      <label style="display:block; color:#f5f1e8; margin-bottom:12px;">
+        2. I keep hearing soft <input type="gap2" maxlength="9" 
+        style="width:140px; border:2px solid #c9a46d; padding:8px 12px; background:#2a2f3a; 
+        color:#f5f1e8; font-size:1rem; border-radius:6px; text-align:center;"> in the East Wing.
+      </label>
+    </div>
     
-    <strong>Key Vocabulary:</strong><br>
-    • <em>handwriting</em> — почерк<br>
-    • <em>footsteps</em> — шаги<br>
-    • <em>different</em> — необычный, странный
-  `,
+    <button onclick="checkDiaryTask()" 
+      style="background:linear-gradient(145deg,#c9a46d,#d4b085); color:#1a1e29; border:none; 
+      padding:12px 24px; border-radius:8px; cursor:pointer; font-weight:700; font-size:1rem; 
+      box-shadow:0 4px 12px rgba(201,164,109,0.4); transition:transform 0.2s;">
+      ✅ Check My Answers
+    </button>
+    
+    <div id="diary-feedback" style="margin-top:20px; padding:12px; border-radius:8px; font-weight:600;"></div>
+  </div>
+  
+  <hr style="border:1px solid #c9a46d33; margin:24px 0;">
+  
+  <strong style="color:#c9a46d;">Key Vocabulary:</strong><br>
+  • <em>handwriting</em> — почерк<br>
+  • <em>footsteps</em> — шаги<br>
+  • <em>different</em> — необычный, странный
+`,
+
   choices: {
     A: { label: "A. Carefully read the next page of the diary", next: "scene3A" },
     B: { label: "B. Close the diary and immediately go to the East Wing", next: "scene2B" },
